@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Boutique - eCommerce</title>
+    {% include 'header-stylesheets' %}
+    {% include 'header-scripts' %}
+    {{ content_for_header }}
+</head>
+<body class="home">
+	{% include 'header' %}
+	
+	{{ content_for_layout }}
+	
+	{% include 'footer-index' %}
+
+	{% include 'bottom-scripts' %}
+</body>
+</html>
