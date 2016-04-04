@@ -1,106 +1,112 @@
-{% comment %}
+{% assign products_per_row = settings.collections_products_per_row %}
+{% assign rows = settings.collections_rows %}
+{% assign total_products = products_per_row | times: rows %}
 
-	For more information on collection tags:
-		- http://docs.shopify.com/themes/liquid-variables/collection
+{% paginate collection.products by total_products %}
 
-{% endcomment %}
-{% capture product_per_page %}{{ settings.collection_page_amount }}{% endcapture %}
-{% paginate collection.products by product_per_page %}
-
-<header class="page-header">
-	<div class="wrapper">
-		<div class="global-table">
-			<div class="global-row">
-				<div class="global-cell page-title">
-					<h2>{{ collection.title }}</h2>
-				</div>
-				<div class="global-cell page-breadcrumb">
-					{% include 'breadcrumb' %}
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
-{% if settings.sidebar_collection %}
-	{% assign collection_grid_class = 'three-quarters' %}
-	{% assign grid_item_width = 'large--one-third medium--one-half' %}
-{% else %}
-	{% assign collection_grid_class = 'one-whole' %}
-	{% assign grid_item_width = 'large--one-quarter medium--one-half' %}
-{% endif %}
-{% if settings.sidebar_collection_position == 'left' %}
-	{% assign sidebar_position_class = 'sidebar_left' %}
-{% else %}
-	{% assign sidebar_position_class = 'sidebar_right' %}
-{% endif %}
-<div class="margin-top product-collection collection">
-	<div class="wrapper">
-		<div class="grid">
-
-			<div class="grid-item large--{{ collection_grid_class }} {{ sidebar_position_class }}">
-
-				<header class="section-header global-table">
-					<div class="global-row">
-						{% if paginate.pages > 1 %}
-						<div class="top-pagination global-cell">
-							{% include 'pagination-custom' %}
-						</div>
-						{% endif %}
-						<div class="section-header--right global-cell">
-					
-							{% include 'collection-sorting' %}
-							{% include 'collection-views' %}
-						</div>
-					</div>
-				</header>
-
-				{% comment %}
-					Use class grid-uniform to have evenly sized columns clear
-					each other properly at each breakpoint.
-				{% endcomment %}
-				<div class="grid-uniform">
-
-					{% comment %}
-						Loop through our products in the current collection.
-						See the snippet 'product-grid-item' for the layout.
-					{% endcomment %}
-					
-					{% for product in collection.products %}
-
-						{% include 'product-grid-item' %}
-
-					{% else %}
-
-						<div class="grid-item">
-							<p>Sorry, there are no products matching your search.</p>
-						</div>
-
-					{% endfor %}
-
-				</div>
-
-				<header class="section-header global-table">
-					<div class="global-row">
-						{% if paginate.pages > 1 %}
-						<div class="top-pagination global-cell">
-							{% include 'pagination-custom' %}
-						</div>
-						{% endif %}
-						<div class="section-header--right global-cell">
-					
-							{% include 'collection-sorting' %}
-							{% include 'collection-views' %}
-						</div>
-					</div>
-				</header>
-
-			</div>
-			{% if settings.sidebar_collection %}
-			<div class="grid-item large--one-quarter sidebar {{ sidebar_position_class }}">
-				{% include 'collection-sidebar' %}
-			</div>
-			{% endif %}
-		</div>
-	</div>
+<div class="section-header section-header--breadcrumb">
+  {% include 'breadcrumb' %}
 </div>
+
+<header class="section-header section-header--large">
+  <h1 class="section-header__title{% if settings.collections_tags_enable or settings.collections_sort_enable %} section-header__title--left{% endif %}">{{ collection.title }}</h1>
+  {% if settings.collections_tags_enable or settings.collections_sort_enable %}
+  <div class="section-header__link--right">
+    {% if settings.collections_tags_enable %}
+      {% include 'collection-tags' %}
+    {% endif %}
+    {% if settings.collections_sort_enable %}
+      {% include 'collection-sorting' %}
+    {% endif %}
+  </div>
+  {% endif %}
+</header>
+
+{% if collection.description != blank %}
+  <div class="rte rte--header">
+    {{ collection.description }}
+  </div>
+  <hr class="hr--clear hr--small">
+{% endif %}
+
+{% case products_per_row %}
+  {% when '2' %}
+    {% assign grid_item_width = 'small--one-half medium--one-half large--one-half' %}
+  {% when '3' %}
+    {% assign grid_item_width = 'small--one-half medium--one-third large--one-third' %}
+  {% when '4' %}
+    {% assign grid_item_width = 'small--one-half medium--one-half large--one-quarter' %}
+  {% when '5' %}
+    {% assign grid_item_width = 'small--one-half medium--one-half large--one-fifth' %}
+{% endcase %}
+
+
+<ul class="product-list-grid desktop-columns-4 tablet-columns-3 mobile-columns-1 row flex-flow">
+  {% for product in collection.products %}
+    {% include 'product-grid-item' %}
+  {% else %}
+
+<div class="grid-uniform grid-link__container">
+    {% if shop.products_count == 0 %}
+      {% unless emptyState %}
+        {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
+        {% assign emptyState = true %}
+      {% endunless %}
+
+      <div class="grid__item">
+        <div class="helper-section">
+          <div class="helper-note">
+            <span class="helper-icon"></span>
+            <h3>{{ 'home_page.onboarding.modal_title' | t }}</h3>
+            <p>{{ 'home_page.onboarding.no_products_collection' | t }}</p>
+            <p><a class="admin-btn-primary" href="/admin/products/new">{{ 'home_page.onboarding.add_product' | t }}</a></p>
+          </div>
+
+          <div class="grid-uniform helper-content">
+            {% assign index = 1 %}
+            {% for i in (1..8) %}
+              {% case i %}
+                {% when 7 %}
+                  {% assign index = 1 %}
+                {% when 8 %}
+                  {% assign index = 2 %}
+              {% endcase %}
+              <div class="grid__item one-half large--one-quarter">
+                <a href="/admin/products" class="grid-link">
+                  <span class="grid-link__image grid-link__image--product">
+                    <span class="grid-link__image-centered">
+                      {% capture imageUrl %}//cdn.shopify.com/s/images/themes/product-{{ index }}.png{% endcapture %}
+                      {{ imageUrl | img_tag }}
+                    </span>
+                  </span>
+                  <p class="grid-link__title">{{ 'home_page.onboarding.product_title' | t }}</p>
+                  <p class="grid-link__meta">
+                    <strong>$19.99</strong>
+                  </p>
+                </a>
+              </div>
+              {% assign index = index | plus: 1 %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="grid__item">
+        <p><em>{{ 'collections.general.no_matches' | t }}</em></p>
+      </div>
+    {% endif %}
+
+</div>
+  {% endfor %}
+
+</ul>
+
+{% if paginate.pages > 1 %}
+  <hr class="hr--clear">
+
+  <div class="text-center">
+    {% include 'pagination-custom' %}
+  </div>
+{% endif %}
+
 {% endpaginate %}

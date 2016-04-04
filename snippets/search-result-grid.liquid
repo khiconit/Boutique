@@ -10,12 +10,19 @@
 
 {% endcomment %}
 
-<div class="grid-item large--one-third medium-down--one-half search-result">
+{% comment %}
+  Set the default grid_item_width if no variable is set
+{% endcomment %}
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium--one-half' %}
+{% endunless %}
+
+<div class="grid__item search-result {{ grid_item_width }} text-center">
 
   {% if item.featured_image %}
 
-    <a href="{{ item.url }}" title="{{ item.title | escape }}">
-      {{ item.featured_image.src | product_img_url: 'medium' | img_tag: item.featured_image.alt }}
+    <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+      {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
     </a>
 
   {% endif %}
@@ -28,7 +35,7 @@
           {{ item.price | money }}
         </span>
         <small>
-          Compare at:
+          {{ 'products.product.compare_at' | t }}
           {{ item.compare_at_price_max | money }}
         </small>
       {% else %}
