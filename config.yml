@@ -1,5 +1,0 @@
-development:
-  access_token: "469533e32d47a4fd3a8b0eb294061075"
-  store: "demo2-boutique.myshopify.com"
-  bucket_size: 40
-  refill_rate: 2
