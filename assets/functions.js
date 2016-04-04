@@ -305,7 +305,6 @@
 
     /* ---------------------------------------------
      Init popup
-     --------------------------------------------- */
     function init_popup(){
         if($(window).width() + boutique_get_scrollbar_width() >= 768){
             if($('body').hasClass('home')){
@@ -320,6 +319,7 @@
         }
     }
 
+     --------------------------------------------- */
     function kt_parallax(){
       //parallax
        var window_size =0;

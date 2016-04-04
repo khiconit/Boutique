@@ -18,47 +18,33 @@
   {% assign sold_out = false %}
 {% endif %}
 
-
-
-<li class="product-item {{grid_item_width}} col-xs-12 col-sm-4 col-md-3">
-  <div class="product-inner">
-    <div class="product-thumb has-back-image">
-      <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}"></a>
-      {% if settings.use_second_img %}
-        {% if product.images.size > 1 %}
-      		<a class="back-image" href="#">{{product.images[1].src |img_url: 'grande'| img_tag: product.title }}</a>
-        {% endif %}
+<div class="grid__item {{grid_item_width}}{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
+  <a href="{{ product.url | within: collection }}" class="grid-link text-center">
+    <span class="grid-link__image grid-link__image--product">
+      {% if on_sale and settings.collections_show_sale_circle %}
+        <span class="badge badge--sale">
+          <span class="badge__text{% if sale_text.size > 7 %} badge__text--small{% endif %}">{{ 'products.product.sale' | t }}</span>
+        </span>
       {% endif %}
-      <div class="gorup-button">
-        
-        {% include 'wishlist-product' %}
-        <a class="compare" data-pid="{{product.handle}}">
-          <i class="fa fa-exchange"></i>
-        </a>
-        <a class="quick-view"><i class="fa fa-search"></i></a>
-      </div>
-    </div>
-    <div class="product-info">
-      <h3 class="product-name"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
-      <span class="price">
-        {% if on_sale %}
-        <ins>{{product.price | money }}</ins>
-        <del>{{product.compare_at_price | money }}</del>
-        {% else %}
-        <ins>{{product.price | money }}</ins>
-        {% endif %}
+      {% if sold_out and settings.collections_show_sold_out_circle %}
+        <span class="badge badge--sold-out">
+          <span class="badge__text{% if sold_out_text.size > 9 %} badge__text--small{% endif %}">{{ 'products.product.sold_out' | t }}</span>
+        </span>
+      {% endif %}
+      <span class="grid-link__image-centered">
+        <img src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}">
       </span>
-      {% if sold_out == false %}
-        {% if product.variants.size > 1 %}
-      		<a class="button" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
-        {% else %}
-      		{% if product.variants.first.available %}
-        		<a class="button add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
-      		{% endif %}
-        {% endif %}
-      {% else %}
-		<a class="button" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
+    </span>
+    <p class="grid-link__title">{{ product.title }}</p>
+    {% comment %}
+      <p class="grid-link__title grid-link__vendor">{{ product.vendor }}</p>
+    {% endcomment %}
+    <p class="grid-link__meta">
+      {% capture price %}{{ product.price | money }}{% endcapture %}
+      {% if on_sale %}
+      <s class="grid-link__sale_price">{{ product.compare_at_price | money }}</s>
       {% endif %}
-    </div>
-  </div>
-</li>
+      {% if product.price_varies %}{{ 'products.general.from_html' | t: price: price }}{% else %}{{ price }}{% endif %}
+    </p>
+  </a>
+</div>

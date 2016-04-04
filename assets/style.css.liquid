@@ -2767,9 +2767,6 @@ DS
     right: 10px;
 }
 .product-item .wishlist,
-.product-item .added-wishlist,
-.product-item .view-added-wishlist,
-.product-item .wishlist-login,
 .product-item .compare,
 .product-item .quick-view{
     position: relative;
@@ -2790,16 +2787,7 @@ DS
     filter: alpha(opacity=0);
     color: #222;
 }
-
-.product-item .added-wishlist,
-.product-item .view-added-wishlist{
-    color: #fff;
-    background-color: #c99947;
-}
 .product-item:hover .wishlist,
-.product-item:hover .added-wishlist,
-.product-item:hover .view-added-wishlist,
-.product-item:hover .wishlist-login,
 .product-item:hover .compare,
 .product-item:hover .quick-view{
     opacity: 1;
@@ -2808,13 +2796,6 @@ DS
     transform: scale(1);
 }
 
-.product-item .added-wishlist:hover ,
-.product-item .view-added-wishlist:hover{
-  color: #c99947;
-  background-color: #fff;
-}
-
-.product-item .wishlist-login:hover,
 .product-item .wishlist:hover,
 .product-item .compare:hover,
 .product-item .quick-view:hover{
@@ -8428,7 +8409,7 @@ BLOG PAGE
 
 /* BANNER PAGE */
 .page-banner{
-    background-image: url("43.jpg");
+  background-image: url({{ '43.jpg' | asset_url }});
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -8452,7 +8433,7 @@ BLOG PAGE
 }
 
 .contact-banner{
-    background-image: url("45.jpg");
+    background-image: url({{ '45.jpg' | asset_url }});
 }
 .contact-banner .banner-content .title{
     letter-spacing: 10px

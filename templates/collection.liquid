@@ -40,13 +40,14 @@
     {% assign grid_item_width = 'small--one-half medium--one-half large--one-fifth' %}
 {% endcase %}
 
+<div class="grid-uniform grid-link__container">
 
-<ul class="product-list-grid desktop-columns-4 tablet-columns-3 mobile-columns-1 row flex-flow">
   {% for product in collection.products %}
+
     {% include 'product-grid-item' %}
+
   {% else %}
 
-<div class="grid-uniform grid-link__container">
     {% if shop.products_count == 0 %}
       {% unless emptyState %}
         {{ 'theme-onboarding.css' | global_asset_url | stylesheet_tag }}
@@ -96,10 +97,9 @@
       </div>
     {% endif %}
 
-</div>
   {% endfor %}
 
-</ul>
+</div>
 
 {% if paginate.pages > 1 %}
   <hr class="hr--clear">

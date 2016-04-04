@@ -1,65 +1,80 @@
-    <div class="page-banner contact-banner">
-    	<div class="banner-content">
-    		<span class="subtitle">We’re here to make you feel happy!</span>
-            <h2 class="title">LET’S TALK!</h2>
-    	</div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
+<div class="page-banner contact-banner">
+  <div class="banner-content">
+    <span class="subtitle">{{ settings.banner_contact_title }}</span>
+    <h2 class="title">{{ settings.banner_contact_desc }}</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="kt-contact-form margin-top-60">
+        <div id="message-box-conact"></div>
+        <h3 class="title">{{settings.contact_title}}</h3>
+        {% form 'contact' %}
 
-                <div class="kt-contact-form margin-top-60">
-                    <div id="message-box-conact"></div>
-                    <h3 class="title">REACH US FOR ANY QUESTIONS YOU MIGHT HAVE</h3>
-                    <p>
-                        <input id="name" type="text" placeholder="Your name">
-                    </p>
-                    <p>
-                        <input id="email" type="text" placeholder="Your Email">
-                    </p>
-                    <p>
-                        <textarea id="content" placeholder="Your message!"></textarea>
-                    </p>
-                    <button id='btn-send-contact' class="button">SEND MESSAGE</button>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="margin-top-60">
-                    <img src="images/b/46.jpg" alt="">
-                    <h6 class="margin-top-20">GIVE US A CALL</h6>
-                    <p class="roboto">Want to speak with a sales representative? Drop us a line and we’d be happy to answer any questions!</p>
-                    <p style="font-size: 18px; color: #222; font-weight: bold;"><i class="fa fa-phone"></i> (+800) 6868 2268</p>
-                </div>
-            </div>
+        {% if form.posted_successfully? %}
+        <p class="note form-success">
+          {{ 'contact.form.post_success' | t }}
+        </p>
+        {% endif %}
+
+        {{ form.errors | default_errors }}
+        <p>
+          {% assign name_attr = 'contact.form.your_name' | t | handle %}
+          <input type="text" id="name" placeholder="{{ 'contact.form.your_name' | t }}" name="contact[{{ name_attr }}]"  value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+        </p>
+        <p>
+          {% assign name_attr = 'contact.form.your_email' | t | handle %}
+          <input type="text" id="name" placeholder="{{ 'contact.form.your_email' | t }}" name="contact[{{ name_attr }}]"  value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+        </p>
+        <p>
+          {% assign name_attr = 'contact.form.your_message' | t | handle %}
+          <textarea id="content" placeholder="{{ 'contact.form.your_message' | t }}" name="contact[body]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        </p>
+        <button id='btn-send-contact' class="button" type="submit" value="{{ 'contact.form.send' | t }}">{{ 'contact.form.send' | t }}</button>
+        {% endform %}
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="margin-top-60">
+        {% if settings.use_contact_map %}
+        	{{ settings.map_iframe }}
+        {% endif %}
+        <h6 class="margin-top-20">{{settings.title_call}}</h6>
+        <p class="roboto">{{ settings.call_desc }}</p>
+        <p style="font-size: 18px; color: #222; font-weight: bold;"><i class="fa fa-phone"></i>{{ settings.phone_contact }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="margin-top-60 margin-bottom-30">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="element-icon style2">
+          <div class="icon"><i class="flaticon flaticon-origami28"></i></div>
+          <div class="content">
+            <h4 class="title">FREE SHIPPING WORLD WIDE</h4>
+          </div>
         </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="element-icon style2">
+          <div class="icon"><i class="flaticon flaticon-curvearrows9"></i></div>
+          <div class="content">
+            <h4 class="title">MONEY BACK GUARANTEE</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="element-icon style2">
+          <div class="icon"><i class="flaticon flaticon-headphones54"></i></div>
+          <div class="content">
+            <h4 class="title">ONLINE SUPPORT 24/7</h4>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="margin-top-60 margin-bottom-30">
-       <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <div class="element-icon style2">
-                        <div class="icon"><i class="flaticon flaticon-origami28"></i></div>
-                        <div class="content">
-                            <h4 class="title">FREE SHIPPING WORLD WIDE</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="element-icon style2">
-                        <div class="icon"><i class="flaticon flaticon-curvearrows9"></i></div>
-                        <div class="content">
-                            <h4 class="title">MONEY BACK GUARANTEE</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <div class="element-icon style2">
-                        <div class="icon"><i class="flaticon flaticon-headphones54"></i></div>
-                        <div class="content">
-                            <h4 class="title">ONLINE SUPPORT 24/7</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-       </div>
-    </div>
+  </div>
+</div>
