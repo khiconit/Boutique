@@ -2,6 +2,10 @@
 ## Eclipse
 #################
 
+config.yml
+theme.exe
+
+
 *.pydevproject
 .project
 .metadata
@@ -214,6 +218,3 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-
-config.yml
-theme.exe
