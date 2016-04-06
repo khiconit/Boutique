@@ -1,8 +1,94 @@
-{% comment %}
-
-  This is your /cart template.
-
-{% endcomment %}
+<div class="main-container no-sidebar">
+        <div class="container">
+            <div class="main-content">
+              {% if cart.item_count > 0 %}
+                  <div class="page-title">
+                      <h3>{{ 'cart.general.title' | t }}</h3>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-12 col-md-8">
+                      <form action="/cart" method="post" novalidate class="table-responsive cart">
+                          <table class="shop_table cart">
+                              <thead>
+                                  <tr>
+                                      <th colspan="2" class="product-name">{{ 'cart.label.product' | t }}</th>
+                                      <th class="product-price">{{ 'cart.label.price' | t }}</th>
+                                      <th class="product-quantity">{{ 'cart.label.quantity' | t }}</th>
+                                      <th class="product-subtotal">{{ 'cart.label.total' | t }}</th>
+                                      <th class="product-remove">&nbsp;</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              {% for item in cart.items %}
+                                  <tr>
+                                      <td class="product-thumbnail" data-label="{{ 'customer.order.product' | t }}">
+                                      <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
+                                      </td>
+                                      <td class="product-name"><a href="{{ item.url }}">{{ item.product.title }}</a></td>
+                                      <td data-label="{{ 'cart.label.price' | t }}">{{ item.price | money }}</td>
+                                      <td data-label="{{ 'cart.label.quantity' | t }}"><input class="qty" type="text" value="{{ item.quantity }}" min="0" name="updates[]"></td>
+                                      <td class="product-remove"><a href=""/cart/change?line={{ forloop.index }}&amp;quantity=0""><i class="fa fa-close"></i></a></td>
+                                  </tr>
+                                  {% endfor %}
+                              </tbody>
+                          </table>
+                      </form>
+                      </div>
+                      <div class="col-sm-12 col-md-4">
+                          <div class="box-cart-total">
+                              <h2 class="title">{{ 'cart.general.boxtotal' | t }}</h2>
+                              <table>
+                                  <tr class="order-total">
+                                      <td>{{ 'cart.general.total' | t }}</td>
+                                      <td><span class="price">{{ cart.total_price | money }}</span></td>
+                                  </tr>
+                              </table>
+                              <!-- <input type="submit" class="button" name="update" value="{{ 'cart.general.update' | t }}"> -->
+                              <button class="button medium">{{ 'cart.general.update' | t }}</button>
+                              <!-- <input type="submit" name="checkout" class="button" value=" {{ 'cart.general.proceed_to_checkout' | t}}"> -->
+                              <button class="button btn-primary medium checkout-button"> {{ 'cart.general.proceed_to_checkout' | t}}</button>
+                          </div>
+                      </div>
+                  </div>
+                  {% else %}
+              {% else %}
+                  <h2>{{ 'cart.general.title' | t }}</h2>
+                  <p>{{ 'cart.general.empty' | t }}</p>
+                  <a href="/" class="button">{{ 'cart.general.continue_shopping' | t }}</a>
+              {% endif %}
+            </div>
+        </div>
+        <div class="margin-top-60">
+           <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="element-icon style2">
+                            <div class="icon"><i class="flaticon flaticon-origami28"></i></div>
+                            <div class="content">
+                                <h4 class="title">FREE SHIPPING WORLD WIDE</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="element-icon style2">
+                            <div class="icon"><i class="flaticon flaticon-curvearrows9"></i></div>
+                            <div class="content">
+                                <h4 class="title">MONEY BACK GUARANTEE</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="element-icon style2">
+                            <div class="icon"><i class="flaticon flaticon-headphones54"></i></div>
+                            <div class="content">
+                                <h4 class="title">ONLINE SUPPORT 24/7</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
 {% if cart.item_count > 0 %}
 
   <form action="/cart" method="post" novalidate class="cart">
@@ -79,12 +165,6 @@
                   <p>{{ item.vendor }}</p>
                 {% endcomment %}
 
-                {% comment %}
-                  Optional, loop through custom product line items if available
-
-                  For more info on line item properties, visit:
-                    - http://docs.shopify.com/support/your-store/products/how-do-I-collect-additional-information-on-the-product-page-Like-for-a-monogram-engraving-or-customization
-                {% endcomment %}
                 {% assign propertySize = item.properties | size %}
                 {% if propertySize > 0 %}
                   {% for p in item.properties %}

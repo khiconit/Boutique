@@ -20,13 +20,13 @@
 
 
 
-<li class="product-item {{grid_item_width}} col-xs-12 col-sm-4 col-md-3">
+<li class="product-item {{grid_item_width}}">
   <div class="product-inner">
     <div class="product-thumb has-back-image">
       <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}"></a>
       {% if settings.use_second_img %}
         {% if product.images.size > 1 %}
-      		<a class="back-image" href="#">{{product.images[1].src |img_url: 'grande'| img_tag: product.title }}</a>
+      		<a class="back-image" href="{{ product.url | within: collection }}">{{product.images[1].src |img_url: 'grande'| img_tag: product.title }}</a>
         {% endif %}
       {% endif %}
       <div class="gorup-button">

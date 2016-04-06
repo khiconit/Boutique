@@ -8,7 +8,7 @@
     {% include 'header-scripts' %}
     {{ content_for_header }}
 </head>
-<body class="home">
+<body class="home {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" id="{{ page_title | handle }}">
   {% include 'header' %}
   
   {{ content_for_layout }}

@@ -4,11 +4,15 @@
       <div class="col-md-7 col-lg-7 col-sm-12">
         <div class="product-detail-image">
           <div class="thumbnails" id="ProductThumbs">
-            {% for image in product.images limit: 3 %}
-              <a data-url="{{ image.src | img_url: '1024x1024' }}" data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
-                <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
-              </a>
-            {% endfor %}
+            {% if product.images.size > 1 %}
+            {% assign check = 1 %}
+              {% for image in product.images limit : 3 %}
+                <a data-url="{{ image.src | img_url: '1024x1024' }}" data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail{% if check == 1 %} active{% endif %}">
+                  <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
+                </a>
+            	{% assign check = check | plus : 1 %}
+              {% endfor %}
+            {% endif %}
           </div>
           <div class="main-image-wapper" id="ProductPhoto">
             {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
@@ -25,19 +29,10 @@
       </div>
       <div class="col-md-5 col-lg-5 col-sm-12">
         <div class="product-details-right">
-          <div class="breadcrumbs">
-            <a href="#">Home</a>
-            <a href="#">Sneaker</a>
-            <span>Readwing Shoes 875 MOC</span>
-          </div>
-          <h3 class="product-name">Readwing Shoes 875 MOC</h3>
+          {% include 'breadcrumb-product' %}
+          <h3 class="product-name">{{ product.title | upcase }}</h3>
           <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <span class="count-review">( 2 <span>Reviews</span> )</span>
+            <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
           </div>
           <span class="price">
             {% if on_sale %}
@@ -49,18 +44,42 @@
           </span>
 
           <div class="short-descript">
-            {{ product.description }}
+            {{ product.description | truncatewords: 200 }}
           </div>  
-          <form class="cart" enctype="multipart/form-data" method="post">
+          <form class="cart"  action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
             <div class="quantity">
-              <span>Quantity</span>
-              <input type="text" size="4" class="input-text qty text" title="Qty" value="+1" name="quantity">
+              <span>{{ 'products.product.quantity' | t }}</span>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" class="input-text qty text quantity-selector">
             </div>
-            <a class="wishlist button" href="#"><i class="fa fa-heart-o"></i></a>
-            <a class="button button-add-cart" data-quantity="1" href="#">Add to cart</a>
+            {% include 'wishlist-product' %}
+            <a id="AddToCart" class="button button-add-cart" data-quantity="1">{{ 'products.product.add_to_cart' | t }}</a>
           </form>  
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="container">                        
+    <div class="tab-details-product padding-40-60">
+        <ul class="box-tabs nav-tab">
+            <li class="active"><a data-toggle="tab" href="#tab-1">DESCRIPTION</a></li>
+            <li><a data-toggle="tab" href="#tab-2">ADDITIONAL INFORMATION</a></li>
+        </ul>
+        <div class="tab-container">
+            <div id="tab-1" class="tab-panel active">
+              
+            </div>
+            <div id="tab-2" class="tab-panel">
+              
+            </div>     
+        </div>  
+    </div>
+  <div class="upsell-products">{% include 'upsell-products' %}</div> 
+</div> <!--END CONTAINER-->  
+<div class="box-list-reviews">
+  <div class="container">  
+    <div class="row">
+      <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
     </div>
   </div>
 </div>
