@@ -22,11 +22,19 @@
                               {% for item in cart.items %}
                                   <tr>
                                       <td class="product-thumbnail" data-label="{{ 'customer.order.product' | t }}">
+<<<<<<< HEAD
                                       <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
+=======
+                                        <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
+>>>>>>> origin/master
                                       </td>
                                       <td class="product-name"><a href="{{ item.url }}">{{ item.product.title }}</a></td>
                                       <td data-label="{{ 'cart.label.price' | t }}">{{ item.price | money }}</td>
                                       <td data-label="{{ 'cart.label.quantity' | t }}"><input class="qty" type="text" value="{{ item.quantity }}" min="0" name="updates[]"></td>
+<<<<<<< HEAD
+=======
+                                      <td data-label="{{ 'cart.label.total' | t }}">{{ item.price | money }}</td>
+>>>>>>> origin/master
                                       <td class="product-remove"><a href=""/cart/change?line={{ forloop.index }}&amp;quantity=0""><i class="fa fa-close"></i></a></td>
                                   </tr>
                                   {% endfor %}
@@ -56,6 +64,7 @@
                   <p>{{ 'cart.general.empty' | t }}</p>
                   <a href="/" class="button">{{ 'cart.general.continue_shopping' | t }}</a>
               {% endif %}
+<<<<<<< HEAD
             </div>
         </div>
         <div class="margin-top-60">
@@ -125,9 +134,11 @@
             </div>
             <div class="grid__item one-third medium-down--one-third text-right">
               <span class="h4">{{ 'cart.label.total' | t }}</span>
+=======
+>>>>>>> origin/master
             </div>
-          </div>
         </div>
+<<<<<<< HEAD
       </div>
     </div>
 
@@ -275,18 +286,36 @@
           {% if additional_checkout_buttons %}
             <div class="cart__additional_checkout">{{ content_for_additional_checkout_buttons }}</div>
           {% endif %}
+=======
+        <div class="margin-top-60">
+           <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="element-icon style2">
+                            <div class="icon"><i class="flaticon flaticon-origami28"></i></div>
+                            <div class="content">
+                                <h4 class="title">FREE SHIPPING WORLD WIDE</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="element-icon style2">
+                            <div class="icon"><i class="flaticon flaticon-curvearrows9"></i></div>
+                            <div class="content">
+                                <h4 class="title">MONEY BACK GUARANTEE</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="element-icon style2">
+                            <div class="icon"><i class="flaticon flaticon-headphones54"></i></div>
+                            <div class="content">
+                                <h4 class="title">ONLINE SUPPORT 24/7</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+>>>>>>> origin/master
         </div>
-      </div>
-
     </div>
-
-  </form>
-
-{% else %}
-  {% comment %}
-    The cart is empty
-  {% endcomment %}
-  <h2>{{ 'cart.general.title' | t }}</h2>
-  <p>{{ 'cart.general.empty' | t }}</p>
-  <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
-{% endif %}
