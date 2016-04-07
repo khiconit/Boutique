@@ -1,3 +1,7 @@
+{% unless data_responsive %}
+  {% assign data_responsive = '{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}' %}
+{% endunless %}
+
 {% for product in collections.all.products %}
   {% if product.compare_at_price > product.price %}
   	{% assign show = true %}
@@ -6,7 +10,7 @@
 
 {% if show == true %}
 <div class="section-title text-center"><h3>{{ 'products.general.upsell_products_title' | t }}</h3> </div>
-<ul class="owl-carousel" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}' data-autoplay="true" data-loop="false" data-items="4" data-dots="false" data-nav="false" data-margin="30">
+<ul class="owl-carousel" data-responsive='{{data_responsive}}' data-autoplay="true" data-loop="true" data-items="4" data-dots="false" data-nav="false" data-margin="30">
   {% assign limit = 0 %}
   {% for product in collections.all.products %}
     {% if product.compare_at_price > product.price %}

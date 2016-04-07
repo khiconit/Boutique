@@ -116,7 +116,6 @@ h1,h2,h3,h4,h5,h6{
     line-height: 1.3em;
     margin-top: 0;
     color: #222;
-    font-family: 'Montserrat', sans-serif;
 }
 h1{
     font-size: 36px;
@@ -156,15 +155,11 @@ ul, ol{
 ul ul, ol ol, ul ol, ol ul{
     padding-left: 30px
 }
-input[type="checkbox"], input[type="radio"]{
-        margin: 4px 0 0;
-}
 input[type="text"], input[type="email"], textarea, input[type="password"],input[type="tel"]{
     border: 1px solid #e8e8e8;
     padding: 6px 15px;
     color: #747474;
     max-width: 100%;
-    margin: 0 0 22px;
 }
 input[type="text"]:focus, input[type="email"]:focus, textarea:focus, input[type="password"]:focus{
     outline: none;
@@ -203,8 +198,6 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus, input[type=
   background-color: #111111;
   font-size: 12px;
   border: none;
-  border-radius: 0;
- font-family: 'Montserrat', sans-serif;
 }
 .button:hover, input[type="submit"]:hover{
     background-color: #c99947;
@@ -253,7 +246,6 @@ input[type=text],
 input[type=email],
 input[type=password]{
     border: 1px solid #e5e5e5;
-    border-radius: 0 !important;
 }
 .PlayfairDisplay{
     font-family: 'PlayfairDisplay';
@@ -3789,47 +3781,9 @@ DS
 .shop-top .show-grid-list a.active{
     color: #c99947;
 }
-/* Page account Login and Register */
-.login-register.main-container{
-   padding: 50px 0;
-}
-.login-register.main-container .main-content{
-    margin: 0;
-    padding-bottom: 0;
-}
-.login-register.main-container .main-content .page-title{
-    text-transform: uppercase;
-    margin-bottom: 55px;
-    margin-top: -5px;
-}
-.login-register.main-container .main-content .page-title h3{
-    font-weight: 500;
-}
-.login-register.main-container .main-content .page-main-content .form-heading{
-    font-size: 16px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-}
-.login-register.main-container .main-content .page-main-content .label_login_register{
-    display: block;
-    width: 100%;
-    font-weight: normal;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-}
-.login-register.main-container .main-content .page-main-content .text-recover{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-}
-#rememberme{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-    margin-top: 10px;
-    margin-right: 5px;
-}
+
+
+
 /*-------------------------
   WIDGET
 --------------------------*/
@@ -3863,6 +3817,7 @@ DS
 .widget_product_categories li a,
 .widget_layered_nav li a{
     color: #555;
+    text-transform: capitalize;
 }
 .widget_product_categories .count,
 .widget_layered_nav .count{
@@ -3900,6 +3855,7 @@ DS
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px;
+    text-transform: capitalize;
 }
 .tagcloud a:hover{
     color: #fff;
@@ -6829,17 +6785,27 @@ FOOTER
 .product-details-right.style2{
     padding: 0;
 }
-.select-color,
-.select-size{
+.selector-wrapper{
     margin-bottom: 25px;
     display: inline-block;
-    width:100%;
+    margin-right: 15px;
 
 }
-.select-color label,
-.select-size label{
+.product-single__quantity{
+  float:left;
+  margin-right: 15px;
+}
+.product-details-right.style2 .cart-form a{
+  margin-top:30px !important;
+  float:left;
+}
+.product-details-right.style2 .cart-form a#AddToCart{
+  margin-top:22px !important;
+}
+.selector-wrapper label,
+.product-single__quantity label{
     margin-bottom: 10px;
-    color: #000;
+    text-transform: uppercase;
 }
 .select-color a{
     display: inline-block;
@@ -6938,7 +6904,7 @@ FOOTER
     display: table-cell;
     width: 100%;
 }
-.product-details-right.style2 .wishlist.button,
+.product-details-right.style2 .wishlist-login,
 .product-details-right.style2 .compare.button{
     background-color: transparent;
     border: 1px solid #eaeaea;
@@ -9328,6 +9294,21 @@ table{
     margin: 0 auto;
     margin-top: 10px;
 }
+
+/* ----------
+FIX
+---------- */
+.product-single__quantity{
+  display:inline-block;
+}
+#Quantity{
+  border:none;
+  font-size:18px;
+  min-width: 175px;
+  color: #747474;
+}
+
+
 /* ----------
 RESPONSIVE
 ---------- */

@@ -1,11 +1,322 @@
-  <div class="section-header section-header--breadcrumb">
-    {% include 'breadcrumb' %}
+<div class="container">
+  <div class="shop-banner">
+        <img src="images/slides/slider-cat2.jpg" alt="">
+    </div>
+  <div class="breadcrumbs style2">
+      {% include "breadcrumb" %}
   </div>
-<<<<<<< HEAD
-=======
-{% comment %}adfjldksjfalkdsfldsajfhdklj {% endcomment %}
->>>>>>> origin/master
-  <div class="product-single container">
+  <div class="row left-slidebar">
+    <div class="main-content col-sm-9">
+      
+      {% if product.available %}
+      {% assign sold_out = false %}
+      {% assign sold_out_text = 'products.product.in_stock' | t %}
+      {% endif %}
+
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="product-detail-image style2">
+                  <div class="main-image-wapper">
+                    {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+                    <img class="main-image" src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"{% if settings.product_image_zoom_type == 'zoom-in' %} data-zoom="{{ featured_image | img_url: '1024x1024' }}"{% endif %} data-image-id="{{ featured_image.id }}">
+                  </div>
+                  <div class="thumbnails owl-carousel nav-center-center nav-style3" data-responsive='{"0":{"items":3},"481":{"items":4},"600":{"items":3},"1000":{"items":4}}' data-autoplay="true" data-loop="true" data-items="4" data-dots="false" data-nav="true" data-margin="20">
+                  {% if product.images.size > 1 %}
+                  {% assign check = 1 %}
+                    {% for image in product.images %}
+                      <a data-url="{{ image.src | img_url: '1024x1024' }}" data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail{% if check == 1 %} active{% endif %}">
+                        <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
+                      </a>
+                      {% assign check = check | plus : 1 %}
+                    {% endfor %}
+                  {% endif %}
+                  </div>
+                {% if settings.product_image_zoom_type == 'lightbox' %}
+                <ul class="gallery" class="hidden">
+                  {% for image in product.images %}
+                  <li data-image-id="{{ image.id }}" class="gallery__item" data-mfp-src="{{ image | img_url: '1024x1024' }}"></li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </div>
+          </div>
+          <div class="col-sm-7">
+              <div class="product-details-right style2">
+                  <h3 class="product-name">{{ product.title }}</h3>
+                  <div class="rating">
+                    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                  </div>
+                  <span class="price">
+                    {% if on_sale %}
+                    <ins id="ProductPrice">{{product.price | money }}</ins>
+                    <del id="ComparePrice">{{product.compare_at_price | money }}</del>
+                    {% else %}
+                    <ins id="ProductPrice">{{product.price | money }}</ins>
+                    {% endif %}
+                  </span>
+                {% comment %}
+                  <div class="meta">
+                      <span>Only 15 left  3</span>
+                      <span>Availalbe: <span class="text-primary">{{sold_out_text}}</span></span>
+                  </div>
+                {% endcomment %}
+                  <div class="short-descript">
+                    {{ product.description | truncatewords: 200 }}
+                  </div>
+                
+                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+                    <select name="id" id="productSelect" class="product-single__variants">
+                      {% for variant in product.variants %}
+                      {% if variant.available %}
+
+                      <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+                      {% else %}
+                      <option disabled="disabled">
+                        {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                      </option>
+                      {% endif %}
+                      {% endfor %}
+                    </select>
+                    <div class="cart-form">
+                      <div class="product-single__quantity{% unless settings.product_quantity_enable %} is-hidden{% endunless %}">
+                        <label class="quantity" for="Quantity">{{ 'products.product.quantity' | t }}</label>
+                          <a class="down" >-</a>
+                          <input type="text" id="Quantity" size="4" class="input-text qty text quantity-selector" title="Qty" value="03" min="1" max="100" name="quantity">
+                          <a class="up" >+</a>
+                      </div>
+                      
+                      <script type="text/javascript"> 
+                        $(document).ready(function(){
+                          var quan = parseInt($("#Quantity").val());
+                          
+                          $(".up").click(function(){
+                            quan = quan+1; 
+                            var zero;
+                          if(quan<10){
+                            zero = "0"+quan;
+                          }
+                          else{
+                            zero=quan;
+                          }
+                             $('.down').css('pointer-events', 'auto'); 
+                             $("#Quantity").val(zero).attr('value',zero);    
+                          }); 
+                          $(".down").click(function(){                            
+                            quan = quan-1;
+                            var zero;
+                          if(quan<10){
+                            zero = "0"+quan;
+                          }
+                          else{
+                            zero=quan;
+                          }
+                             $("#Quantity").val(zero).attr('value',zero);
+                            if(quan == 1){
+                            	$('.down').css('pointer-events', 'none');
+                            }
+                          	if(quan == 1000){
+                            	$('.down').css('pointer-events', 'none');
+                            }
+                          });     
+                          
+                        });
+                      </script>
+                      <a id="AddToCart" class="button button-add-cart" data-quantity="1">Add to cart</a>
+                      	{% assign button = "button" %}
+            			{% include 'wishlist-product' %}
+                      <a class="button compare" data-pid="{{product.handle}}">
+                        <i class="fa fa-exchange"></i>
+                      </a>
+                    </div>
+                  </form>
+      
+                {% comment %}
+                  <div class="select-color">
+                    <label>COLOR</label>
+                    <div class="inner">
+                      <a href="#"><span style="background-color:#736357;"></span></a>
+                      <a class="active" href="#"><span style="background-color:#bdb871;"></span></a>
+                      <a href="#"><span style="background-color:#f26522;"></span></a>
+                      <a href="#"><span style="background-color:#fff799;"></span></a>
+                    </div>
+                  </div>
+                  <div class="select-size">
+                    <label>SIZE OPTIONS</label>
+                    <div class="inner">
+                        <a href="#"><span>S</span></a>
+                        <a class="active" href="#"><span>M</span></a>
+                        <a href="#"><span>L</span></a>
+                        <a href="#"><span>XL</span></a>
+                        <a href="#"><span>XXL</span></a>
+                      </div>
+                  </div>
+                
+                  <div class="size-chart">
+                      <a href="#">SIZE chart</a>
+                  </div>
+
+                  <form class="cart-form" enctype="multipart/form-data" method="post">
+                      <div class="quantity">
+                          <a href="#">-</a>
+                          <input type="text" size="4" class="input-text qty text" title="Qty" value="03" name="quantity">
+                          <a href="#">+</a>
+                      </div>
+                      <a class="button button-add-cart" data-quantity="1"  href="#">Add to cart</a>
+            			{% include 'wishlist-product' %}
+                      <a class="button compare" data-pid="{{product.handle}}">
+                        <i class="fa fa-exchange"></i>
+                      </a>
+                  </form>
+                  <div class="share">
+                      <a href="#"><i class="fa fa-print"></i> Print</a>
+                      <a href="#"><i class="fa fa-envelope-o"></i> Send to a friend</a>
+                  </div> 
+                {% endcomment %}
+              </div>
+          </div>
+        </div>
+        <div class="tab-details-product style2">
+          <ul class="box-tabs nav-tab">
+              <li class="active"><a data-toggle="tab" href="#tab-1">DESCRIPTION</a></li>
+              <li><a data-toggle="tab" href="#tab-2">ADDITIONAL INFORMATION</a></li>
+          </ul>
+          <div class="tab-container">
+                <div id="tab-1" class="tab-panel active">
+                  
+              </div>
+              <div id="tab-2" class="tab-panel">
+                  
+              </div>     
+          </div>  
+        </div> 
+        <div class="product-slide upsell-products">
+        {% if settings.product_related_enable %}
+          {% assign data_responsive = '{"0":{"items":1},"600":{"items":2},"1000":{"items":3}}' %}
+          {% include 'upsell-products' %}
+        {% endif %}   
+        </div>
+    </div>
+    <div class="col-sm-4 col-md-3 sidebar"> 
+        <!-- Product category -->
+        <div class="widget widget_product_categories">
+            <h2 class="widget-title">Categories</h2>
+            <ul class="product-categories">
+              {% for line_collection in collections  %}
+                {% unless line_collection.handle == 'wishlist' %}
+                    <li class="{% if collection.handle == line_collection.handle %}current-cat{% endif %}">
+                      <a href="{{line_collection.url}}" >{{line_collection.title  | capitalize }}</a><span class="count-item">({{line_collection.products_count}})</span>
+                    </li>
+                {% endunless %}
+              {% endfor %}
+            </ul>
+        </div>
+        <!-- ./Product category -->
+      
+      {% comment %}
+         <!-- Filter price -->
+        <div class="widget widget_price_filter">
+            <h2 class="widget-title">PRICES</h2>
+            <div class="price_slider_wrapper">
+                <div class="amount-range-price">Price: $85.00 - $125.00</div>
+                <div data-label-reasult="price:" data-min="0" data-max="500" data-unit="$" class="slider-range-price " data-value-min="50" data-value-max="350"></div>
+                <button class="button">Filter NOW</button>
+            </div>
+        </div>
+        <!-- ./Filter price -->
+         <!-- By color -->
+        <div class="widget widget_fillter_color">
+            <h2 class="widget-title">COLOUR</h2>
+            <div class="inner">
+              <a href="#"><span style="background-color:#736357;"></span></a>
+              <a class="active" href="#"><span style="background-color:#bdb871;"></span></a>
+              <a href="#"><span style="background-color:#f26522;"></span></a>
+              <a href="#"><span style="background-color:#fff799;"></span></a>
+            </div>
+        </div>
+         <!-- ./By color -->
+         <!-- By color -->
+        <div class="widget widget_fillter_size">
+            <h2 class="widget-title">SIZE Option</h2>
+            <div class="inner">
+              <a href="#"><span>S</span></a>
+              <a class="active" href="#"><span>M</span></a>
+              <a href="#"><span>L</span></a>
+              <a href="#"><span>XL</span></a>
+              <a href="#"><span>XXL</span></a>
+            </div>
+        </div>
+         <!-- ./By color -->
+      {% endcomment %}
+         <div class="widget widget_recent_product">
+           {% assign number_of_products = 4 %}
+           {% assign number_of_products_to_fetch = number_of_products | plus: 1 %}
+
+           {% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+           {% assign found_a_collection = false %}
+           {% for c in product.collections %}
+           {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+           {% assign found_a_collection = true %}
+           {% assign collection = c %}
+           {% endif %}
+           {% endfor %}
+           {% endif %}
+
+           {% if collection and collection.products_count > 1 %}
+            <h2 class="widget-title">{{ 'products.general.related_products_title' | t  | escape  }}</h2>
+            <ul class="product-categories">
+             {% assign current_product = product %}
+             {% assign current_product_found = false %}
+             {% for product in collection.products limit: number_of_products_to_fetch %}
+             {% if product.handle == current_product.handle %}
+             {% assign current_product_found = true %}
+             {% else %}
+             {% unless current_product_found == false and forloop.last %}
+             {% assign grid_item_width = 'large--one-quarter medium--one-quarter small--one-half' %}
+              <li>
+                <div class="product-thumb">
+                  <a href="{{ product.url | within: collection }}"><img alt="{{ product.featured_image.alt | escape }}" src="{{ product.featured_image.src | img_url: 'grande' }}"></a>
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
+                  <span class="price">
+                    {% if on_sale %}
+                    <ins>{{product.price | money }}</ins>
+                    <del>{{product.compare_at_price | money }}</del>
+                    {% else %}
+                    <ins>{{product.price | money }}</ins>
+                    {% endif %}
+                  </span>                                 
+                </div>
+              </li>
+             {% endunless %}
+             {% endif %}
+             {% endfor %}
+           </ul>
+           {% endif %}
+        </div>
+        <!-- Product tags -->
+        <div class="widget widget_product_tag_cloud style2">
+            <h2 class="widget-title">TAGS</h2>
+            <div class="tagcloud">
+              {% for tag in collection.all_tags %}
+              {% if current_tags contains tag %}
+              {{ tag | link_to_remove_tag: tag }}
+              {% else %}
+              {{ tag | link_to_tag: tag }}
+              {% endif %}
+              {% endfor %}
+            </div>
+        </div>
+        <!-- ./Product tags -->
+  </div>
+  </div>
+</div>
+<!-- ./tab -->
+
+
+
+<div class="product-single container">
     <div class="grid product-single__hero">
       <div class="grid__item large--one-half">
 
@@ -129,9 +440,6 @@
     </div>
   </div>
 
-  {% if settings.product_related_enable %}
-    {% include 'related-products' %}
-  {% endif %}
 
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 <script>
@@ -166,3 +474,7 @@
     {% endif %}
   });
 </script>
+
+
+
+

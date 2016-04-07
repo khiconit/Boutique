@@ -10,13 +10,7 @@
     {% comment %}
       If we have past orders, loop through each one
     {% endcomment %}
-{% if customer  %}
-      <div class="acc-form">
-        <p class="myaccount_user">
-          Hello <strong>{{ customer.name }}</strong> (not {{ customer.name }}? <a href="/account/logout">Sign out</a>). From your account dashboard you can view your recent orders, manage your shipping and billing addresses and </p>
 
-      </div>
-      {% endif %}
     {% paginate customer.orders by 20 %}
 
     {% if customer.orders.size != 0 %}

@@ -4,12 +4,10 @@
   {% if product.variants.size > 1 %}
   	{% include 'product-onsale' %}
   {% else %}
-    {% for variant in product.variants %}
-      {% if variant.available %}
+      {% if product.available %}
       	{% include 'product-simple' %}
       {% else %}
-      	{% include 'product-simple' %}
+      	{% include 'product-outofstock' %}
       {% endif %}
-    {% endfor %}
   {% endif %}
 </div>
