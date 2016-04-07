@@ -36,71 +36,77 @@ If a comment was just submitted and it has no blank fields, we have an extra com
           <div class="post">
             <article  itemscope itemtype="http://schema.org/Article">
 
-              {% comment %}<header class="section-header">
-              <div class="section-header-left">
-                <h1>{{ article.title }}</h1>
-                {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
-                {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
-                <p>{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>
-              </div>
-              </header>{% endcomment %}
-              
-              <div class="post-thumbnail">
+            {% comment %}<header class="section-header">
+            <div class="section-header-left">
+              <h1>{{ article.title }}</h1>
+              {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
+              {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
+              <p>{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>
+            </div>
+            </header>{% endcomment %}
+            
+            {% comment %}<div class="post-thumbnail">
 
-              {% assign excerpt_start =  article.excerpt | split: '[end]' %}
-              {% assign end_excerpt =  excerpt_start[0]  | split: '[start]'  %}
-              <div class="entry-header1">
-                <div class="entry-image">
-                  {% if article.image %}
-                  <div class="blog-img"> <img src="{{ article.image.src | img_url: '2048x2048' }}" alt="{{ article.title }}">
-                    {% comment %} <div class="mask"> <a class="info" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a> </div>{% endcomment %}
-                  </div>
-                  {% endif %}
-                </div> 
-              </div>
-                
-              </div>
-              <div class="postinfo-wrapper">
-                <div class="post-date">
-                    <span class="day">{{ article.published_at | date: '%d' }}</span>
-
-                    <span class="month">{{ article.published_at | date: '%b' }}</span>                
+            
+            <div class="entry-header1">
+              <div class="entry-image">
+                {% if article.image %}
+                <div class="blog-img"> <img src="{{ article.image.src | img_url: '1024x1024' }}" alt="{{ article.title }}">
+                  {% comment %} <div class="mask"> <a class="info" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a> </div>{% endcomment %}
                 </div>
-                <div class="post-info">
-                  <header>
-                    <h1 class="blog-title">{{ article.title }}</h1>
-                  </header>
-                  <footer class="entry-meta-small">
-                    <span class="author vcard">
-                      <a class="url fn n" href="#" title="View all posts by {{author}}" rel="author">Post by {{author}}</a>/</span>
+                {% endif %}
+              </div> 
+            </div>
+              
+            </div>{% endcomment %}
+            {% assign excerpt_start =  article.excerpt | split: '[end]' %}
+            {% assign end_excerpt =  excerpt_start[0]  | split: '[start]'  %}
+            <div class="post-thumbnail">
+              <div class="entry-header">
+                {% include  'shortcode' load: end_excerpt[1] %}  
+              </div>
+            </div>
+            <div class="postinfo-wrapper">
+              <div class="post-date">
+                  <span class="day">{{ article.published_at | date: '%d' }}</span>
 
+                  <span class="month">{{ article.published_at | date: '%b' }}</span>                
+              </div>
+              <div class="post-info">
+                <header>
+                  <h1 class="blog-title">{{ article.title }}</h1>
+                </header>
+                <footer class="entry-meta-small">
+                  <span class="author vcard">
+                    <a class="url fn n" href="#" title="View all posts by {{author}}" rel="author">Post by {{author}}</a>/</span>
+
+                    <ul class="inline-list">
+                      {% include 'tags-article' %}
+                    </ul>
+                    {% comment %}
+                  <i class="fa fa-clock-o"></i>
+                  <time class="entry-date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}" >{{date}}</time>
+                  <i class="fa fa-folder-o"></i><a href="{{blog.url}}" rel="category tag">{{blog.title}}</a>
+                  {% endcomment %}
+              </footer>
+                <div class="entry-content">
+                  {% include  'shortcode' load: article.content %}
+                </div>
+                <div class=" entry-meta">
+                {% if blog.comments_enabled? %}
+                    <a href="{{article.comment_post_url}}s" class="comment-blog-items">{{article.comments_count}} comments</a>   
+                    {% endif %} 
+                    <span>/&nbsp;{{ 'blogs.article.tags' | t }}:&nbsp;</span>
                       <ul class="inline-list">
                         {% include 'tags-article' %}
                       </ul>
-                      {% comment %}
-                    <i class="fa fa-clock-o"></i>
-                    <time class="entry-date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}" >{{date}}</time>
-                    <i class="fa fa-folder-o"></i><a href="{{blog.url}}" rel="category tag">{{blog.title}}</a>
-                    {% endcomment %}
-                </footer>
-                  <div class="entry-content">
-                    {% include  'shortcode' load: article.content %}
-                  </div>
-                  <div class=" entry-meta">
-                  {% if blog.comments_enabled? %}
-                      <a href="{{article.comment_post_url}}s" class="comment-blog-items">{{article.comments_count}} comments</a>   
-                      {% endif %} 
-                      <span>/&nbsp;{{ 'blogs.article.tags' | t }}:&nbsp;</span>
-                        <ul class="inline-list">
-                          {% include 'tags-article' %}
-                        </ul>
 
-                  </div>
-                  <div class="socialsharing">
-                    <h3 class="widget-title">Share this product</h3>
-                    {% include 'social-links' %}
-                  </div>
-                <div class="author-info">
+                </div>
+                <div class="socialsharing">
+                  <h3 class="widget-title">Share this product</h3>
+                  {% include 'social-links' %}
+                </div>
+              <div class="author-info">
                   <div class="author-avatar">
                      {{'admin_avatar_1449223716-68x68.png'|  asset_url | img_tag }}
                   </div>
@@ -110,49 +116,48 @@ If a comment was just submitted and it has no blank fields, we have an extra com
                   </div>
                 </div>
 
-                </div>
               </div>
-              {% comment %}<div class="rte" itemprop="articleBody">
+            </div>
+            {% comment %}<div class="rte" itemprop="articleBody">
 
-              {% include  'shortcode' load: article.content %}  
-              </div>{% endcomment %}
+            {% include  'shortcode' load: article.content %}  
+            </div>{% endcomment %}
 
-              {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
-              {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}" >{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
+            {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
+            {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}" >{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
 
-              {% comment %}
-              Show off meta information like comments and tags.
-              {% endcomment %}
-              {% comment %}<ul class="inline-list">
-              {% include 'tags-article' %}
-              </ul>
-              {% endcomment %}
+            {% comment %}
+            Show off meta information like comments and tags.
+            {% endcomment %}
+            {% comment %}<ul class="inline-list">
+            {% include 'tags-article' %}
+            </ul>
+            {% endcomment %}
 
-              {% comment %}
-              Create links to the next and previous articles, if available.
-              {% endcomment %}
+            {% comment %}
+            Create links to the next and previous articles, if available.
+            {% endcomment %}
 
-              {% comment %}
+            {% comment %}
 
-              {% if blog.next_article or blog.previous_article %}
-              <hr>
-              <p class="clearfix">
-                {% if blog.previous_article %}
-                <span class="left">
-                  &larr; {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
-                </span>
-                {% endif %}
-                {% if blog.next_article %}
-                <span class="right">
-                  {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }} &rarr;
-                </span>
-                {% endif %}
-              </p>
+            {% if blog.next_article or blog.previous_article %}
+            <hr>
+            <p class="clearfix">
+              {% if blog.previous_article %}
+              <span class="left">
+                &larr; {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
+              </span>
               {% endif %}
+              {% if blog.next_article %}
+              <span class="right">
+                {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }} &rarr;
+              </span>
+              {% endif %}
+            </p>
+            {% endif %}
 
-              {% endcomment %}
-            </article>
-            
+            {% endcomment %}
+          </article>
           </div>
         </div>
 
@@ -236,6 +241,7 @@ If a comment was just submitted and it has no blank fields, we have an extra com
                     <span class="required">*</span>
                     <input type="email" name="comment[email]" id="CommentEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'blogs.comments.email' | t }}" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
                   </p>
+                  
                   <p class="comment-form comment-form-website">
                     <label for="CommentWebsite" class="hidden-label">{{ 'blogs.comments.website' | t }}</label>
                     <input type="text" name="comment[webite]" id="CommentWebsite" class="input-full{% if form.errors contains 'website' %} error{% endif %}" placeholder="{{ 'blogs.comments.website' | t }}" value="{{ form.website }}" autocapitalize="words">
@@ -251,14 +257,13 @@ If a comment was just submitted and it has no blank fields, we have an extra com
                 <p>{{ 'blogs.comments.moderated' | t }}</p>
                 {% endif %}
                 <p class="form-submit">
-                  <input type="submit" class="button btn-post-comment" id="submit" value="{{ 'blogs.comments.post' | t }}">
+                  <input type="submit" class="button btn-post-comment"  id="submit" value="{{ 'blogs.comments.post' | t }}">
                 </p>
                 {% endform %}
               </div>
 
             </div>
-            {% endpaginate %}
-           
+            {% endpaginate %}           
         </div>
       </div>
       
