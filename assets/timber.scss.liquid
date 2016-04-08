@@ -320,31 +320,6 @@ hr {
   }
 }
 
-/*================ Partials | Typography styles ================*/
-body,
-input,
-textarea,
-button,
-select {
-  font-size: $baseFontSize;
-  line-height: 1.7;
-  font-family: $bodyFontStack;
-  color: $colorTextBody;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: $headerFontStack;
-  font-weight: $headerFontWeight;
-  margin: 0 0 ($gutter / 2);
-  line-height: 1.4;
-
-  a {
-    text-decoration: none;
-    font-weight: inherit;
-  }
-}
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
@@ -1232,35 +1207,6 @@ input[type="submit"] {
 
 input[type="submit"] {
   @extend .btn;
-}
-
-/*================ Input width and border ================*/
-input[type="text"],
-input[type="search"],
-input[type="password"],
-input[type="email"],
-input[type="file"],
-input[type="number"],
-input[type="tel"],
-textarea,
-select {
-  border: 1px solid $colorBorder;
-  width: 100%;
-  max-width: 100%;
-  display: block;
-  margin: 0 0 1em;
-  color: #333 !important;
-
-  &:focus {
-    border: 1px solid darken($colorBorder, 10%);
-  }
-
-  &[disabled],
-  &.disabled {
-    cursor: default;
-    background-color: $disabledGrey;
-    border-color: $disabledBorder;
-  }
 }
 
 textarea {

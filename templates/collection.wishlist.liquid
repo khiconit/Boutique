@@ -19,6 +19,11 @@
                             {% assign on_sale = true %}
                             {% endif %}
 
+                            {% assign sold_out = true %}
+                            {% if product.available %}
+                            {% assign sold_out = false %}
+                            {% endif %}
+
                             {% if tags contains product.id %}
                             {% for tag in customer.tags %}{% if tag contains product.id %}{% assign t = tag %}{% endif %}{% endfor %}
                             {% assign check = t.size | minus:product.id.size | modulo:2 %}

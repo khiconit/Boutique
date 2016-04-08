@@ -2,7 +2,7 @@
   "general": {
     "404": {
       "title": "404 Page Not Found",
-      "subtext_html": "The page you requested does not exist. Click <a href=\"/collections/all\">here</a> to continue shopping."
+      "subtext_html": "The page you requested does not exist. Click <a href=\"\/collections\/all\">here</a> to continue shopping."
     },
     "meta": {
       "tags": "Tagged \"{{ tags }}\"",
@@ -122,8 +122,8 @@
       "your_email": "Your Email",
       "phone": "Phone Number",
       "your_message": "Your Message",
-      "send": "Send",
-      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
+      "send": "Send Message",
+      "post_success": "Thanks for contacting us. We'll get back to you as soon as possible."
     }
   },
   "customer": {

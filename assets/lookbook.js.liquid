@@ -1,0 +1,11 @@
+(function($) {
+    'use strict';
+    jQuery(document).ready(function($) {
+    	$("#paginate-ul .number-pagination").click(function() {
+    		var $this = $(this);
+    		$("#paginate-ul li").removeClass('active');
+    		$(this).parent('li').addClass('active');
+    		var data_page =$(this).data("page");
+    	});
+      });
+})(jQuery);

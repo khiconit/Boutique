@@ -10,6 +10,7 @@
       <div class="kt-contact-form margin-top-60">
         <div id="message-box-conact"></div>
         <h3 class="title">{{settings.contact_title}}</h3>
+
         {% form 'contact' %}
 
         {% if form.posted_successfully? %}
@@ -17,19 +18,18 @@
           {{ 'contact.form.post_success' | t }}
         </p>
         {% endif %}
-
-        {{ form.errors | default_errors }}
+        <div class="col-lg-12 col-md-12">{{ form.errors | default_errors }}</div>
         <p>
           {% assign name_attr = 'contact.form.your_name' | t | handle %}
-          <input type="text" id="name" placeholder="{{ 'contact.form.your_name' | t }}" name="contact[{{ name_attr }}]"  value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+          <input type="text" id="ContactFormName" name="contact[{{ name_attr }}]" placeholder="{{ 'contact.form.your_name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
         </p>
         <p>
           {% assign name_attr = 'contact.form.your_email' | t | handle %}
-          <input type="text" id="name" placeholder="{{ 'contact.form.your_email' | t }}" name="contact[{{ name_attr }}]"  value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+          <input type="text" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.your_email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required>
         </p>
         <p>
           {% assign name_attr = 'contact.form.your_message' | t | handle %}
-          <textarea id="content" placeholder="{{ 'contact.form.your_message' | t }}" name="contact[body]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          <textarea id="ContactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.your_message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
         </p>
         <button id='btn-send-contact' class="button" type="submit" value="{{ 'contact.form.send' | t }}">{{ 'contact.form.send' | t }}</button>
         {% endform %}
