@@ -211,7 +211,6 @@
         "type": "textarea",
         "id": "shortcode_about",
         "label": "Shortcode About",
-        "default": "We’ra all Talents!",
         "info": "Write shortcode about Page"
       },
       {
@@ -471,7 +470,7 @@
       },
       {
         "type": "header",
-        "content": "==== Processbar section setting"
+        "content": "==Processbar section setting"
       },
       {
         "type": "textarea",
@@ -496,7 +495,7 @@
       },
       {
         "type": "header",
-        "content": "==== Testimonials section setting"
+        "content": "==Testimonials section setting"
       },
       {
         "type": "text",
@@ -699,8 +698,7 @@
       {
         "type": "textarea",
         "id": "map_iframe",
-        "label": "Link Googlemap",
-        "info": "* Edit width = 2000 ; height = 450px"
+        "label": "Link Googlemap"
       },
       {
         "type": "text",

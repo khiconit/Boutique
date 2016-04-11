@@ -38,7 +38,9 @@
     <div class="col-sm-6">
       <div class="margin-top-60">
         {% if settings.use_contact_map %}
+          <div class="google_map">
             {{ settings.map_iframe }}
+          </div>
         {% endif %}
         <h6 class="margin-top-20">{{settings.title_call}}</h6>
         <p class="roboto">{{ settings.call_desc }}</p>
