@@ -1,88 +1,70 @@
-      <div class="rte blog-media">
-      {% if article.excerpt.size > 0 %}
-      <!--  excerpt   -->
-      <div class="post">
-        {% assign excerpt_start =  article.excerpt | split: '[end]' %}
-          {% assign end_excerpt =  excerpt_start[0]  | split: '[start]'  %}
-            {% if end_excerpt.size > 1  %} 
-              {% assign article_excerpt   = end_excerpt[0]  | append:  excerpt_start[1]  %}
-        <div class="post-thumbnail">
-         	 <div class="entry-header">
-               {% include  'shortcode' load: end_excerpt[1] %}  
-                
-              </div>
-        </div>
-        <div class="postinfo-wrapper ">
-          <div class="post-date">
-               <span class="day">{{ article.published_at | date: '%d' }}</span>
+<div class="rte grid-item masonry-item">         
+  <div class="blog-item">
+    {% if article.excerpt.size > 0 %}
+  <!--  excerpt   -->
+    <div class="post">
+      {% assign excerpt_start =  article.excerpt | split: '[end]' %}
+        {% assign end_excerpt =  excerpt_start[0]  | split: '[start]'  %}
+          {% if end_excerpt.size > 1  %} 
+            {% assign article_excerpt   = end_excerpt[0]  | append:  excerpt_start[1]  %}
+      <div class="post-thumbnail">
+          <a class="banner-opacity" href="{{ article.url }}">
+              {% include  'shortcode' load: end_excerpt[1] %} 
+          </a>
+      </div>
+      <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+      <div class="entry-meta">
+          <span class="post-date">{{ article.published_at | date: "%d %b %Y" }}</span>
+          <span class="blog-comment"><i class="fa fa-comment"></i>
+          {% if blog.comments_enabled? %}
+            <span class="count-comment">{{article.comments_count}}</span>   
+            {% endif %}                            
+          </span>                                   
+      </div>
 
-        	<span class="month">{{ article.published_at | date: '%b' }}</span>
-          </div>
-          <div class="post-info">
-            
-            <header>
-              <h1 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h1>
-            </header>
-            
-            <footer class="entry-meta">
-              <span class="author vcard">
-            <a class="url fn n" href="#" title="View all posts by {{author}}" rel="author">Post by {{author}}</a>/</span><ul class="inline-list">
-                {% include 'tags-article' %}
-              </ul>
-              {% comment %}
-                <i class="fa fa-folder-o"></i><a href="{{blog.url}}" rel="category tag">{{blog.title}}</a>
-                {% if blog.comments_enabled? %}
-                <a href="{{article.comment_post_url}}#comments"> <i class="fa fa-comments-o"></i>{{article.comments_count}} comments</a>   
-                {% endif %}       
-                <a class="readmore" href="{{article.url}}">read more</a>
-              {% endcomment %}
-            </footer>
-                          
-              <div class="entry-summary">
-              {% include  'shortcode' load: article_excerpt %}  
-              </div>
-            {% else %}
-            <div class="entry-header">
-              <h1 class="blog-title"><i class="fa fa-music"></i><a href="{{ article.url }}">{{ article.title }}</a></h1>
-            </div>
-            <div class="entry-summary">
-              {% include  'shortcode' load:  article.excerpt %}  
-            </div>
-            {% endif %}
-            
-          </div>
+      <div class="rte entry-summary blog-short-desc">
+          <div class="entry-summary">
+          {% include  'shortcode' load: article_excerpt %}  
         </div>
-
-           
         {% else %}
-         <!-- content  -->
-           {% assign excerpt_start = article.content | truncatewords: 12 | split: '[end]' %}
-            {% assign end_excerpt = excerpt_start[0] | split: '[start]'  %}
-              {% if end_excerpt.size > 1 %}
-                  {% assign content_excerpt   =   end_excerpt[0]  | append:  end_excerpt[0]  %}
-                  {% include  'shortcode' load:   end_excerpt[1]  %}  
-                  <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-                  {% include  'shortcode' load:  article_excerpt %}  
-                {% else %}
-                   <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-                  {% include  'shortcode' load:  article.content | truncatewords: 12 %}  
-              {% endif %}
-            
+        <div class="entry-header">
+          <h1 class="blog-title"><i class="fa fa-music"></i><a href="{{ article.url }}">{{ article.title }}</a></h1>
+        </div>
+        <div class="entry-summary">
+          {% include  'shortcode' load:  article.excerpt %}  
+        </div>
         {% endif %}
-      
-     {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
+
+      </div>
+      <a class="readmore" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+
+      {% else %}
+      <!-- content  -->
+      {% assign excerpt_start = article.content | truncatewords: 12 | split: '[end]' %}
+        {% assign end_excerpt = excerpt_start[0] | split: '[start]'  %}
+          {% if end_excerpt.size > 1 %}
+            {% assign content_excerpt   =   end_excerpt[0]  | append:  end_excerpt[0]  %}
+              {% include  'shortcode' load:   end_excerpt[1]  %}  
+                <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                  {% include  'shortcode' load:  article_excerpt %}  
+            {% else %}
+              <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+              {% include  'shortcode' load:  article.content | truncatewords: 12 %}  
+            {% endif %}
+          {% endif %}
+
+      {% capture author %}<strong>{{ article.author }}</strong>{% endcapture %}
       {% capture date %}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}" >{{ article.published_at | date: format: 'month_day_year' }}</time>{% endcapture %}
-    {% comment %}  <p>{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>{% endcomment %}
+      {% comment %}  <p>{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>{% endcomment %}
 
 
-</div>
+    </div>
       {% comment %}
-        Show off meta information like number of comments and tags.
+      Show off meta information like number of comments and tags.
       {% endcomment %}
-      {% comment %}<ul class="inline-list">
-        {% include 'tags-article' %}
-      </ul>{% endcomment %}
+
       {% comment %}<p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>{% endcomment %}
 
-      {% unless forloop.last %}{% endunless %}
-    </div>
+  {% unless forloop.last %}{% endunless %}
+</div>
+</div>

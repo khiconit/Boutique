@@ -320,7 +320,6 @@ hr {
   }
 }
 
-/*================ Partials | Typography styles ================*/
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
@@ -403,8 +402,6 @@ pre {
   margin: 0 0 $gutter;
 }
 
-
-
 /*================ Partials | Tables ================*/
 table {
   width: 100%;
@@ -423,11 +420,11 @@ th {
   font-weight: bold;
 }
 
-th, td {
-  text-align: left;
-  padding: $gutter / 2;
-  border: 1px solid $colorBorder;
-}
+// th, td {
+//   text-align: left;
+//   padding: $gutter / 2;
+//   border: 1px solid $colorBorder;
+// }
 
 /*============================================================================
   #Grid Setup
@@ -901,46 +898,47 @@ html input[disabled] {
   cursor: default;
 }
 
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  margin: 0;
-  @include accentFontStack;
-  line-height: 1.42;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-  cursor: pointer;
-  border: 1px solid transparent;
-  @include prefix('user-select', 'none');
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: $radius;
-
   /*================ Set primary button colors - can override later ================*/
-  background-color: $colorBtnPrimary;
-  color: $colorBtnPrimaryText;
-  @include transition(background-color 0.1s ease-in);
+// .btn {
+//   display: inline-block;
+//   padding: 8px 16px;
+//   margin: 0;
+//   @include accentFontStack;
+//   line-height: 1.42;
+//   text-decoration: none;
+//   text-align: center;
+//   vertical-align: middle;
+//   white-space: nowrap;
+//   cursor: pointer;
+//   border: 1px solid transparent;
+//   @include prefix('user-select', 'none');
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   border-radius: $radius;
 
-  &:hover {
-    background-color: $colorBtnPrimaryHover;
-    color: $colorBtnPrimaryText;
-  }
 
-  &:active,
-  &:focus {
-   background-color: $colorBtnPrimaryActive;
-   color: $colorBtnPrimaryText;
-  }
+//   background-color: $colorBtnPrimary;
+//   color: $colorBtnPrimaryText;
+//   @include transition(background-color 0.1s ease-in);
 
-  &[disabled],
-  &.disabled {
-    cursor: default;
-    color: $disabledBorder;
-    background-color: $disabledGrey;
-  }
-}
+//   &:hover {
+//     background-color: $colorBtnPrimaryHover;
+//     color: $colorBtnPrimaryText;
+//   }
+
+//   &:active,
+//   &:focus {
+//    background-color: $colorBtnPrimaryActive;
+//    color: $colorBtnPrimaryText;
+//   }
+
+//   &[disabled],
+//   &.disabled {
+//     cursor: default;
+//     color: $disabledBorder;
+//     background-color: $disabledGrey;
+//   }
+// }
 
 .btn--secondary,
 input.btn--secondary {
@@ -1092,6 +1090,69 @@ img.auto,
 }
 
 /*================ Partials | Forms ================*/
+
+fieldset {
+  border: 1px solid $colorBorder;
+  padding: $gutter / 2;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+input {
+  display: inline-block;
+  width: auto;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  @extend .btn;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-position: right center;
+  background: {
+    image: url('{{ "ico-select.svg" | asset_url }}');
+    repeat: no-repeat;
+    position: right 10px center;
+    color: #fff !important;
+  }
+  padding-right: 28px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  cursor: pointer;
+
+  /*================ Hide the svg arrow in IE9 and below ================*/
+  .ie9 &,
+  .lt-ie9 & {
+    padding-right: 10px;
+    background-image: none;
+  }
+}
 
 // Force option color (affects IE only)
 option {

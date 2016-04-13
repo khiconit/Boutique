@@ -113,32 +113,40 @@
             /* Act on the event */
             sweetAlert("Oops...", "Please login to use wishlist!", "error");
         });
+
+        $("#addtocart-message").hide('slow');      
         $(document).on('click',".wishlist-addtocart", function(event) {
-            event.preventDefault();
-            /* Add product in wishlist to cart*/
-            var $this = $(this);
-            $("#loading").show();
-            var value = $(this).data('wid');
-            $('.product-select').val(value);
-            var args = $('.add-variant').serialize();
-            $.ajax({
-                url: $('.add-variant').attr('action'),
-                type: 'POST',
-                dataType: 'html',
-                data: args,
-                success: function(data, status) {
-                  show_dropdown_cart();
-                    if (status == "success") {
-                        $this.hide(600).next('button.wishlist-addedtocart').removeClass('wishlist-addedtocart').show(700);
-                        $("#loading").hide(500);
-                        swal("Success!", "Added success to cart!", "success");
-                    } else {
-                        $("#loading").hide(500);
-                        sweetAlert("Oops...", "An error occurred when add to cart!", "error");
-                    }
-                }
-            });
+          event.preventDefault();
+          /* Add product in wishlist to cart*/
+          var $this = $(this);
+          $("#loading").show();
+          var value = $(this).data('wid');
+          $('.product-select').val(value);
+          var args = $('.add-variant').serialize();
+          $.ajax({
+            url: $('.add-variant').attr('action'),
+            type: 'POST',
+            dataType: 'html',
+            data: args,
+            success: function(data, status) {
+              show_dropdown_cart();
+              $("#addtocart-message").show('slow');
+              var xx = $this.data('title');
+              $("."+value).hide();
+              $("#title-addtocart").text(xx); 
+              if (status == "success") {
+                $this.hide(600).next('.wishlist-addedtocart').removeClass('wishlist-addedtocart').show(700);
+                $("#loading").hide(500);
+
+              } else {
+                $("#loading").hide(500);
+                sweetAlert("Oops...", "An error occurred when add to cart!", "error");
+              }
+            }
+          });
         });
+       
+
         $('.wishlist-remove').on('click', function(event) {
             event.preventDefault();
             $("#loading").show();
@@ -602,7 +610,12 @@
         $('[data-toggle=\'tooltip\']').tooltip({
             container: 'body'
         });
+        $('audio,video').mediaelementplayer({audioWidth: '100%', enableAutosize: true});
+          $('.flexslider').flexslider(); 
+          // $(".slider-shortcode").nivoSlider({ 
+          //   effect: 'random'
 
+          // });
     //Scroll top jquery
         $("#scroll-top").on('click', function(event) {
             event.preventDefault();

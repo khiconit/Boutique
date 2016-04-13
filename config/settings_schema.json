@@ -922,12 +922,12 @@
       }
     ]
   },
-  {
+    {
     "name": "About Page",
     "settings": [
       {
         "type": "header",
-        "content": "About section settings"
+        "content": "== About section settings"
       },
       {
         "type": "image",
@@ -964,14 +964,20 @@
         "label": "Author Quote"
       },
       {
+        "type": "textarea",
+        "id": "shortcode_about",
+        "label": "Shortcode About",
+        "info": "Write shortcode about Page"
+      },
+      {
         "type": "header",
-        "content": "OUR TEAM"
+        "content": "==== Team section setting"
       },
       {
         "type": "checkbox",
-        "id": "use_bg_section_team",
-        "label": "Use background image section team for page",
-        "info": "Show background Image section teanm"
+        "id": "use_section_team",
+        "label": "Use Team Section",
+        "default": true
       },
       {
         "type": "image",
@@ -983,10 +989,6 @@
         "id": "color_bg_team",
         "label": "Background",
         "default": "#f9f9f9"
-      },
-      {
-        "type": "header",
-        "content": "Setting brand"
       },
       {
         "type": "textarea",
@@ -1223,6 +1225,10 @@
         "label": "Position Member"
       },
       {
+        "type": "header",
+        "content": "==Processbar section setting"
+      },
+      {
         "type": "textarea",
         "id": "processbar_subtitle",
         "label": "Sub Title",
@@ -1235,6 +1241,169 @@
         "label": "Title",
         "default": "OUR AWESOME SKILLS",
         "info": "Title display on title Processbar"
+      },
+      {
+        "type": "textarea",
+        "id": "shortcode_processbar",
+        "label": "Shortcode Processbar",
+        "default": "OUR AWESOME SKILLS",
+        "info": "Write Shortcode Processbar"
+      },
+      {
+        "type": "header",
+        "content": "==Testimonials section setting"
+      },
+      {
+        "type": "text",
+        "id": "sub_testimonial_title",
+        "label": "Sub Title testimonial",
+        "default": "Testimonials!"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_title",
+        "label": "Title",
+        "default": "WHAT OUR CILENTS SAY"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use1",
+        "label": "Check if you want use this box testimonial 1",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content1",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name1",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position1",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use2",
+        "label": "Check if you want use this box testimonial 2",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content2",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name2",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position2",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use3",
+        "label": "Check if you want use this box testimonial 3",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content3",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name3",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position3",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use4",
+        "label": "Check if you want use this box testimonial 4",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content4",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name4",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position4",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use5",
+        "label": "Check if you want use this box testimonial 5",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content5",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name5",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position5",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
       }
     ]
   },
@@ -1349,157 +1518,113 @@
     ]
   },
   {
-    "name": "Testimonial Setting",
+    "name": "Contact Page",
     "settings": [
       {
         "type": "header",
-        "content": "Module Testimonial"
+        "content": "Contact Us"
+      },
+      {
+        "type": "image",
+        "id": "45.jpg",
+        "label": "Background Image About"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_contact_title",
+        "label": "Title banner Contact us",
+        "default": "We’re here to make you feel happy!"
       },
       {
         "type": "text",
-        "id": "sub_testimonial_title",
-        "label": "Sub Title testimonial",
-        "default": "Testimonials!"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_title",
-        "label": "Title",
-        "default": "WHAT OUR CILENTS SAY"
+        "id": "banner_contact_desc",
+        "label": "Banner Contact Title",
+        "default": "LET’S TALK!"
       },
       {
         "type": "header",
-        "content": "Content testimonial"
+        "content": "== Form Contact"
+      },
+      {
+        "type": "textarea",
+        "id": "contact_title",
+        "label": "Contact Page Title Form",
+        "default": "REACH US FOR ANY QUESTIONS YOU MIGHT HAVE"
+      },
+      {
+        "type": "header",
+        "content": "Map settings"
       },
       {
         "type": "checkbox",
-        "id": "testimonial_box_use1",
-        "label": "Check if you want use this box testimonial",
-        "default": false
+        "id": "use_contact_map",
+        "label": "Show Google Map",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "map_iframe",
+        "label": "Link Googlemap"
       },
       {
         "type": "text",
-        "id": "testimonial_box_name1",
-        "label": "Name",
-        "default": "David truong"
+        "id": "title_call",
+        "label": "Title Give Call",
+        "default": "GIVE US A CALL"
       },
       {
         "type": "textarea",
-        "id": "testimonial_box_content1",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
+        "id": "call_desc",
+        "label": "Give Call Description",
+        "default": "Want to speak with a sales representative? Drop us a line and we’d be happy to answer any questions!"
       },
       {
-        "type": "textarea",
-        "id": "testimonial_box_position1",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
+        "type": "text",
+        "id": "phone_contact",
+        "label": "Phone your contact",
+        "default": " (+800) 6868 2268"
+      }
+    ]
+  },
+  {
+    "name": "Look Book Page",
+    "settings": [
       {
         "type": "header",
-        "content": "===Content testimonial 2"
+        "content": "== Book Look"
       },
       {
-        "type": "checkbox",
-        "id": "testimonial_box_use2",
-        "label": "Check if you want use this box testimonial",
-        "default": false
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name2",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content2",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position2",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
+        "type": "image",
+        "id": "47.jpg",
+        "label": "Background Image About"
+      }
+    ]
+  },
+  {
+    "name": " 404 Page",
+    "settings": [
       {
         "type": "header",
-        "content": "===Content testimonial 3"
-      },
-      {
-        "type": "checkbox",
-        "id": "testimonial_box_use3",
-        "label": "Check if you want use this box testimonial",
-        "default": false
+        "content": "Information 404 Page"
       },
       {
         "type": "text",
-        "id": "testimonial_box_name3",
-        "label": "Name",
-        "default": "David truong"
+        "id": "heading404",
+        "label": "Heading H1 404",
+        "default": "404"
       },
       {
         "type": "textarea",
-        "id": "testimonial_box_content3",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
+        "id": "title404",
+        "label": "Title 404",
+        "default": "Oops! That page can't be found."
       },
       {
         "type": "textarea",
-        "id": "testimonial_box_position3",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
-      {
-        "type": "header",
-        "content": "===Content testimonial 4"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name4",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content4",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position4",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
-      {
-        "type": "header",
-        "content": "===Content testimonial 5"
-      },
-      {
-        "type": "checkbox",
-        "id": "testimonial_box_use5",
-        "label": "Check if you want use this box testimonial",
-        "default": false
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name5",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content5",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position5",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
+        "id": "information_desc_404",
+        "label": "Information 404",
+        "default": "Sorry, but the page you are looking for is not found. Please, make sure you have typed the current URL."
+>>>>>>> origin/master
       }
     ]
   },
@@ -2456,6 +2581,7 @@
     "name": "Footer",
     "settings": [
       {
+<<<<<<< HEAD
         "type": "header",
         "content": "== General Settings"
       },
@@ -2767,7 +2893,7 @@
         "type": "text",
         "id": "payment_link_8",
         "label": "Link"
-      }
+	  }
     ]
   },
   {

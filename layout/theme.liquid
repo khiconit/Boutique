@@ -20,7 +20,9 @@
   
   {% include 'footer-index' %}
   <!-- Large modal Compare -->
-
+    <div id="loading">
+      {{ 'lightbox/v204/loading.gif' | global_asset_url |img_tag}}
+    </div>
   <div class="modal fade bs-example-modal-lg" id="moda-compare" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content" id="compare-modal">
