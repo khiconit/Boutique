@@ -1,0 +1,55 @@
+{% capture handle_name %}{% include 'shortcode-render' render:'handle' default:'news' %}{% endcapture %}
+{% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '2' %}{% endcapture %}
+{% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '1' %}{% endcapture %}
+{% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
+{% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
+
+{% if number_post_dt == blank %}
+	{% assign number_post_dt_end = 2 %}
+{% else %}
+	{% assign number_post_dt_end = number_post_dt | plus: 0 %}
+{% endif %}
+{% if number_post_tb == blank %}
+	{% assign number_post_tb_end = 1 %}
+{% else %}
+	{% assign number_post_tb_end = number_post_tb | plus: 0 %}
+{% endif %}
+{% if number_post_mb == blank %}
+	{% assign number_post_mb_end = 1 %}
+{% else %}
+	{% assign number_post_mb_end = number_post_mb | plus: 0 %}
+{% endif %}
+
+{% unless handle_name =="" %}
+<div class="margin-top-30 section-lasttest-blog">
+  <div class="section-title text-center">
+    <h3>{% include 'shortcode-render' render:'title' default:"Our BLog" %}</h3>
+  </div>
+  <div class="lastest-blog owl-carousel nav-center-center {{class_style}}" data-nav="true" data-dots="false" data-loop="true" data-margin="30"
+       data-responsive='{"0":{"items":{{number_post_mb_end}}},"600":{"items":{{number_post_tb_end}}},"1000":{"items":{{number_post_dt_end}}}}'>
+  {% for article in blogs[handle_name].articles limit: 15 %}
+      <div class="item-blog">
+        <div class="left">
+          <div class="blog-date">
+            <span class="day">{{ article.published_at | date: '%d' }}</span>
+            <span class="month">/{{ article.published_at | date: '%b' | upcase }}</span><br>
+            <span class="year">{{ article.published_at | date: '%Y' }}</span>
+          </div>
+          <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title| truncate: 20 }}</a></h3>
+          <div class="meta">
+            <span class="author">{{ article.author }}</span>
+            <span class="comment"><i class="fa fa-comment"></i> {{article.comments_count}} {{ 'blogs.comments.title_count' | t }}</span>
+          </div>
+        </div>
+        <div class="right">
+        {% if article.image %}
+        <a href="{{ article.url }}" class="banner-border"> 
+          <img src="{{ article.image.src | img_url: 'medium' }}" srcset="{{ article.image.src | img_url: 'medium' }} 1x, {{ article.image.src | img_url: 'small' }} 2x" alt="{{ article.title }}">
+        </a>
+        {% endif %}
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+</div>
+{% endunless %}

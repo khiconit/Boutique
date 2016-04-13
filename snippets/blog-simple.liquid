@@ -1,7 +1,7 @@
 <div class="rte grid-item masonry-item">         
   <div class="blog-item">  
       <div class="post-thumbnail">                               
-          <a class="banner-opacity" href="{{ article.title }}">
+          <a class="banner-opacity" href="{{ article.url }}">
           {% if article.image %}
             <img src="{{ article.image.src | img_url: '1024x1024' }}" alt="{{ article.title }}">
             {% endif %}

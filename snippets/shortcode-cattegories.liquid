@@ -1,0 +1,15 @@
+<div class="margin-top-60">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-5">
+      <div class="section-title text-center margin-top-40 margin-bottom-30">
+        <h3>{{settings.cat_title}}</h3>
+        <span class="sub-title">{{settings.cat_sub_title}}</span>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-7">
+      <ul class="category-menu category-carousel pull-left owl-carousel nav-style7 nav-center-center" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="30" data-responsive='{"0":{"items":1},"600":{"items":4},"1000":{"items":4}}'>
+        {% include 'render-layout' register_section: 'sc_categories1'  %}
+      </ul>
+    </div>
+  </div>
+</div>

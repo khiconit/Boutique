@@ -1,0 +1,37 @@
+{% capture text_content %}{% include 'shortcode-render' render:'text' default:'' %}{% endcapture %}
+{% capture position %}{% include 'shortcode-render' render:'position' default:'' %}{% endcapture %}
+{% if position == "" %}
+<div class="text-center margin-top-20">
+  {% if text_content == blank %}
+  	FREE UK DELIVERY + RETURN OVER £85.00 (EXCLUDING HOMEWARE) | FREE UK COLLECT FROM STORE
+  {% else %}
+  	{{text_content}}
+  {% endif %}
+</div>
+{% endif %}
+{% if position == "top-header" %}
+<div class="top-header">
+  <div class="container">
+    <div class="text-border">
+      <p>
+        {% if text_content == blank %}
+          {{settings.shipping_text_box}}
+        {% else %}
+          {{text_content}}
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% if position == "section" %}
+  <div class="text-border margin-top-30">
+    <p>
+        {% if text_content == blank %}
+          {{settings.shipping_text_box}}
+        {% else %}
+          {{text_content}}
+        {% endif %}
+    </p>
+  </div>
+{% endif %}

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="main-header">
+    <div class="row">
+      {% if cattegories == "menu" %}
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div class="logo">
+          {% if settings.logo_use_image%}
+          <a href="/">{{'logo.png' | asset_url | img_tag}}</a>
+          {% else %}
+          <a href="/"><img src="{{'logo.gif' | asset_url}}" alt=""></a>
+          {%endif%}
+        </div>
+      </div>
+      {% endif %}
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <ul class="category-menu">
+  		  {% include 'render-layout' register_section: 'sc_categories1'  %}
+          {% if cattegories == "menu" %}
+          {% assign position ="cattegories" %}
+          {% include "mini-cart" %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

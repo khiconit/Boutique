@@ -1,0 +1,92 @@
+<footer class="footer style9">
+  <div class="container">
+    <div class="footer-service">
+      <div class="row">
+        {% include 'render-layout' register_section: 'sc_footer_shipping'  %}
+      </div>
+    </div>
+  </div>
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-3">
+          <div class="widget contact-info style3">
+            <div class="logo">
+              <a href="/"><img alt="" src="{{'footer_logo.png' | asset_url}}"></a>
+            </div>
+            <div class="content">
+              <p class="address"><i class="fa fa-home"></i><span>{{settings.footer_widget_address_contact}}</span></p>
+              <p class="phone"><i class="fa fa-phone"></i> <span> {{settings.footer_widget_phone_contact}}</span></p>
+              <p class="mail"><i class="fa fa-envelope"></i><span>{{settings.footer_widget_email_contact}}</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="widget widget_tag_cloud">
+            <h2 class="widget-title">{{settings.footer_widget_title_tags}}</h2>
+            <div class="tagcloud">
+              {% for tag in collections.all.tags %}
+              <a href="#" class="tag-link-17" title="1 topic" style="font-size: 8pt;">{{ tag }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="widget fick_photo">							
+            <h3 class="widget-title">{{settings.footer_widget_title_flick}}</h3>							
+            <ul class="fick-photo">
+              <li><a href="#"><img alt="" src="{{"flick.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick.gif" | asset_url}}"></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="widget widget_newletter">
+          {% if settings.newsletter_form_action != blank %}
+            {% assign form_action = settings.newsletter_form_action %}
+          {% else %}
+            {% assign form_action = '#' %}
+          {% endif %}
+            <h3 class="widget-title">{{settings.footer_widget_title_newsletter}}</h3>
+            
+            <form class="newletter" action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+              <input class="email-text" type="text" name="newsletter" placeholder="Your email..." value="">
+              <span><button class="button add_to_cart_button" name="subscribe" id="subscribe" type="submit">OK</button></span>
+            </form>
+          </div>
+          <div class="widget widget_social">							
+            <h3 class="widget-title">{{settings.footer_widget_title_follow}}</h3>
+            <div class="content">
+              {% include "social-links" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="payment">
+        <div class="head">
+          <span>{{settings.footer_small_title_payment}}</span>
+          <span class="PlayfairDisplay">{{settings.footer_widget_title_payment}}</span>
+        </div>
+        <div class="list">
+          {% for i in (1..8) %}
+          {% assign link = "payment_link_" %}
+          {% assign image = "payment_image_" | append : i %}
+          {% assign link = link | append : i %}
+          {% assign image = image | append : ".png"%}
+          {% if settings[link] != blank %}
+          	<a href="{{settings[link]}}" class="item"><img src="{{image | asset_url}}" alt=""></a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

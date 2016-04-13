@@ -1,0 +1,64 @@
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row flex-flow">
+        <div class="col-sm-12 col-md-4 footer-sidebar">
+          <div class="widget contact-info">
+            <span class="text-primary PlayfairDisplay">{{settings.footer_small_title_contact}}</span>
+            <h3 class="widget-title">{{settings.footer_widget_title_contact}}</h3>
+            <div class="content">
+              <p class="address">{{settings.footer_widget_address_contact}}</p>
+              <p class="phone"><i class="fa fa-phone"></i> {{settings.footer_widget_phone_contact}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 footer-sidebar">
+          <div class="widget our-service">
+            <span class="text-primary PlayfairDisplay">{{settings.footer_small_title_services}}</span>
+            {% assign footer_handle1 = settings.footer_widget_handle_services %}
+            <h3 class="widget-title">{{ settings.footer_widget_title_services | upcase }}</h3>
+            <div class="content">
+              <ul>
+                {% for link in linklists[footer_handle1].links %}
+                <li><a href="{{link.url}}">{{link.title | capitalize }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 footer-sidebar">
+          <div class="widget widget_social">
+            <span class="text-primary PlayfairDisplay">{{settings.footer_small_title_follow}}</span>
+            <h3 class="widget-title">{{settings.footer_widget_title_follow}}</h3>
+            <div class="content">
+              {% include "social-links" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="payment">
+        <div class="head">
+          <span>{{settings.footer_small_title_payment}}</span>
+          <span class="PlayfairDisplay">{{settings.footer_widget_title_payment}}</span>
+        </div>
+        <div class="list">
+          {% for i in (1..8) %}
+          {% assign link = "payment_link_" %}
+          {% assign image = "payment_image_" | append : i %}
+          {% assign link = link | append : i %}
+          {% assign image = image | append : ".png"%}
+          {% if settings[link] != blank %}
+          	<a href="{{settings[link]}}" class="item"><img src="{{image | asset_url}}" alt=""></a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="scroll_top" title="Scroll to Top" style="display: block;"><i class="fa fa-arrow-up"></i></a>

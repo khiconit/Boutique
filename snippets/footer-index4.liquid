@@ -1,0 +1,42 @@
+
+<footer class="footer style2 style4">
+  <div class="footer-top">
+    <div class="container">
+      <div class="widget contact-info">
+        <div class="logo">
+          <a href="/"><img alt="" src="{{'footer_logo.png' | asset_url}}"></a>
+        </div>
+        <div class="content">
+          <p>{{settings.footer_widget_address_contact}}</p>
+          <p class="phone"><i class="fa fa-phone"></i> <span>{{settings.footer_widget_phone_contact}}</span></p>
+        </div>
+      </div>
+
+      <ul class="footer-menu">
+        {% assign footer_handle2 = settings.footer_widget_handle_infomation %}
+        {% for link in linklists[footer_handle2].links %}
+          <li><a href="{{link.url}}">{{link.title | capitalize }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="payment">
+        <div class="head">
+          <span>{{settings.footer_small_title_payment}}</span>
+          <span class="PlayfairDisplay">{{settings.footer_widget_title_payment}}</span>
+        </div>
+        <div class="list">
+          {% for i in (1..8) %}
+          {% assign link = "payment_link_" %}
+          {% assign image = "payment_image_" | append : i %}
+          {% assign link = link | append : i %}
+          {% assign image = image | append : ".png"%}
+          {% if settings[link] != blank %}
+          	<a href="{{settings[link]}}" class="item"><img src="{{image | asset_url}}" alt=""></a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+  </div>
+</footer>

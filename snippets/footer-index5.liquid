@@ -1,0 +1,78 @@
+<footer class="footer style2 style6">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-3">
+          <div class="widget widget_text">
+            <div class="logo text-center margin-bottom-25">
+              <a href="/"><img alt="" src="{{'footer_logo.png' | asset_url}}"></a>
+            </div>
+            <p class="text-center">{{settings.footer_description}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-sm-12 col-md-3">
+          <div class="widget contact-info">
+            <h3 class="widget-title">{{settings.footer_widget_title_contact}}</h3>	
+            <div class="content">
+              <p class="address"><strong>{{"layout.footer.address_label" | t }}</strong> <span>{{settings.footer_widget_address_contact}}</span></p>
+              <p><strong>{{"layout.footer.phone_label" | t }}</strong> <span>{{settings.footer_widget_phone_contact}}</span></p>
+              <p class="mail"><strong>{{"layout.footer.email_label" | t }}</strong> <span>{{settings.footer_widget_email_contact}}</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="widget our-service">		
+            {% assign footer_handle2 = settings.footer_widget_handle_infomation %}
+            <h3 class="widget-title">{{ settings.footer_widget_title_infomation | upcase }}</h3>
+            <div class="content">
+              <ul>
+                {% for link in linklists[footer_handle2].links %}
+                <li><a href="{{link.url}}">{{link.title | capitalize }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="widget widget_social">	
+            <div class="content">						
+              <h3 class="widget-title">{{settings.footer_widget_title_follow}}</h3>
+              <div class="content">
+                {% include "social-links" %}
+              </div>
+            </div>
+          </div>
+          <div class="widget widget_text">
+            <div class="payment">
+              <h3 class="widget-title">{{settings.footer_widget_title_payments}}</h3>	
+              <div class="content">
+                <img src="{{'payments_image_1.png' | asset_url }}" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="widget fick_photo">							
+            <h3 class="widget-title">{{settings.footer_widget_title_flick}}</h3>							
+            <ul class="fick-photo">
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+              <li><a href="#"><img alt="" src="{{"flick1.gif" | asset_url}}"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="payment"><span>Copyrights @ 2016 All Rights Reserved by KuteThemes</span> <a href="#"> KuteThemes</a></div>
+  </div>
+</footer>

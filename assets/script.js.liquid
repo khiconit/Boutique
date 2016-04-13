@@ -609,6 +609,30 @@
             /* Act on the event */
                $("html, body").animate({ scrollTop: 0 }, "slow");
         });
+  		$('.box-settings').on('hover',function(e){
+          var names = $('.currency-list .clearfix li.active').attr('name');
+          var name_check = $('.chosen-single span').text();
+          if(names != name_check ){
+            $('.currency-list .clearfix li').removeAttr("class");
+            $(".currency-list .clearfix li[name='"+ name_check +"']").attr("class","active");
+          }
+        });
+        $(document).on('click','.currency-list .clearfix li',function(e){
+          $('.currency-list .clearfix li').removeAttr("class");
+          $(this).attr("class","active");
+          var name_currency = $(this).attr('name');
+          $('.currency-picker').val(name_currency);
+          $('#currency_display').text(name_currency);
+          $('.currency-picker').val(name_currency).change();
+          Currency.cookie.write(name_currency);
+
+          //location.reload();
+        });
+
+
+        if (cookieCurrency != null) {
+          $("#currency_display").text(cookieCurrency);
+        }
 
     });
 })(jQuery);

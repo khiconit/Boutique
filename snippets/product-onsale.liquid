@@ -88,7 +88,16 @@
                       
                       <script type="text/javascript"> 
                         $(document).ready(function(){
-                          var quan = parseInt($("#Quantity").val());
+                          
+                          
+                           
+                          
+                          $('#Quantity').keyup(function(){                              
+                              var textinput = $(this).val();                      
+                              $(this).attr('value',textinput);
+                          });
+                          
+                        var quan = parseInt($("#Quantity").val());
                           
                           $(".up").click(function(){
                             quan = quan+1; 
