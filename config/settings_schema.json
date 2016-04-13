@@ -922,7 +922,7 @@
       }
     ]
   },
-    {
+  {
     "name": "About Page",
     "settings": [
       {
@@ -1448,116 +1448,6 @@
       {
         "type": "checkbox",
         "id": "use_contact_map",
-        "label": "Show Google Map"
-      },
-      {
-        "type": "textarea",
-        "id": "map_iframe",
-        "label": "Link Googlemap",
-        "info": "* Edit width = 2000 ; height = 450px"
-      },
-      {
-        "type": "text",
-        "id": "title_call",
-        "label": "Title Give Call",
-        "default": "GIVE US A CALL"
-      },
-      {
-        "type": "textarea",
-        "id": "call_desc",
-        "label": "Give Call Description",
-        "default": "Want to speak with a sales representative? Drop us a line and we’d be happy to answer any questions!"
-      },
-      {
-        "type": "text",
-        "id": "phone_contact",
-        "label": "Phone your contact",
-        "default": " (+800) 6868 2268"
-      }
-    ]
-  },
-  {
-    "name": "Look Book Page",
-    "settings": [
-      {
-        "type": "header",
-        "content": "== Book Look"
-      },
-      {
-        "type": "image",
-        "id": "47.jpg",
-        "label": "Background Image About"
-      }
-    ]
-  },
-  {
-    "name": " 404 Page",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Information 404 Page"
-      },
-      {
-        "type": "text",
-        "id": "heading404",
-        "label": "Heading H1 404",
-        "default": "404"
-      },
-      {
-        "type": "textarea",
-        "id": "title404",
-        "label": "Title 404",
-        "default": "Oops! That page can't be found."
-      },
-      {
-        "type": "textarea",
-        "id": "information_desc_404",
-        "label": "Information 404",
-        "default": "Sorry, but the page you are looking for is not found. Please, make sure you have typed the current URL."
-      }
-    ]
-  },
-  {
-    "name": "Contact Page",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Contact Us"
-      },
-      {
-        "type": "image",
-        "id": "45.jpg",
-        "label": "Background Image About"
-      },
-      {
-        "type": "textarea",
-        "id": "banner_contact_title",
-        "label": "Title banner Contact us",
-        "default": "We’re here to make you feel happy!"
-      },
-      {
-        "type": "text",
-        "id": "banner_contact_desc",
-        "label": "Banner Contact Title",
-        "default": "LET’S TALK!"
-      },
-      {
-        "type": "header",
-        "content": "== Form Contact"
-      },
-      {
-        "type": "textarea",
-        "id": "contact_title",
-        "label": "Contact Page Title Form",
-        "default": "REACH US FOR ANY QUESTIONS YOU MIGHT HAVE"
-      },
-      {
-        "type": "header",
-        "content": "Map settings"
-      },
-      {
-        "type": "checkbox",
-        "id": "use_contact_map",
         "label": "Show Google Map",
         "default": true
       },
@@ -1624,7 +1514,6 @@
         "id": "information_desc_404",
         "label": "Information 404",
         "default": "Sorry, but the page you are looking for is not found. Please, make sure you have typed the current URL."
->>>>>>> origin/master
       }
     ]
   },
@@ -2581,7 +2470,6 @@
     "name": "Footer",
     "settings": [
       {
-<<<<<<< HEAD
         "type": "header",
         "content": "== General Settings"
       },
@@ -2893,7 +2781,7 @@
         "type": "text",
         "id": "payment_link_8",
         "label": "Link"
-	  }
+      }
     ]
   },
   {
