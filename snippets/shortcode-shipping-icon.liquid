@@ -1,12 +1,18 @@
+{% if template contains "cart" or "wishlist" %}
+    <div class="margin-top-60">
+      <div class="container">
+        <div class="row">
+    {% else %}
 <div class="margin-top-60 margin-bottom-30">
   <div class="row">
+        {% endif %}
     <div class="col-sm-12 col-md-4">
       <div class="element-icon style2">
         <div class="icon">
           {% if settings.use_img_1 %}
-          	{{'shipping_info_1_img' | asset_url | img_tag}}
+            {{'shipping_info_1_img' | asset_url | img_tag}}
           {% else %}
-          	<i class="flaticon flaticon-origami28"></i>
+            <i class="flaticon flaticon-origami28"></i>
           {% endif %}
         </div>
         <div class="content">
@@ -18,9 +24,9 @@
       <div class="element-icon style2">
         <div class="icon">
           {% if settings.use_img_2 %}
-          	{{'shipping_info_2_img' | asset_url | img_tag}}
+            {{'shipping_info_2_img' | asset_url | img_tag}}
           {% else %}
-          	<i class="flaticon flaticon-curvearrows9"></i>
+            <i class="flaticon flaticon-curvearrows9"></i>
           {% endif %}
         </div>
         <div class="content">
@@ -32,9 +38,9 @@
       <div class="element-icon style2">
         <div class="icon">
           {% if settings.use_img_3 %}
-          	{{'shipping_info_3_img' | asset_url | img_tag}}
+            {{'shipping_info_3_img' | asset_url | img_tag}}
           {% else %}
-          	<i class="flaticon flaticon-headphones54"></i>
+            <i class="flaticon flaticon-headphones54"></i>
           {% endif %}
         </div>
         <div class="content">
@@ -42,5 +48,8 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+{% if template contains "cart" or "wishlist" %}
+    </div></div></div>
+      {% else %}
+        </div></div>
+{% endif %}

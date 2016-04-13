@@ -33,7 +33,7 @@
 							{% assign sectionSpace = section | split: ' ' %}
 								{% for space in sectionSpace %}
 									{% if forloop.first %}
-										{% assign template = space | prepend: 'shortcode-' %}
+										{% assign shortcode_template = space | prepend: 'shortcode-' %}
 									{% else %}
 										{% if forloop.last %}
 											{% assign variables = variables | append: space | append: '||' %}
@@ -44,7 +44,7 @@
 								{% endfor %}
 								{% capture output %}
 								{% assign buildVariables = variables | split: '||' %}
-									{% include template variable: buildVariables %}
+									{% include shortcode_template variable: buildVariables %}
 								{% endcapture %}
 								{% if output contains 'Liquid error' %} 
 									[{{ shortcodeFull }}] 
@@ -55,7 +55,7 @@
 								{% assign sectionSpace = section | split: ' ' %}
 								{% for space in sectionSpace %}
 									{% if forloop.first %}
-										{% assign template = sectionSpace.first | prepend: 'shortcode-' %}
+										{% assign shortcode_template = sectionSpace.first | prepend: 'shortcode-' %}
 									{% else %}
 										{% if forloop.last %}
 											{% assign keys = keys | append: space | replace: '=', ''| append: '||' %}
@@ -72,7 +72,7 @@
 								{% assign variablesFinal = variables | split: '||' %}
 								{% assign keysFinal = keys | replace: ' ', '' | split: '||' %}
 								{% capture output %}
-									{% include template variable: variablesFinal key: keysFinal %}
+									{% include shortcode_template variable: variablesFinal key: keysFinal %}
 								{% endcapture %}
 								{% if output contains 'Liquid error' %}
 								 	[{{ shortcodeFull }}] 
