@@ -32,7 +32,8 @@
     "newsletter_form": {
       "newsletter_email": "Your email",
       "submit": "Subscribe",
-      "confirmation": "Thanks for subscribing"
+	  "confirmation": "Thanks for subscribing",
+      "placeholder": "Your email address here..."
     },
     "search": {
       "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",
@@ -91,7 +92,9 @@
       "checkout": "Check Out",
       "proceed_to_checkout": "Proceed to checkout",
       "empty": "Your cart is currently empty.",
-      "continue_browsing_html": "Continue browsing <a href=\"/collections/all\">here</a>."
+         "continue_shopping": "Continue shopping",
+       "view_cart": "Shopping Cart",
+      "continue_browsing_html": "Continue browsing <a href=\"\/collections\/all\">here<\/a>."
     },
     "label": {
       "product": "Product",
@@ -259,15 +262,18 @@
       "or": "or"
     },
     "footer": {
-      "blog_title": "Latest News",
-      "linklist_title": "Quick Links",
-      "social_title": "Follow Us",
+      "address_label": "ADDRESS",
+      "phone_label": "Call US NOW",
+      "email_label": "EMAIL ",
       "social_platform": "{{ name }} on {{ platform }}",
       "contact_title": "Contact Us",
       "newsletter_title": "Newsletter",
       "newsletter_caption": "Sign up for the latest news, offers and styles",
       "copyright": "Copyright"
     }
+},
+"currency_title": "Select currency"
+      }
   },
   "products": {
     "general": {
