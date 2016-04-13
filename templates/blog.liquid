@@ -23,8 +23,10 @@
           </div>
       </div>
       {% if paginate.pages > 1 %}
-        <div class="pagination">
-          {{ paginate | default_pagination | replace: '&laquo; Previous', 'Previous' | replace: 'Next &raquo;', 'Next' }}
+        <div class="navigation pagination">
+          <div class="nav-links">
+            {{ paginate | default_pagination | replace: '&laquo; Previous' | replace: 'Next &raquo;'}}
+          </div>
         </div>
       {% endif %}
       <div class="margin-top-60 margin-bottom-30">    

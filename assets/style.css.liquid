@@ -202,6 +202,7 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus, input[type=
   background-color: #111111;
   font-size: 12px;
   border: none;
+  font-family: "Montserrat";
 }
 .button:hover, input[type="submit"]:hover{
     background-color: #c99947;
@@ -250,6 +251,7 @@ input[type=text],
 input[type=email],
 input[type=password]{
     border: 1px solid #e5e5e5;
+    width: 100%;
 }
 .PlayfairDisplay{
     font-family: 'PlayfairDisplay';
@@ -3701,6 +3703,32 @@ DS
     width: 100%;
     margin-bottom: 33px;
 }
+.navigation .nav-links span{
+    display: inline-block;
+    margin: 0 20px;
+    color: #222;
+    font-size: 16px;
+}
+.navigation .current{
+    text-decoration: underline;
+}
+.nav-links .prev a:before{
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f177";
+    
+}
+.nav-links .next a:before{
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f178";
+}
 
 /* BREADCRUMBS */
 .breadcrumbs{
@@ -3786,136 +3814,6 @@ DS
     color: #c99947;
 }
 
-/* Page account Login and Register */
-.login-register.main-container{
-   padding: 50px 0;
-}
-.login-register.main-container .main-content{
-    margin: 0;
-    padding-bottom: 0;
-}
-.login-register.main-container .main-content .page-title{
-    text-transform: uppercase;
-    margin-bottom: 55px;
-    margin-top: -5px;
-}
-.login-register.main-container .main-content .page-title h3{
-    font-weight: 500;
-}
-.login-register.main-container .main-content .page-main-content .form-heading{
-    font-size: 16px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-}
-.login-register.main-container .main-content .page-main-content .label_login_register{
-    display: block;
-    width: 100%;
-    font-weight: normal;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-}
-.login-register.main-container .main-content .page-main-content .text-recover{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-}
-#rememberme{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-    margin-top: 10px;
-    margin-right: 5px;
-}
-
-/* account page */
-.customer-logged-in{
-    font-family: 'Roboto',sans-serif;
-    font-size: 14px;
-    line-height: 24px;
-    color: #555;
-    font-weight: 400;
-}
-.customer-logged-in .top-account{
-  margin: 0 0 30px;
-  padding: 0;
-}
-.customer-logged-in .main-container{
-    padding: 50px 0;
-}
-.customer-logged-in .main-container .main-content{
-    margin-top: 0;
-    padding-bottom: 0;
-}
-.customer-logged-in .main-container .main-content .page-title{
-    margin-top: 0;
-}
-
-.customer-logged-in .top-account .acc-form .myaccount_user a{
-  text-decoration: underline;
-}
-.customer-logged-in .address-box{
-  float: left;
-  margin: 0 0 30px;
-  width: 100%;
-}
-.customer-logged-in .address-box >h2{
-  font-size: 22px;
-  text-transform: uppercase;
-  margin: 0 0 5px;
-  line-height:1.35;
-  font-family: 'Montserrat',sans-serif;
-}
-.customer-logged-in .address-col2{
-  width:100%;
-}
-.customer-logged-in .address-col2 .address{
-  margin-bottom: 20px;
-  font-style: normal;
-  line-height:2;
-}
-.customer-logged-in .address-col2 .address h3{
-  font-size: 16px;
-  margin: 0 0 10px;
-  padding: 15px 0;
-  width: 100%;
-  font-family: 'Montserrat',sans-serif;
-}
-.customer-logged-in .address-col2 .address .view-address{
-  float:right;
-}
-.customer-logged-in .address-col2 .col-1.address{
-  float: left;
-  width: 48%;
-
-}
-.customer-logged-in .address-col2  .col-2.address{
-  float: right;
-  width: 48%;
-}
-
-/* addresses page */
-.template-customers-addresses .address-required{
-    margin-left: 5px;
-}
-.template-customers-addresses .title-address{
-    text-transform: uppercase;
-    font-size: 22px;
-}
-.template-customers-addresses .edit-address-title{
-    text-transform: uppercase;
-}
-.template-customers-addresses .title-account-address{
-    text-transform: uppercase;
-    font-size: 30px;
-}
-.template-customers-addresses .chosen-container{
-    width: 100% !important;
-    margin: 0 0 22px;
-}
-.template-customers-addresses .add_newaddress{
-    font-size:22px;
-}
 /*-------------------------
   WIDGET
 --------------------------*/
@@ -3975,7 +3873,7 @@ DS
 .tagcloud a{
     height: 35px;
     line-height: 35px;
-    font-size: 12px!important;
+    font-size: 13px;
     color: #222;
     display: inline-block;
     float: left;
@@ -4123,14 +4021,16 @@ DS
 .widget_categories li{
     line-height: 49px;
     border-bottom: 1px solid #e8e8e8;
+    list-style: none;
+    margin-bottom: 0 !important;
 }
 .widget_categories li:last-child{
    border-bottom: none;
 }
 .widget_categories li>a{
     color: #333;
-    padding-left: 10px;
     display: inline-block;
+    font-family: "Roboto";
 }
 .widget_categories li>a:before{
     content: "\f105";
@@ -4153,7 +4053,7 @@ DS
     visibility: inherit;
 }
 .widget_categories li>a:hover{
-    color: #e1571a;
+    color: #c99947;
 }
 .widget_categories li ul{
     padding-left: 20px;
@@ -5387,6 +5287,7 @@ FOOTER
 }
 .section-title.style7 h3{
     margin-top: 7px;
+    font-style: initial;
 }
 
 .section-title.style8 h3:before{
@@ -7491,23 +7392,23 @@ BLOG PAGE
     padding-bottom: 5px;
     text-transform: uppercase;
 }
-.comment-form {
+.comment-form-reply {
   border-top: 1px solid #eeeeee;
 }
-.comment-form .comment-reply-title {
+.comment-form-reply .comment-reply-title {
   font-size: 14px;
   margin: 40px 0;
   text-transform: uppercase;
 }
-.comment-form .submit.style2 {
+.comment-form-reply .submit.style2 {
   padding: 13px 50px;
 }
-.comment-form form{
+.comment-form-reply form{
     font-family: "Roboto",sans-serif;
   font-size: 14px;
   font-weight: 300;
 }
-.comment-form input[type="text"] {
+.comment-form-reply input[type="text"] {
   clear: both;
   float: left;
   margin-bottom: 30px;
@@ -7540,7 +7441,7 @@ BLOG PAGE
 .clear {
   clear: both;
 }
-.comment-form .submit {
+.comment-form-reply .submit {
   border: none;
 }
 /* Boutique banner*/
@@ -8739,6 +8640,7 @@ table{
     padding-left: 10px;
     padding-right: 10px;
     text-transform: uppercase;
+    font-family: "Montserrat"
 }
 .shop_table.cart .product-name a{
     color: #222222;
@@ -8756,8 +8658,8 @@ table{
     color: #555;
 }
 .box-coupon {
-    border: 3px dashed #a2a2a2;
-    padding: 15px;
+    /*border: 3px dashed #a2a2a2;
+    padding: 15px;*/
     padding-bottom: 80px;
 }
 .box-coupon .coupon-box-title {
@@ -8772,9 +8674,17 @@ table{
     margin: 0 auto;
 }
 .box-coupon .input-text {
-    padding: 8px 15px;
+    /*padding: 8px 15px;
+    min-width: 370px;
+    margin-right: 5px;*/
     min-width: 370px;
     margin-right: 5px;
+    border: 1px solid #e5e5e5;
+    min-height: 150px;
+    margin: 0 0 20px;
+    max-width: 100%;
+    padding: 0 0 0 10px;
+    width: 100%;
 }
 .box-cart-total {
     border: 1px solid #dddddd;
@@ -8816,7 +8726,7 @@ table{
     vertical-align: middle;
 }
 .box-cart-total .order-total td{
-    border-top: 1px solid #ddd;
+    /*border-top: 1px solid #ddd;*/
     padding-top: 30px;
     padding-bottom: 30px;
     vertical-align: middle;
@@ -10340,9 +10250,215 @@ RESPONSIVE
         display: none;
     }
 }
+
+
+/* Page account Login and Register */
+.login-register.main-container{
+   padding: 50px 0;
+}
+.login-register.main-container .main-content{
+    margin: 0;
+    padding-bottom: 0;
+}
+.login-register.main-container .main-content .page-title{
+    text-transform: uppercase;
+    margin-bottom: 55px;
+    margin-top: -5px;
+}
+.login-register.main-container .main-content .page-title h3{
+    font-weight: 500;
+}
+.login-register.main-container .main-content .page-main-content .form-heading{
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.login-register.main-container .main-content .page-main-content .label_login_register{
+    display: block;
+    width: 100%;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+}
+.login-register.main-container .main-content .page-main-content .text-recover{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+}
+#rememberme{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+/* account page */
+.customer-logged-in{
+    
+    font-size: 14px;
+    line-height: 24px;
+    color: #555;
+    font-weight: 400;
+}
+.customer-logged-in .top-account{
+  margin: 0 0 30px;
+  padding: 0;
+}
+.customer-logged-in .main-container{
+    padding: 50px 0;
+}
+.customer-logged-in .main-container .main-content{
+    margin-top: 0;
+    padding-bottom: 0;
+    font-family: 'Roboto',sans-serif;
+}
+.customer-logged-in .main-container .main-content h1, h2, h3{
+    font-family: 'Montserrat',sans-serif;
+}
+.customer-logged-in .main-container .main-content .page-title{
+    margin-top: 0;
+}
+
+.customer-logged-in .top-account .acc-form .myaccount_user a{
+  text-decoration: underline;
+}
+.customer-logged-in .address-box{
+  float: left;
+  margin: 0 0 30px;
+  width: 100%;
+}
+.customer-logged-in .address-box >h2{
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 0 0 5px;
+  line-height:1.35;
+  font-family: 'Montserrat',sans-serif;
+}
+.customer-logged-in .address-col2{
+  width:100%;
+}
+.customer-logged-in .address-col2 .address{
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height:2;
+}
+.customer-logged-in .address-col2 .address h3{
+  font-size: 16px;
+  margin: 0 0 10px;
+  padding: 15px 0;
+  width: 100%;
+  font-family: 'Montserrat',sans-serif;
+}
+.customer-logged-in .address-col2 .address .view-address{
+  float:right;
+}
+.customer-logged-in .address-col2 .col-1.address{
+  float: left;
+  width: 48%;
+
+}
+.customer-logged-in .address-col2  .col-2.address{
+  float: right;
+  width: 48%;
+}
+
+/* addresses page */
+.template-customers-addresses .address-required{
+    margin-left: 5px;
+}
+.template-customers-addresses .title-address{
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.template-customers-addresses .edit-address-title{
+    text-transform: uppercase;
+}
+.template-customers-addresses .title-account-address{
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.template-customers-addresses .chosen-container{
+    width: 100% !important;
+    margin: 0 0 22px;
+}
+.template-customers-addresses .add_newaddress{
+    font-size:22px;
+}
+
 .lookbook-item{
     display: none;
 }
 .lookbook-item.page1{
     display: block;
 }
+
+.flexslider{
+    margin: 0 !important;
+    box-shadow: none !important;
+    border:0 !important;
+}
+.flex-direction-nav a.flex-next{
+    text-indent: 9999px;
+}
+.flex-control-nav{
+    bottom: 50% !important;
+}
+.flex-control-paging li a.flex-active{
+    border-color: #c99947 !important;
+}
+.flex-control-nav li{
+    opacity: 0;
+    display: none;
+
+}
+.flexslider:hover .flex-control-nav li{
+    opacity: 1;
+    display: inline-block !important;
+}
+
+.player img{
+    width: 100%;
+}
+
+.blog-news-pages .title-lr{
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.google_map{
+    line-height: 0;
+}
+
+.wishlist-remove i:hover{
+    color: #c99947;
+}
+#addtocart-message{
+    padding: 1em 2em 1em 2em;
+    margin-bottom: 30px;
+    position: relative;
+    background-color: #fafafa;
+    color: #515151;
+    border-top: 3px solid #337ab7;
+    list-style: none!important;
+    width: auto;
+    word-wrap: break-word;
+}
+#loading{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background:rgba(105, 105, 105, 0.6);
+  z-index: 9999999999;
+  top: 0;
+  display: none;
+  left: 0;
+  transition: width 2s, height 3s;
+  -webkit-transition: width 2s, height 3s;
+}
+#loading  img{
+    position:absolute;
+    top:50%;
+    z-index:1;
+    left:50%;
+  }

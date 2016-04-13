@@ -436,13 +436,13 @@ ul, ol {
 
 ul { list-style: none outside; }
 ol { list-style: decimal; }
-ul ul, ul ol,
-ol ol, ol ul { margin: 4px 0 5px 20px; }
+// ul ul, ul ol,
+// ol ol, ol ul { margin: 4px 0 5px 20px; }
 li { margin-bottom: 0.25em; }
 
 ol, ul.square, ul.disc { margin-left: 20px; }
 ul.square { list-style: square outside; }
-ul.disc { list-style: disc outside; }
+// ul.disc { list-style: disc outside; }
 ol.alpha { list-style: lower-alpha outside; }
 
 .inline-list li {
@@ -468,11 +468,11 @@ th {
   font-weight: bold;
 }
 
-th, td {
-  text-align: left;
-  padding: $gutter / 2;
-  border: 1px solid $colorBorder;
-}
+// th, td {
+//   text-align: left;
+//   padding: $gutter / 2;
+//   border: 1px solid $colorBorder;
+// }
 
 /*============================================================================
   #Grid Setup
@@ -946,46 +946,47 @@ html input[disabled] {
   cursor: default;
 }
 
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  margin: 0;
-  @include accentFontStack;
-  line-height: 1.42;
-  text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-  cursor: pointer;
-  border: 1px solid transparent;
-  @include prefix('user-select', 'none');
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: $radius;
-
   /*================ Set primary button colors - can override later ================*/
-  background-color: $colorBtnPrimary;
-  color: $colorBtnPrimaryText;
-  @include transition(background-color 0.1s ease-in);
+// .btn {
+//   display: inline-block;
+//   padding: 8px 16px;
+//   margin: 0;
+//   @include accentFontStack;
+//   line-height: 1.42;
+//   text-decoration: none;
+//   text-align: center;
+//   vertical-align: middle;
+//   white-space: nowrap;
+//   cursor: pointer;
+//   border: 1px solid transparent;
+//   @include prefix('user-select', 'none');
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   border-radius: $radius;
 
-  &:hover {
-    background-color: $colorBtnPrimaryHover;
-    color: $colorBtnPrimaryText;
-  }
 
-  &:active,
-  &:focus {
-   background-color: $colorBtnPrimaryActive;
-   color: $colorBtnPrimaryText;
-  }
+//   background-color: $colorBtnPrimary;
+//   color: $colorBtnPrimaryText;
+//   @include transition(background-color 0.1s ease-in);
 
-  &[disabled],
-  &.disabled {
-    cursor: default;
-    color: $disabledBorder;
-    background-color: $disabledGrey;
-  }
-}
+//   &:hover {
+//     background-color: $colorBtnPrimaryHover;
+//     color: $colorBtnPrimaryText;
+//   }
+
+//   &:active,
+//   &:focus {
+//    background-color: $colorBtnPrimaryActive;
+//    color: $colorBtnPrimaryText;
+//   }
+
+//   &[disabled],
+//   &.disabled {
+//     cursor: default;
+//     color: $disabledBorder;
+//     background-color: $disabledGrey;
+//   }
+// }
 
 .btn--secondary,
 input.btn--secondary {
@@ -1137,9 +1138,9 @@ img.auto,
 }
 
 /*================ Partials | Forms ================*/
-form {
-  margin-bottom: $gutter;
-}
+// form {
+//   margin-bottom: $gutter;
+// }
 
 input,
 textarea,
@@ -1158,28 +1159,28 @@ input[type="number"],
 input[type="tel"],
 input[type="submit"],
 textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
 }
 
-input,
-textarea,
-select,
-fieldset {
-  border-radius: $radius;
-  max-width: 100%;
+// input,
+// textarea,
+// select,
+// fieldset {
+//   border-radius: $radius;
+//   max-width: 100%;
 
-  &.input-full {
-    width: 100%;
-  }
-}
+//   &.input-full {
+//     width: 100%;
+//   }
+// }
 
-input,
-select,
-textarea {
-  padding: 8px 10px;
-  line-height: 1.42;
-}
+// input,
+// select,
+// textarea {
+//   padding: 8px 10px;
+//   line-height: 1.42;
+// }
 
 fieldset {
   border: 1px solid $colorBorder;
@@ -2224,14 +2225,14 @@ $socialIconFontStack: 'icons';
 
 /*================ View-specific styles ================*/
 /*================ Templates | Blog and Comments ================*/
-.comment {
-  margin-bottom: $gutter;
+// .comment {
+//   margin-bottom: $gutter;
 
-  & + & {
-    border-top: 1px solid $colorBorder;
-    padding-top: $gutter;
-  }
-}
+//   & + & {
+//     border-top: 1px solid $colorBorder;
+//     padding-top: $gutter;
+//   }
+// }
 
 .meta-sep {
   position: relative;

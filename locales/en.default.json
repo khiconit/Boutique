@@ -53,7 +53,7 @@
       "older_post": "Older Post",
       "newer_post": "Newer Post",
       "tags": "Tags",
-      "comment_meta_html": "{{ author }} on {{ date }}",
+      "comment_meta_html": "{{ author }} {{ date }}",
       "read_more": "Read more"
     },
     "comments": {
@@ -73,7 +73,8 @@
     },
     "sidebar": {
       "recent_articles": "Recent Articles",
-      "categories": "Categories"
+      "categories": "Categories",
+      "tags":"Tag"
     }
   },
   "cart": {
@@ -285,6 +286,7 @@
       "select_option": "Select Option",
       "view_cart": "View cart",
       "in_stock": "In Stock",
+      "out_of_stock":"OutOfStock",
       "continue_shopping": "Continue shopping"
     },
     "zoom": {

@@ -6,7 +6,7 @@
 <div class="main-container">
     <div class="container">
       <div class="blog-detail">
-        <article class="blog-item">
+        <article class="blog-item" itemscope itemtype="http://schema.org/Article">
           <h1 class="blog-title">{{ article.title }}</h1>
           <div class="entry-meta">
             <span class="post-date">{{ article.published_at | date: "%d %b %Y" }}</span>
@@ -17,11 +17,12 @@
                   </span>                                   
                   </div>
           <div class="post-thumbnail">                               
-                      <a href="#"><img alt="17_blog" src="images/blogs/18.jpg"></a>
-                  </div> 
-                  <div class="blog-short-desc">
-                     {% include  'shortcode' load: article.content %}    
-                  </div>
+            {% assign excerpt_start =  article.excerpt | split: '[end]' %}
+            {% assign end_excerpt =  excerpt_start[0]  | split: '[start]'  %}
+          </div>
+          <div class="blog-short-desc">
+             {% include  'shortcode' load: article.content %}    
+          </div>
         </article>
       </div>
       <div class="comment-social">  
@@ -34,10 +35,10 @@
         </div>
       </div>
       <div class="author-info-wrap">
-        <div class="avatar">{{'admin_avatar_1449223716-68x68.png'|  asset_url | img_tag }}</div>
+        <div class="avatar"><img class="avatar avatar-68 photo" src="//www.gravatar.com/avatar/{{ article.user.email | md5 }}?s=50" alt="{{article.author}}"></div>
         <div class="content">
           <div class="author-name"><a href="#">Admin</a></div>
-          <div class="text"><p>Praesent accumsan, nunc eget semper cursus, tellus nisl sagittis massa, vel egestas erat odio sed sapien. In malesuada ipsum ut elit pretium. In a luctus tellus. Fusce id euismod justo.</p></div>
+          <div class="text"><p>{{article.user.bio | strip_html }}</p></div>
         </div>
       </div>
       <div class="related-wrap">
@@ -90,12 +91,8 @@
                         <div id="{{ comment.id }}" class="comment-item first{% if article.comments_count == 0 %} last{% endif %}">
                           {% include 'comment' %}
                         </div>
-                        <ol class="children">
-                          <li class="comment odd">
-                            {% include 'comment' %}
-                          </li><!-- #comment-## -->
-                        </ol><!-- .children -->
                       {% endif %}
+
                     </li><!-- #comment-## -->
                     {% comment %}
                     Showing the rest of the comments.
@@ -117,7 +114,7 @@
                   {% endif %}
                 {% endif %}                           
             
-            <div class="comment-form">
+            <div class="comment-form-reply">
               <h3 class="comment-reply-title">{{ 'blogs.comments.title' | t }}</h3>
               {% form 'new_comment', article %}
                   

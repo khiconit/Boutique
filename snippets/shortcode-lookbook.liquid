@@ -14,7 +14,6 @@
   {% assign page  = 0  %}
     {% assign tg  = 0  %}
       <div class="container">
-        <div id="top"> </div>
           <ul class="kt-popup-gallery lookbook-list row">
             {% for i in (1..count_image) %}
             {% assign product_item = 'img_lookbook' | append : i %}
@@ -36,12 +35,12 @@
          </ul>
         <div class="navigation">
           <ul id="paginate-ul">
-            <li class="prev-left"><a href="#top"><i class="fa fa-long-arrow-left"></i></a></li>
+            <li id="prev-left"><a href=""><i class="fa fa-long-arrow-left"></i></a></li>
              {% assign sum_page = page | plus: 1 %}
              {% for i_page in (1..sum_page) %}
-             <li style="cursor:pointer;"{% if forloop.first  %} class="active" {% endif %}><a href="#top" id="p_{{i_page}}" >{{i_page}}</a></li>
+             <li style="cursor:pointer;"{% if forloop.first  %} class="active" {% endif %}><a href="" id="p_{{i_page}}" >{{i_page}}</a></li>
              {% endfor %}
-            <li class="next-right"><a href="#top"><i class="fa fa-long-arrow-right"></i></a></li>
+            <li id="next-right"><a href=""><i class="fa fa-long-arrow-right"></i></a></li>
           </ul>
         </div>
     </div>
@@ -49,84 +48,87 @@
   (function($) {
     'use strict';
     jQuery(document).ready(function($) {
+      var currenp = 0;
+
       $("[id^='p_']").on("click", function(event) {
         event.preventDefault();
-
         var id = $(this).attr('id');
         $(".page_look").hide();
         $(".page_"+id).show();
+        currenp = $(this).text();
+      });
 
-        $(document).ready(function() {
-          var pageItem = $("#paginate-ul li").not(".prev-left,.next-right");
-          var prev = $("#paginate-ul li.prev-left");
-          var next = $("#paginate-ul li.next-right");
+        var pageItem = $("#paginate-ul li").not("#prev-left, #next-right");
+        var pagition_prev = $("#paginate-ul li#prev-left");
+        var pagition_next = $("#paginate-ul li#next-right");
+        var s_page = {{sum_page}};
 
           pageItem.click(function() {
             pageItem.removeClass("active");
-            $(this).not(".prev-left,.next-right").addClass("active");
+            $(this).not("#prev-left, #next-right").addClass("active");
+
+            var thisBtn = $(this);
+            if (thisBtn.index() == s_page) {
+              pagition_prev.show();
+              pagition_next.hide();
+            }
+            else if(thisBtn.index() == 1) {
+                pagition_prev.hide();
+                pagition_next.show();
+            }
+            else{
+              pagition_prev.show();
+              pagition_next.show();
+            }
           });
 
-          next.click(function() {
-            $('li.active').removeClass('active').next().addClass('active');
+          $(document).on('click',"#paginate-ul li#next-right",function(event){
+            event.preventDefault();
+              pageItem.removeClass("active");
+              currenp++;
+              $("#p_"+currenp).parent().addClass('active');
+
+              $(".page_look").hide();
+              $(".page_p_"+currenp).show();
+
+              if (currenp == s_page) {
+                pagition_prev.show();
+                pagition_next.hide();
+              }
+              else if(currenp == 1) {
+                  pagition_prev.hide();
+                  pagition_next.show();
+              }
+              else{
+                pagition_prev.show();
+                pagition_next.show();                
+              }       
+           });
+
+          $(document).on('click',"#paginate-ul li#prev-left",function(event){
+            event.preventDefault();
+            pageItem.removeClass("active");
+            currenp--;           
+            $("#p_"+currenp).parent().addClass('active');
+
+            $(".page_look").hide();
+            $(".page_p_"+currenp).show();
+
+            if (currenp == s_page) {
+              pagition_prev.show();
+              pagition_next.hide();
+            }
+            else if(currenp == 1) {
+                pagition_prev.hide();
+                pagition_next.show();
+            }
+            else{
+              pagition_prev.show();
+              pagition_next.show();                
+            }
           });
 
-          prev.click(function() {
-            $('li.active').removeClass('active').prev().addClass('active');
-          });
-        });
-       
-        // var pageItem = $("#paginate-ul li").not(".prev-left, .next-right");
-        // var prev_l = $("#paginate-ul li.prev-left");
-        // var next_r = $("#paginate-ul li.next-right");
 
-        // var n_id = id.length;
-
-        // var n = $("#paginate-ul li").length;
-
-        //   pageItem.click(function() {            
-        //     pageItem.removeClass("active");
-        //     var thisBtn = $(this);
-        //     thisBtn.addClass("active");
-            
-        //      if(thisBtn.index() == (n-2))
-        //         {
-        //           prev_l.show();
-        //           next_r.hide();
-        //         }
-        //         else if(thisBtn.index() == 1)
-        //         {
-        //           prev_l.hide();
-        //           next_r.show();
-        //         }
-        //         else
-        //         {
-        //            prev_l.show();
-        //            next_r.show();
-        //         }
-        //     });
-
-        //   next_r.click(function() {
-
-        //       // activeLi.next().addClass('active').children().addClass('current');
-        //     var activeLi = $("#paginate-ul").find('li.active');
-        //     activeLi.removeClass('active');
-        //     if(activeLi.next()!=null && activeLi.next()!=undefined ){
-        //         activeLi.next().addClass('active');  
-        //         }else{
-        //           $('#paginate-ul').find("li:last").addClass("active");
-        //         }
-        //     });
-        //   prev_l.click(function() {
-        //     var activeLi_pre = $("#paginate-ul").find('li.active');
-        //     activeLi_pre.removeClass('active');
-        //      if(activeLi_pre.prev()!=null && activeLi_pre.prev()!=undefined ){
-        //         activeLi_pre.prev().addClass('active');  
-        //         }else{
-        //           $('#paginate-ul').find("li:first").addClass("active");
-        //         }
-        //   });
-
-        });
       $("#p_1").trigger("click");
     });    
   })(jQuery);

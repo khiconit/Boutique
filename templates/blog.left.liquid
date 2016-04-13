@@ -15,13 +15,13 @@ You can change layouts or styles by checking if current_tags is true.
 <div class="main-container page-wrapper blog-news-pages" id="blog-left-pages">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-sm-12" id="secondary-blog-left">
+      <div class="col-md-3 col-sm-4" id="secondary-blog-left">
         <div class="sidebar-border left">
           {% include 'blog-sidebar' %}
         </div>
       </div>
-      <div class="col-md-9 col-sm-12"> 
-      <h3 class="page-title">{{ blog.title }}</h3>
+      <div class="col-md-9 col-sm-8"> 
+      <h3 class="page-title title-lr">{{ blog.title }}</h3>
         <div class="blog-grid butique-masonry">
           <div class="masonry-grid" data-layoutmode="masonry" data-cols="2">
             {% for article in blog.articles %}
@@ -41,8 +41,11 @@ You can change layouts or styles by checking if current_tags is true.
           </div>
       </div>
       {% if paginate.pages > 1 %}
-        <div class="pagination">
-          {{ paginate | default_pagination | replace: '&laquo; Previous', 'Previous' | replace: 'Next &raquo;', 'Next' }}
+        <div class="navigation pagination">
+          <div class="nav-links">
+            {{ paginate | default_pagination | replace: '&laquo; Previous' | replace: 'Next &raquo;'}}
+          </div>
+          
         </div>
       {% endif %}
       </div>
