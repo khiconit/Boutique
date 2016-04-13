@@ -84,7 +84,15 @@
           <h5 class="blog-title">{{ article.title| truncate: 20 | link_to: article.url }}</h5>
           <div class="meta">
             <span class="author">{{ article.author }}</span>
-            <span class="comment"><i class="fa fa-comment"></i>{{article.comments_count}} {{ 'blogs.comments.title_count' | t }}</span>
+              {% assign title_counts = 'comment' %}
+              {% assign title_count = 0 %}
+              {% for comment in article.comments %}
+                {% assign title_count = title_count | plus: 1 %}
+              {% endfor %}
+              {% if title_count > 1 %}
+              	{% assign title_counts = 'comments' %}
+              {% endif %}
+            <span class="comment"><i class="fa fa-comment"></i> {{article.comments_count}} {{ title_counts }}</span>
           </div>
         </div>
         {% assign check = check | plus : 1 %}
@@ -100,7 +108,15 @@
         <h5 class="blog-title">{{ article.title | link_to: article.url }}</h5>
           <div class="meta">
             <span class="author">{{ article.author }}</span>
-            <span class="comment"><i class="fa fa-comment"></i>{{article.comments_count}} {{ 'blogs.comments.title_count' | t }}</span>
+              {% assign title_counts = 'comment' %}
+              {% assign title_count = 0 %}
+              {% for comment in article.comments %}
+                {% assign title_count = title_count | plus: 1 %}
+              {% endfor %}
+              {% if title_count > 1 %}
+              	{% assign title_counts = 'comments' %}
+              {% endif %}
+            <span class="comment"><i class="fa fa-comment"></i> {{article.comments_count}} {{ title_counts }}</span>
           </div>
       </div>
       {% assign check = check | plus : 1 %}
