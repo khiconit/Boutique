@@ -270,11 +270,12 @@
       "newsletter_title": "Newsletter",
       "newsletter_caption": "Sign up for the latest news, offers and styles",
       "copyright": "Copyright"
+    },
+     "settings_dropdown": {
+      "currency_title": "Select currency"
     }
 },
-"currency_title": "Select currency"
-      }
-  },
+
   "products": {
     "general": {
       "from_html": "From {{ price }}",
