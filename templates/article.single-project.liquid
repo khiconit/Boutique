@@ -13,14 +13,14 @@
 				<div class="product-photo-area">
 					<div class="col-lg-5 col-xs-12 col-sm-9 col-md-5">
 						<div class="project-left">
-                {% if article.image %}
-							     <a class="fancybox" data-fancybox-group="group" href="{{ article.image.src | img_url: '1024x1024' }}"><img src="{{ article.image.src | img_url: '1024x1024' }}" alt="{{ article.title }}"></a>
-                {% endif %}
+                          {% if article.image %}
+							<a class="fancybox" data-fancybox-group="group" href="{{ article.image.src | img_url: '1024x1024' }}"><img src="{{ article.image.src | img_url: '1024x1024' }}" alt="{{ article.title }}"></a>
+                          {% endif %}
 						</div>
 					</div>
 					<div class="col-lg-1 col-xs-12 col-sm-3 col-md-1">
-            <div class="project-right">
-              {% include  'shortcode' load: end_excerpt[1] %}
+                      <div class="project-right">
+                        {% include  'shortcode' load: end_excerpt[1] %}
 						</div>
 					</div>
 				</div>

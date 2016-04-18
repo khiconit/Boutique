@@ -31,7 +31,7 @@
       <div class="comment-social">  
         {% if blog.comments_enabled? %}
             <h4>{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</h4>      
-        {% endif %}                       
+        {% endif %}
         <div class="social">
               <span>Share</span>
               {% include 'social-sharing' %}
@@ -138,6 +138,6 @@
       {% endpaginate %}
       {% assign margin_shipping_icon = "margin-top-60" %}
       {% assign container_shipping_icon = "" %}
-      {% include 'shortcode-shipping-icon' %}   
+      {% include 'shortcode-shipping-icon' %}
     </div>
   </div>

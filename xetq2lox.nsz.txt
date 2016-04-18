@@ -1,0 +1,49 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+# Conflicts:
+#	locales/en.default.json
+#	snippets/shortcode-shipping-icon.liquid
+#	templates/addresses.liquid
+#	templates/login.liquid
+#	templates/register.liquid
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 4 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   assets/style.css.liquid
+#	modified:   config/settings_schema.json
+#	new file:   en.default.json
+#	deleted:    locales/en.default.json
+#	modified:   snippets/shortcode-lookbook.liquid
+#	deleted:    templates/account.liquid
+#	deleted:    templates/activate_account.liquid
+#	deleted:    templates/addresses.liquid
+#	modified:   templates/article.audio.liquid
+#	modified:   templates/article.gallery.liquid
+#	modified:   templates/article.image.liquid
+#	modified:   templates/article.liquid
+#	modified:   templates/article.single-project.liquid
+#	modified:   templates/cart.liquid
+#	modified:   templates/collection.wishlist.liquid
+#	deleted:    templates/login.liquid
+#	deleted:    templates/order.liquid
+#	modified:   templates/page.about-us.liquid
+#	modified:   templates/page.contact.liquid
+#	deleted:    templates/password.liquid
+#	deleted:    templates/register.liquid
+#	deleted:    templates/reset_password.liquid
+#
+

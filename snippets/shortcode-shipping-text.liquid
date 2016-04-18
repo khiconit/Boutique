@@ -1,6 +1,7 @@
 {% capture text_content %}{% include 'shortcode-render' render:'text' default:'' %}{% endcapture %}
 {% capture position %}{% include 'shortcode-render' render:'position' default:'' %}{% endcapture %}
-{% if position == "" %}
+{% capture style %}{% include 'shortcode-render' render:'style' default:'' %}{% endcapture %}
+{% if position == "" and style == "" %}
 <div class="text-center margin-top-20">
   {% if text_content == blank %}
   	FREE UK DELIVERY + RETURN OVER £85.00 (EXCLUDING HOMEWARE) | FREE UK COLLECT FROM STORE
@@ -24,7 +25,7 @@
   </div>
 </div>
 {% endif %}
-{% if position == "section" %}
+{% if style == "section" %}
   <div class="text-border margin-top-30">
     <p>
         {% if text_content == blank %}

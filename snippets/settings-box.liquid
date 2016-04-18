@@ -23,8 +23,8 @@
               {% assign crr_icon = 'crr_icon_' | append: i  %}
               {% if settings[crr_icon] != blank %}
               {% assign moneys = settings[crr_icon] | remove: "fa-" %}
-              <li name="{{moneys | upcase }}" {% if moneys == money %}class="active"{% endif %}>
-                <a>
+              <li {% if moneys == money %}class="active"{% endif %}>
+                <a class="{{moneys | upcase }}">
                   <span class="sym">
                     <i class="fa {{settings[crr_icon]}}"></i>
                   </span>

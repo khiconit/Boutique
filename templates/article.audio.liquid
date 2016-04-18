@@ -30,8 +30,8 @@
       </div>
       <div class="comment-social">  
         {% if blog.comments_enabled? %}
-            <h4>{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</h4>      
-        {% endif %}                       
+                    <h4>{{article.comments_count}} comments</h4>   
+                {% endif %}                       
         <div class="social">
               <span>Share</span>
               {% include 'social-sharing' %}

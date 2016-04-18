@@ -1,6 +1,7 @@
 {% assign handle_brand_use = 'brand_use_' %}
 {% assign handle_brand_image ='brand_logo_'  %}
 {% assign handle_brand_link = 'brand_link_'  %}
+{% capture banner_text_bottom %}{% include 'shortcode-render' render:'bottom' default:'' %}{% endcapture %}
 {% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '5' %}{% endcapture %}
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '3' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
@@ -21,7 +22,12 @@
 {% else %}
 	{% assign number_post_mb_end = number_post_mb | plus: 0 %}
 {% endif %}
-<div class="section-brand-slide">
+
+{% if banner_text_top != "" %}
+  {% capture banner_text_bottom %} margin-bottom-{{banner_text_bottom}} {% endcapture %}
+{% endif %}
+
+<div class="section-brand-slide {{banner_text_bottom}}">
   <div class="brands-slide owl-carousel nav-center-center {{class_style}}" data-nav="true" data-dots="false" data-loop="true" data-margin="60" data-responsive='{"0":{"items":{{number_post_mb_end}}},"600":{"items":{{number_post_tb_end}}},"1000":{"items":{{number_post_dt_end}}}}'>
     {% for  i in (1..20) %}
     {% assign brand_handle   = handle_brand_use | append: i %}

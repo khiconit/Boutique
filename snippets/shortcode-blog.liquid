@@ -3,6 +3,7 @@
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '1' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
 {% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
+{% capture number_post_title %}{% include 'shortcode-render' render:'title' default: '' %}{% endcapture %}
 
 {% if number_post_dt == blank %}
 	{% assign number_post_dt_end = 2 %}
@@ -22,9 +23,11 @@
 
 {% unless handle_name =="" %}
 <div class="margin-top-30 section-lasttest-blog">
+  {% if number_post_title != "" %}
   <div class="section-title text-center">
-    <h3>{% include 'shortcode-render' render:'title' default:"Our BLog" %}</h3>
+    <h3>{{number_post_title}}</h3>
   </div>
+  {% endif %}
   <div class="lastest-blog owl-carousel nav-center-center {{class_style}}" data-nav="true" data-dots="false" data-loop="true" data-margin="30"
        data-responsive='{"0":{"items":{{number_post_mb_end}}},"600":{"items":{{number_post_tb_end}}},"1000":{"items":{{number_post_dt_end}}}}'>
   {% for article in blogs[handle_name].articles limit: 15 %}

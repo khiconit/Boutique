@@ -81,7 +81,7 @@
           {% assign image_alt = article.title | escape %}
           <p>{{ article | img_url: 'large' | img_tag: image_alt, 'article__image' | link_to: article.url }}</p>
           {% endif %}
-          <h5 class="blog-title">{{ article.title| truncate: 20 | link_to: article.url }}</h5>
+          <h5 class="blog-title">{{ article.title | link_to: article.url }}</h5>
           <div class="meta">
             <span class="author">{{ article.author }}</span>
               {% assign title_counts = 'comment' %}
