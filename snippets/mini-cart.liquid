@@ -3,20 +3,20 @@
   <a class="cart-link" href="#">
     <img src="{{'cart_icon.png' | asset_url}}" alt="">
     My cart
-    <span class="count" id="cartCount">{{ cart.item_count }}</span>
+    <span class="count cartCount">{{ cart.item_count }}</span>
   </a>
 {% elsif position =="menu" %}
   <div class="mini-cart">
     <a class="cart-link" href="/cart">
       <span class="pe-7s-cart"></span> 
-      <span class="count" id="cartCount">{{ cart.item_count }}</span>
+      <span class="count cartCount">{{ cart.item_count }}</span>
     </a>
 {% elsif position =="top-menu" %}
     <div class="mini-cart">
       <a class="cart-link" href="/cart">
         <span class="icon pe-7s-cart"></span>
-        <span class="count" id="cartCount">{{ cart.item_count }}</span> 
-        <p id="cartCost">{{ cart.total_price | money }}</p>
+        <span class="count cartCount">{{ cart.item_count }}</span> 
+        <p class="cartCost">{{ cart.total_price | money }}</p>
       </a>
 {% endif %}
   <div class="show-shopping-cart">
@@ -25,7 +25,7 @@
 
     <ul class="list-product">
       {% for item in cart.items %}
-      <li id="item-{{ item.id }}">
+      <li class="item-{{ item.id }}">
         <div class="thumb">
           <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
         </div>
@@ -39,7 +39,7 @@
       </li>
       {% endfor %}
     </ul>
-    <div class="sub-total" id="cartCost">
+    <div class="sub-total cartCost">
       {{ 'cart.general.boxtotal' | t }}{{ cart.total_price | money }}
     </div>
     <div class="group-button">

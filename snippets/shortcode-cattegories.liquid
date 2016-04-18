@@ -1,4 +1,10 @@
-<div class="margin-top-60">
+{% capture cattegories_style  %}{% include 'shortcode-render' render:'style' default: "section" %}{% endcapture %}
+
+{% if cattegories_style != "" %}
+  {% capture cattegories_style %}our-category {% endcapture %}
+{% endif %}
+
+<div class="margin-top-60 {{cattegories_style}}">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-5">
       <div class="section-title text-center margin-top-40 margin-bottom-30">

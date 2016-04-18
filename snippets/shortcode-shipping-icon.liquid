@@ -2,12 +2,17 @@
 {% assign margin_shipping_icon = "margin-top-60" %}
 {% endunless %}
 
+{% unless container_shipping_icon %}
+{% capture container_shipping_icon %} class="container"{% endcapture %}
+{% endunless %}
+
+
 {% if template contains "index" %}
 <div class="margin-top-60 margin-bottom-30">
   <div class="row">
     {% else %}
     <div class="{{margin_shipping_icon}}">
-      <div class="container">
+      <div{{container_shipping_icon}}>
         <div class="row">
         {% endif %}
     <div class="col-sm-12 col-md-4">

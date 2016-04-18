@@ -23,7 +23,7 @@
     <div class="box-content">
       <div class="box-content-inner">
         <ul class="box-product-list owl-carousel nav-style2 nav-center-outside" data-nav="true" data-dots="false" data-margin="30" data-loop="true" data-responsive='{"0":{"items":1},"600":{"items":2},"1000":{"items":3}}'>
-          {% for product in collections[handleize_tab].products limit:4 %}
+          {% for product in collections[handleize_tab].products limit:8 %}
           {% include "product-loop" %}
           {% endfor %}
         </ul>

@@ -14,7 +14,7 @@
   {% assign sold_out = false %}
 {% endif %}
 
-<li class="product-item style2">
+<li class="product-item style2 {{grid_item_width}}">
   <div class="product-inner">
     <div class="product-thumb has-back-image">
       <a href="{{ product.url | within: collection }}">
@@ -26,15 +26,25 @@
         {% endif %}
       {% endif %}
       <div class="gorup-button">
-        {% assign button = "" %}
-        {% include 'wishlist-product' %}
-        <a class="compare" data-pid="{{product.handle}}">
-          <i class="fa fa-exchange"></i>
-        </a>
-        <a class="quick-view"><i class="fa fa-search"></i></a>
+        {% if settings.use_wishlist %}
+          {% assign button = "" %}
+          {% include 'wishlist-product' %}
+        {% endif %}
+        
+        {% if settings.use_compare %}
+          <a class="compare" data-pid="{{product.handle}}">
+            <i class="fa fa-exchange"></i>
+          </a>
+        {% endif %}
+        {% if settings.use_quickview %}
+        	<a class="quick-view"><i class="fa fa-search"></i></a>
+        {% endif %}
       </div>
-        {% if on_sale %}
-        <span class="discount">{{'products.product.sale' | t}} </span>
+      
+        {% if settings.use_sale_label %}
+          {% if on_sale %}
+          	<span class="discount">{{'products.product.sale' | t}} </span>
+          {% endif %}
         {% endif %}
     </div>
     <div class="product-info">
