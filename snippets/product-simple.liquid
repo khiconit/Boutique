@@ -1,6 +1,6 @@
 <div class="product-details-full">                            
   <div class="container">
-    <div class="row">
+    <div class="row" id="product-single">
       <div class="col-md-7 col-lg-7 col-sm-12">
         <div class="product-detail-image">
           <div class="thumbnails" id="ProductThumbs">
@@ -10,7 +10,7 @@
                 <a data-url="{{ image.src | img_url: '1024x1024' }}" data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail{% if check == 1 %} active{% endif %}">
                   <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
                 </a>
-            	{% assign check = check | plus : 1 %}
+              {% assign check = check | plus : 1 %}
               {% endfor %}
             {% endif %}
           </div>
@@ -53,8 +53,24 @@
             </div>
             {% include 'wishlist-product' %}
             <a id="AddToCart" class="button button-add-cart" data-quantity="1">{{ 'products.product.add_to_cart' | t }}</a>
-          </form>  
+          </form> 
+
+
+          <div class="product_meta"> 
+            <span class="posted_in">Category: 
+              {% for type in product.type %}
+              <a href="/collections/types?q={{ type }}">{{ type }}</a>
+              {% endfor %}
+            </span> 
+            <span class="tagged_as">Tags:
+              {% for tag in product.tags %}
+              <a href="/collections/all/{{ tag }}">{{ tag }}</a>
+              {% endfor %}
+            </span>
+          </div>
+          
         </div>
+
       </div>
     </div>
   </div>

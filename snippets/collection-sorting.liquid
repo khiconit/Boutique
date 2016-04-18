@@ -1,6 +1,6 @@
 <div class="form-horizontal">
-  <label for="SortBy">{{ 'collections.sorting.title' | t }}</label>
-  <select name="SortBy" id="SortBy">
+  {% comment %}<label for="SortBy">{{ 'collections.sorting.title' | t }}</label>{% endcomment %}
+  <select name="SortBy" id="SortBy" lass="orderby">
     <option value="manual">{{ 'collections.sorting.featured' | t }}</option>
     <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
     <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>

@@ -18,9 +18,7 @@
   {% assign sold_out = false %}
 {% endif %}
 
-
-
-<li class="product-item {{grid_item_width}}">
+<li class="product-item view-grid {{grid_item_width}}">
   <div class="product-inner">
     <div class="product-thumb has-back-image">
       <a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}"></a>
@@ -35,27 +33,30 @@
         <a class="compare" data-pid="{{product.handle}}">
           <i class="fa fa-exchange"></i>
         </a>
-        <a class="quick-view"><i class="fa fa-search"></i></a>
+        <a class="quick-view" href="{{ product.url | within: collection }}" pid="{{ product.id }}"><i class="fa fa-search"></i></a>
       </div>
     </div>
     <div class="product-info">
       <h3 class="product-name"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
       <span class="price">
         {% if on_sale %}
-        <ins>{{product.price | money }}</ins>
-        <del>{{product.compare_at_price | money }}</del>
+          <ins>{{product.price | money }}</ins>
+          <del>{{product.compare_at_price | money }}</del>
         {% else %}
-        <ins>{{product.price | money }}</ins>
+          <ins>{{product.price | money }}</ins>
         {% endif %}
       </span>
       {% if sold_out == false %}
-        {% if product.variants.size > 1 %}
-      		<a class="button" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
-        {% else %}
-      		{% if product.variants.first.available %}
-        		<a class="button add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
-      		{% endif %}
-        {% endif %}
+        <div class="pro-add-to-cart">
+          {% if product.variants.size > 1 %}
+        		<a class="button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
+          {% else %}
+        		{% if product.variants.first.available %}
+          		<a class="button add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
+              <span class="adding-cart"></span>
+        		{% endif %}
+          {% endif %}
+        </div>
       {% else %}
 		<a class="button" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
       {% endif %}

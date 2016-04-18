@@ -30,11 +30,11 @@
       </div>
       <div class="comment-social">  
         {% if blog.comments_enabled? %}
-                    <h4>{{article.comments_count}} comments</h4>   
+                    <h4>{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</h4>   
                 {% endif %}                       
         <div class="social">
               <span>Share</span>
-              {% include 'social-links' %}
+              {% include 'social-sharing' %}
         </div>
       </div>
       <div class="author-info-wrap">
@@ -137,34 +137,10 @@
             </div>  
         </div>
       {% endpaginate %}
-      
-      <div class="margin-top-60">
-        <div class="row">
-          <div class="col-sm-12 col-md-4">
-                    <div class="element-icon style2">
-              <div class="icon"><i class="flaticon flaticon-origami28"></i></div>
-              <div class="content">
-                <h4 class="title">FREE SHIPPING WORLD WIDE</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-                    <div class="element-icon style2">
-              <div class="icon"><i class="flaticon flaticon-curvearrows9"></i></div>
-              <div class="content">
-                <h4 class="title">MONEY BACK GUARANTEE</h4>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-4">
-                    <div class="element-icon style2">
-              <div class="icon"><i class="flaticon flaticon-headphones54"></i></div>
-              <div class="content">
-                <h4 class="title">ONLINE SUPPORT 24/7</h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>      
+
+      {% assign margin_shipping_icon = "margin-top-60" %}
+      {% assign container_shipping_icon = "" %}
+      {% include 'shortcode-shipping-icon' %}  
+     
     </div>
   </div>

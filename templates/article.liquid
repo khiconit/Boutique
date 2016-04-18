@@ -31,7 +31,7 @@
                 {% endif %}                       
         <div class="social">
               <span>Share</span>
-              {% include 'social-links' %}
+              {% include 'social-sharing' %}
         </div>
       </div>
       <div class="author-info-wrap">
@@ -106,9 +106,8 @@
                         {% endunless %}
                       {% endfor %}
                   </ul>
-            {% if paginate.pages > 1 %}
-                    <hr>
-                    <div class="pagination">
+                  {% if paginate.pages > 1 %}
+                    <div class="navigation">
                       {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
                     </div>
                   {% endif %}

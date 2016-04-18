@@ -30,11 +30,11 @@
       </div>
       <div class="comment-social">  
         {% if blog.comments_enabled? %}
-                    <h4>{{article.comments_count}} comments</h4>   
-                {% endif %}                       
+            <h4>{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</h4>      
+        {% endif %}
         <div class="social">
               <span>Share</span>
-              {% include 'social-links' %}
+              {% include 'social-sharing' %}
         </div>
       </div>
       <div class="author-info-wrap">
@@ -94,7 +94,7 @@
                         <div id="{{ comment.id }}" class="comment-item first{% if article.comments_count == 0 %} last{% endif %}">
                           {% include 'comment' %}
                         </div>
-                      {% endif %}
+                      {% endif %}     
                     </li><!-- #comment-## -->
                     {% comment %}
                     Showing the rest of the comments.
@@ -108,9 +108,8 @@
                         {% endunless %}
                       {% endfor %}
                   </ul>
-            {% if paginate.pages > 1 %}
-                    <hr>
-                    <div class="pagination">
+                  {% if paginate.pages > 1 %}
+                    <div class="navigation">
                       {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
                     </div>
                   {% endif %}
@@ -137,9 +136,8 @@
             </div>  
         </div>
       {% endpaginate %}
-      
       {% assign margin_shipping_icon = "margin-top-60" %}
       {% assign container_shipping_icon = "" %}
-      {% include 'shortcode-shipping-icon' %}      
+      {% include 'shortcode-shipping-icon' %}
     </div>
   </div>
