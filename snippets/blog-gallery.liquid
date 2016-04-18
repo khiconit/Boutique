@@ -8,9 +8,7 @@
           {% if end_excerpt.size > 1  %} 
             {% assign article_excerpt   = end_excerpt[0]  | append:  excerpt_start[1]  %}
       <div class="post-thumbnail">
-          <a class="banner-opacity" href="{{ article.url }}">
-              {% include  'shortcode' load: end_excerpt[1] %} 
-          </a>
+            {% include  'shortcode' load: end_excerpt[1] %}
       </div>
       <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
       <div class="entry-meta">

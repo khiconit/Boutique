@@ -2,21 +2,26 @@
 {% assign margin_shipping_icon = "margin-top-60" %}
 {% endunless %}
 
+{% unless container_shipping_icon %}
+{% capture container_shipping_icon %} class="container"{% endcapture %}
+{% endunless %}
+
+
 {% if template contains "index" %}
 <div class="margin-top-60 margin-bottom-30">
   <div class="row">
     {% else %}
     <div class="{{margin_shipping_icon}}">
-      <div class="container">
+      <div{{container_shipping_icon}}>
         <div class="row">
         {% endif %}
     <div class="col-sm-12 col-md-4">
       <div class="element-icon style2">
         <div class="icon">
           {% if settings.use_img_1 %}
-          	{{'shipping_info_1_img' | asset_url | img_tag}}
+            {{'shipping_info_1_img' | asset_url | img_tag}}
           {% else %}
-          	<i class="flaticon flaticon-origami28"></i>
+            <i class="flaticon flaticon-origami28"></i>
           {% endif %}
         </div>
         <div class="content">
@@ -28,9 +33,9 @@
       <div class="element-icon style2">
         <div class="icon">
           {% if settings.use_img_2 %}
-          	{{'shipping_info_2_img' | asset_url | img_tag}}
+            {{'shipping_info_2_img' | asset_url | img_tag}}
           {% else %}
-          	<i class="flaticon flaticon-curvearrows9"></i>
+            <i class="flaticon flaticon-curvearrows9"></i>
           {% endif %}
         </div>
         <div class="content">
@@ -42,9 +47,9 @@
       <div class="element-icon style2">
         <div class="icon">
           {% if settings.use_img_3 %}
-          	{{'shipping_info_3_img' | asset_url | img_tag}}
+            {{'shipping_info_3_img' | asset_url | img_tag}}
           {% else %}
-          	<i class="flaticon flaticon-headphones54"></i>
+            <i class="flaticon flaticon-headphones54"></i>
           {% endif %}
         </div>
         <div class="content">

@@ -85,6 +85,7 @@
       "note": "Special instructions for seller",
       "additional_savings": "Additional savings",
       "total": "Total",
+      "subtotal": "Subtotal:",
       "boxtotal": "Cart Totals",
       "savings_html": "You're saving {{ price }}",
       "shipping_at_checkout": "Shipping, taxes, and discounts will be calculated at checkout.",
@@ -108,7 +109,8 @@
     "general": {
       "title": "Collections",
       "no_matches": "Sorry, there are no products in this collection",
-      "link_title": "Browse our {{ title }} collection"
+      "link_title": "Browse our {{ title }} collection",
+      "view_on": "VIEW:"
     },
     "sorting": {
       "title": "Sort by",
@@ -126,7 +128,7 @@
   },
   "contact": {
     "form": {
-      "your_name": "Your Name",
+      "name": "Your Name",
       "your_email": "Your Email",
       "phone": "Phone Number",
       "your_message": "Your Message",
@@ -256,10 +258,8 @@
     },
     "customer": {
       "account": "My Account",
-      "log_out": "Log out",
-      "log_in": "Log in",
-      "create_account": "Create account",
-      "or": "or"
+      "log_out": "SignOut",
+      "log_in": "Login \/ Register"
     },
     "footer": {
       "address_label": "ADDRESS",

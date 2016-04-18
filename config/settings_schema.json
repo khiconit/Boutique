@@ -3373,6 +3373,30 @@
             "label": "10"
           }
         ]
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_banner_content_collection",
+        "label": "Use banner image collection",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "1.jpg",
+        "label": "Choose image banner collection",
+        "info": "Image banner collection"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_banner_collection_list",
+        "label": "Use banner image collection list",
+        "default": true
+      },
+      {
+        "type": "image",
+        "id": "slider-cat2.jpg",
+        "label": "Choose image banner collection view list",
+        "info": "Image banner collection"
       }
     ]
   },

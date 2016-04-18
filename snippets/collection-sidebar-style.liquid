@@ -1,0 +1,57 @@
+<!-- Product category -->
+<div class="widget widget_product_categories">
+    <h2 class="widget-title">{{ 'blogs.sidebar.categories' | t }}</h2>
+    <ul class="product-categories">
+        {% paginate collections by 12 %}
+            {% for line_collection in collections  %}
+                <li class="{% if collection.handle == line_collection.handle %} current-cat {% endif %}"><a href="{{line_collection.url}}">{{line_collection.title}} <span class="count">({{line_collection.products_count}})</span></a></li>
+            {% endfor %}
+        {% endpaginate %}
+    </ul>
+</div>
+<!-- ./Product category -->
+ <!-- Filter price -->
+<div class="widget widget_price_filter">
+    <h2 class="widget-title">PRICES</h2>
+    <div class="price_slider_wrapper">
+        <div class="amount-range-price">Price: $85.00 - $125.00</div>
+        <div data-label-reasult="price:" data-min="0" data-max="500" data-unit="$" class="slider-range-price " data-value-min="50" data-value-max="350"></div>
+        <button class="button">Filter NOW</button>
+    </div>
+</div>
+<!-- ./Filter price -->
+ <!-- By color -->
+<div class="widget widget_fillter_color">
+    <h2 class="widget-title">COLOUR</h2>
+    <div class="inner">
+    	<a href="#"><span style="background-color:#736357;"></span></a>
+    	<a class="active" href="#"><span style="background-color:#bdb871;"></span></a>
+    	<a href="#"><span style="background-color:#f26522;"></span></a>
+    	<a href="#"><span style="background-color:#fff799;"></span></a>
+    </div>
+</div>
+ <!-- ./By color -->
+ <!-- By color -->
+<div class="widget widget_fillter_size">
+    <h2 class="widget-title">SIZE Option</h2>
+    <div class="inner">
+    	<a href="#"><span>S</span></a>
+    	<a class="active" href="#"><span>M</span></a>
+    	<a href="#"><span>L</span></a>
+    	<a href="#"><span>XL</span></a>
+    	<a href="#"><span>XXL</span></a>
+    </div>
+</div>
+ <!-- ./By color -->
+{% include 'recent-product-sidebar' %}
+
+<!-- Product tags -->
+<div class="widget widget_product_tag_cloud style2">
+    <h2 class="widget-title">POPULAR TAGS</h2>
+    <div class="tagcloud">
+        {% for tag  in  collection.tags limit: 10 %}
+                {{ tag | link_to_tag: tag }}
+        {% endfor %}
+    </div>
+</div>
+<!-- ./Product tags -->
