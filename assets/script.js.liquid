@@ -26,10 +26,14 @@
         if (isNaN(value)) {
           value = 0.0;
         }
-       
+        
         var cents = 0.0;
         var oldFormat = Currency.moneyFormats['{{ settings.default_currency | default: shop.currency }}'][Currency.format] || '{{amount}}';
-        var newFormat = Currency.moneyFormats['{{settings.default_currency}}'][Currency.format] || '{{amount}}';
+        var newFormat = Currency.moneyFormats[Currency.currentCurrency][Currency.format] || '{{amount}}';
+        if(Currency.currentCurrency=== undefined) {
+            var newFormat = Currency.moneyFormats['{{settings.default_currency}}'][Currency.format] || '{{amount}}';
+        }
+                                                     
         if (oldFormat.indexOf('amount_no_decimals') !== -1) {
              cents = Currency.convert(parseInt(value, 10) * 100, oldCurrency, newCurrency);
         } else if (oldCurrency === 'JOD' || oldCurrency == 'KWD' || oldCurrency == 'BHD') {
@@ -39,7 +43,8 @@
         }
         if (type == 'nosymbol') {
           return cents; 
-        }
+        }    
+                                          
         var my_data = Currency.formatMoney(cents, newFormat);
         return my_data;
 
@@ -63,7 +68,7 @@
                 html = html + '</div>';
                 html = html + '<div class="info">';
                 html = html + '<h4 class="product-name"><a href="'+el.url+'">' + el.title + '</a></h4>';
-                html = html + '<span class="price">'+el.quantity+'x<span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(el.price,'xx')+'">'+convert_currency_andy(el.price,'xx')+'</span></span>';
+                html = html + '<span class="price">'+el.quantity+'x <span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(el.price,'xx')+'">'+convert_currency_andy(el.price,'xx')+'</span></span>';
                 html = html + '<a class="remove-item" data-id="'+el.id+'" title="Remove">';
                 html = html + '<i class="fa fa-close"></i>';
                 html = html + '</a>';
@@ -71,8 +76,8 @@
                 html = html + '</li>';
               });
                 html = html + '</ul>';
-                html = html + '<div class="sub-total cartCost">';
-                html = html + 'Subtotal: <span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency="'+Currency.currentCurrency+'"></span>';
+                html = html + ' Subtotal:<div class="sub-total cartCost">xxxxx';
+                html = html + '<span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency="'+Currency.currentCurrency+'"></span>';
                 html = html + '</div>';
                 html = html + '<div class="group-button">';
                 html = html + '<a href="/cart" class="button">Shopping Cart</a>';
