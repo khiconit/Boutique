@@ -283,6 +283,30 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "use_sale_label",
+        "label": "Use Sale Label",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_wishlist",
+        "label": "Use Wishlist",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_compare",
+        "label": "Use Compare",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "use_quickview",
+        "label": "Use Compare",
+        "default": true
+      },
+      {
         "type": "header",
         "content": "== Header Settings Dropdown"
       },
@@ -369,33 +393,13 @@
       },
       {
         "type": "textarea",
-        "id": "sc_mega_menu_level_2_positon_1",
-        "label": "Enter your shortcode Dropdown 1"
-      },
-      {
-        "type": "textarea",
-        "id": "sc_mega_menu_level_2_positon_2",
-        "label": "Enter your shortcode Dropdown 2"
-      },
-      {
-        "type": "textarea",
-        "id": "sc_mega_menu_level_2_positon_3",
-        "label": "Enter your shortcode Dropdown 3"
-      },
-      {
-        "type": "textarea",
-        "id": "sc_mega_menu_level_2_positon_4",
-        "label": "Enter your shortcode Dropdown 4"
-      },
-      {
-        "type": "textarea",
-        "id": "sc_mega_menu_level_2_positon_5",
-        "label": "Enter your shortcode Dropdown 5"
-      },
-      {
-        "type": "textarea",
         "id": "sc_mega_menu_level_2_positon_6",
-        "label": "Enter your shortcode Dropdown 6"
+        "label": "Enter your shortcode Dropdown Features"
+      },
+      {
+        "type": "textarea",
+        "id": "sc_mega_menu_level_2_positon_1",
+        "label": "Enter your shortcode Dropdown Blog"
       }
     ]
   },
@@ -467,6 +471,54 @@
       {
         "type": "textarea",
         "id": "sc_home3",
+        "label": "Enter your shortcode"
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 4",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== General settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp4",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Shortcode for content homepage"
+      },
+      {
+        "type": "textarea",
+        "id": "sc_home4",
+        "label": "Enter your shortcode"
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 5",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== General settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp5",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Shortcode for content homepage"
+      },
+      {
+        "type": "textarea",
+        "id": "sc_home5",
         "label": "Enter your shortcode"
       }
     ]
