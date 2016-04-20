@@ -26,10 +26,14 @@
         if (isNaN(value)) {
           value = 0.0;
         }
-       
+        
         var cents = 0.0;
         var oldFormat = Currency.moneyFormats['{{ settings.default_currency | default: shop.currency }}'][Currency.format] || '{{amount}}';
-        var newFormat = Currency.moneyFormats['{{settings.default_currency}}'][Currency.format] || '{{amount}}';
+        var newFormat = Currency.moneyFormats[Currency.currentCurrency][Currency.format] || '{{amount}}';
+        if(Currency.currentCurrency=== undefined) {
+            var newFormat = Currency.moneyFormats['{{settings.default_currency}}'][Currency.format] || '{{amount}}';
+        }
+                                                     
         if (oldFormat.indexOf('amount_no_decimals') !== -1) {
              cents = Currency.convert(parseInt(value, 10) * 100, oldCurrency, newCurrency);
         } else if (oldCurrency === 'JOD' || oldCurrency == 'KWD' || oldCurrency == 'BHD') {
@@ -39,7 +43,8 @@
         }
         if (type == 'nosymbol') {
           return cents; 
-        }
+        }    
+                                          
         var my_data = Currency.formatMoney(cents, newFormat);
         return my_data;
 
@@ -63,7 +68,7 @@
                 html = html + '</div>';
                 html = html + '<div class="info">';
                 html = html + '<h4 class="product-name"><a href="'+el.url+'">' + el.title + '</a></h4>';
-                html = html + '<span class="price">'+el.quantity+'x<span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(el.price,'xx')+'">'+convert_currency_andy(el.price,'xx')+'</span></span>';
+                html = html + '<span class="price">'+el.quantity+'x <span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(el.price,'xx')+'">'+convert_currency_andy(el.price,'xx')+'</span></span>';
                 html = html + '<a class="remove-item" data-id="'+el.id+'" title="Remove">';
                 html = html + '<i class="fa fa-close"></i>';
                 html = html + '</a>';
@@ -71,8 +76,8 @@
                 html = html + '</li>';
               });
                 html = html + '</ul>';
-                html = html + '<div class="sub-total cartCost">';
-                html = html + 'Subtotal: <span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency="'+Currency.currentCurrency+'"></span>';
+                html = html + ' Subtotal:<div class="sub-total cartCost">xxxxx';
+                html = html + '<span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency="'+Currency.currentCurrency+'"></span>';
                 html = html + '</div>';
                 html = html + '<div class="group-button">';
                 html = html + '<a href="/cart" class="button">Shopping Cart</a>';
@@ -111,7 +116,8 @@
                 data: args,
                 success: function(data, status) {
                     if (status == "success") {
-                        $this.hide(600).next('a.added-wishlist').show(700);
+                       $('[data-form="'+myid+'"]').hide(600).next('a.added-wishlist').css({visibility:'visible',display:'block'});
+                        // $this.hide(600).next('a.added-wishlist').show(700);
                         $("#loading").hide(500);
                         swal("Success!", "Added success to wishlist!", "success");
                     } else {
@@ -189,6 +195,10 @@
             });
         });
       /* end wishlist */
+    $(".filter-checkbox").click(function(event) {
+      /* Act on the event */
+      window.location.href = $(this).parent('span').next('a').prop('href');
+    });
 
     /* Compare Product*/
     var storage = $.localStorage;
@@ -251,7 +261,7 @@
         html = html + '</div>';
         //convert_currency_andy(el.price,'3');
         if (el.variants.length > 1) {
-          html = html + '<a href="#" onclick="location.href=\'/products/' + el.handle + '\'">Select Options</a>';
+          html = html + '<a onclick="location.href=\'/products/' + el.handle + '\'">Select Options</a>';
         } else {
           html = html + '<a href="#" title="Add to Cart" data-pid="' + el.variants[0].id + '" class="add-to-cart button">Add to Cart</a>';
         }
@@ -429,7 +439,7 @@
  /**
          * Quick view modal
          */
-        $(".quick-view").on('click', function(event) {
+         $(document).on('click','.quick-view' , function(event) {
             event.preventDefault();
             /* Act on the event */
             $("#loading").fadeIn(300);

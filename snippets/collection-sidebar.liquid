@@ -1,47 +1,95 @@
-<!-- Product category -->
-<div class="widget widget_product_categories">
-    <h2 class="widget-title">{{ 'blogs.sidebar.categories' | t }}</h2>
-    <ul class="product-categories">
-    	{% paginate collections by 12 %}
-    		{% for line_collection in collections  %}
-    			<li class="{% if collection.handle == line_collection.handle %} current-cat {% endif %}"><a href="{{line_collection.url}}">{{line_collection.title}} <span class="count">({{line_collection.products_count}})</span></a></li>
-    		{% endfor %}
-        {% endpaginate %}
-    </ul>
-</div>
 
-<!-- ./Product category -->
  <!-- By color -->
- <div class="widget widget_layered_nav">
-    <h2 class="widget-title">COLOUR</h2>
-    <ul class="product-categories">
-        <li><a href="#">White<span class="count">(20)</span></a></li>
-        <li><a href="#">Black<span class="count">(20)</span></a></li>
-        <li><a href="#">Blue<span class="count">(20)</span></a></li>
-        <li><a href="#">Yellow<span class="count">(20)</span></a></li>
-        <li><a href="#">Brown<span class="count">(20)</span></a></li>
-        <li><a href="#">Red<span class="count">(20)</span></a></li>
-        <li><a href="#">Teal<span class="count">(20)</span></a></li>
-    </ul>
-</div>
+{% if settings.enable_use_filter_color %}
+  <div class="widget widget_layered_nav">
+    <h2 class="widget-title">{{ settings.filter_color_title | strip_html }}</h2>
+      <ul class="product-categories">
+          {% assign list_color = settings.filter_color_name | split: ',' %}
+          {% for color in list_color%}
+            {% assign custom_tag = color | strip %}
+            {% assign check = false %}
+            {% for ct in current_tags %}
+             {% assign ct_down  =   ct | strip  | downcase %}
+              {% if ct_down == custom_tag %}
+                {% assign check = true %}
+                  {% break %}
+              {% endif %}
+            {% endfor %}
+            {% if check %}
+              <li class="advanced-filter-1 active active-filter" data-group="{{ settings.filter_color_title }}" data-handle="{{ size | handleize }}">
+                <span class="status-filter checked"><div class="filter-checkbox"></div></span>
+                {{ color | link_to_remove_tag: color }}
+              </li>
+            {% else %}
+              <li class="advanced-filter-1" data-group="{{ settings.filter_color_title }}" data-handle="{{ size | handleize }}">
+                <span class="status-filter no-check"><div class="filter-checkbox" ></div> </span>
+                {{ color | link_to_add_tag: color }}
+              </li>
+            {% endif %}
+          {% endfor %}
+      </ul>    
+  </div>
+{% endif %}
  <!-- ./By color -->
 <!-- Filter price -->
     <div class="widget widget_price_filter">
-        <h2 class="widget-title">PRICES</h2>
-        <div class="price_slider_wrapper">
-            <div class="amount-range-price">Price: $50 - $350</div>
-            <div data-label-reasult="price:" data-min="0" data-max="500" data-unit="$" class="slider-range-price " data-value-min="50" data-value-max="350"></div>
-            <button class="button">Filter</button>
-        </div>
+        <h2 class="widget-title">{{ 'cart.label.price' | t }}</h2>
+        <form method="get" action="#">
+            <div class="price_slider_wrapper">
+                <div class="amount-range-price">{{ 'cart.label.price' | t }}: <span class="from">{{settings.collection_min_price | money }}</span> — <span class="to">{{settings.collection_max_price | money }}</div>
+                <div id="slider-range" class="price_slider"></div>
+                <button class="button">Filter</button>
+            </div>
+        </form>
     </div>
 <!-- ./Filter price -->
+<!-- Filter size-->
 
+{% if settings.enable_use_filter_size %}
+    <div class="widget widget_layered_nav">
+        <h2 class="widget-title">{{ settings.filter_size_title | strip_html }}</h2>
+        <ul class="product-categories">
+             {% assign list_size = settings.filter_size_name | split: ',' %}
+                {% for size in list_size %}
+
+                  {% assign custom_tag = size | strip | downcase %}
+                  {% assign check = false %}
+
+                  {% for ct in current_tags %}
+                    {% assign ct_down  =   ct | strip  | downcase %}
+                     
+                    {% if ct_down   ==  custom_tag %}
+                      {% assign check = true %}
+                        {% break %}
+                    {% endif %}
+                  {% endfor %}
+                  {% if check %}
+                   
+                    <li class="advanced-filter-1 active active-filter" data-group="{{ settings.filter_size_title }}" data-handle="{{ size | handleize }}">
+                       <span class="status-filter checked"><div class="filter-checkbox"></div></span>
+                      {{ custom_tag | link_to_remove_tag: size }}
+                     
+                    </li>
+                  {% else %}
+                   
+                    <li class="advanced-filter-1" data-group="{{ settings.filter_size_title }}" data-handle="{{ size | handleize }}">
+                      <span class="status-filter no-check"><div class="filter-checkbox"></div></span>
+                      
+                      {{ custom_tag | link_to_add_tag: size }}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+          </ul>
+    </div>
+
+{% endif %}
+<!-- ./Filter size-->
 <!-- Product tags -->
 <div class="widget widget_product_tag_cloud">
     <h2 class="widget-title">POPULAR TAGS</h2>
     <div class="tagcloud">
         {% for tag  in  collection.tags limit: 10 %}
-                {{ tag | link_to_tag: tag }}
+            {{ tag | link_to_tag: tag }}
         {% endfor %}
     </div>
 </div>

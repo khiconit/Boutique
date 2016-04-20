@@ -35,20 +35,22 @@
 			        <a class="quick-view"><i class="fa fa-search"></i></a>
 				</div>
 
-			    {% if sold_out == false %}
-			        <div class="add-cart-wapper">
+			    
+			    <div class="add-cart-wapper">
+			        {% if sold_out == false %}
 			          {% if product.variants.size > 1 %}
 			        		<a class="button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
 			          {% else %}
-			        		{% if product.variants.first.available %}
-			          		<a class="button add_to_cart_button" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
-			              <span class="adding-cart"></span>
-			        		{% endif %}
+			        	{% if product.variants.first.available %}
+			          		<a class="button add_to_cart_button add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
+			              
+			        	{% endif %}
 			          {% endif %}
-			        </div>
-			      {% else %}
-					<a class="button" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
+			        {% else %}
+					<a class="button btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
 			    {% endif %}
+			    </div>
+			    
 			</div>
 			<div class="product-info">
 				<h3 class="product-name"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>

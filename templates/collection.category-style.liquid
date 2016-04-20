@@ -6,8 +6,7 @@
             </div>
         {% endif %}
 		<div class="breadcrumbs style2">
-            <a href="#">Home</a>
-            <span>Categories_Leftsidebar</span>
+            {% include "breadcrumb" %}
         </div>
 		<div class="row">
 			<div class="main-content col-sm-8 col-md-9">
@@ -46,38 +45,20 @@
                 {% endpaginate %}
 			</div>
 			<div class="col-sm-4 col-md-3 sidebar"> 
+				<div class="widget widget_product_categories">
+		          <h2 class="widget-title">{{ 'blogs.sidebar.categories' | t }}</h2>
+		          <ul class="product-categories">
+		              {% paginate collections by 12 %}
+		                  {% for line_collection in collections  %}
+		                      <li class="{% if collection.handle == line_collection.handle %} current-cat {% endif %}"><a href="{{line_collection.url}}?view=category-style">{{line_collection.title}} <span class="count">({{line_collection.products_count}})</span></a></li>
+		                  {% endfor %}
+		              {% endpaginate %}
+		          </ul>
+		        </div>
                 {% include 'collection-sidebar-style' %}
         	</div>
 		</div>
 	</div>
 </div>
-<div class="margin-bottom-30">    
-	<div class="container">
-		<div class="row">
-				<div class="col-sm-12 col-md-4">
-	                <div class="element-icon style2">
-						<div class="icon"><i class="flaticon flaticon-origami28"></i></div>
-						<div class="content">
-							<h4 class="title">FREE SHIPPING WORLD WIDE</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-4">
-	                <div class="element-icon style2">
-						<div class="icon"><i class="flaticon flaticon-curvearrows9"></i></div>
-						<div class="content">
-							<h4 class="title">MONEY BACK GUARANTEE</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-4">
-	                <div class="element-icon style2">
-						<div class="icon"><i class="flaticon flaticon-headphones54"></i></div>
-						<div class="content">
-							<h4 class="title">ONLINE SUPPORT 24/7</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-	</div>   
-</div>
+{% assign margin_shipping_icon = "margin-top-30" %}
+    {% include 'shortcode-shipping-icon' %} 

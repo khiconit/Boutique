@@ -1,3 +1,18 @@
+<script>
+  var json_collection_filter =  {{collection.products | json }};
+  var json_wishlist = [];
+  {% if customer %}
+  {% for tag in customer.tags %}
+     {% assign tag_rmx =   tag | remove: 'x'  %}
+     {% assign check_size =  tag.size | minus: tag_rmx.size  %}
+     {% assign check_mod =   check_size | modulo: 2  %}
+     {% if check_mod == 0  %}
+        json_wishlist.push({{tag_rmx}});
+     {% endif %}
+  {% endfor %}
+{% endif %}
+</script>
+
 {% unless grid_item_width %}
   {% assign grid_item_width = 'large--one-third medium-down--one-half' %}
 {% endunless %}

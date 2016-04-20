@@ -291,6 +291,7 @@
       "select_option": "Select Option",
       "view_cart": "View cart",
       "in_stock": "In Stock",
+      "out_of_stock": "Out of Stock",
       "continue_shopping": "Continue shopping"
     },
     "zoom": {
