@@ -1,0 +1,83 @@
+{% assign import_style_homepage = settings.import_content_homepage | plus: 0%}
+{% case import_style_homepage %}
+  {% when 0 %}
+  {% when 1 %}
+
+    <div class="container">
+      {% if settings.use_slider_hp1 %}
+      <!-- Home slide -->
+      <div class="slider-homepage">
+        {% include 'shortcode-slider' %}
+      </div>
+      <!-- ./Home slide -->
+      {% endif %}
+      {% include 'render-layout' register_section: 'sc_home1'  %}
+    </div>
+
+  {% when 2 %}
+
+    <div class="container">
+      {% if settings.use_slider_hp2 %}
+      <!-- Home slide -->
+      <div class="slider-homepage">
+        {% include 'shortcode-slider' %}
+      </div>
+      <!-- ./Home slide -->
+      {% endif %}
+      {% include 'render-layout' register_section: 'sc_home2'  %}
+    </div>
+
+  {% when 3 %}
+
+    {% if settings.use_slider_hp3 %}
+    <!-- Home slide -->
+    <div class="slider-homepage">
+      {% include 'shortcode-slider' %}
+    </div>
+    <!-- ./Home slide -->
+    {% endif %}
+    <div class="container">
+      {% include 'render-layout' register_section: 'sc_home3'  %}
+    </div>
+
+  {% when 4 %}
+
+    {% if settings.use_slider_hp4 %}
+    <!-- Home slide -->
+    <div class="slider-homepage">
+      {% include 'shortcode-slider' %}
+    </div>
+    <!-- ./Home slide -->
+    {% endif %}
+    <div class="container">
+      {% include 'render-layout' register_section: 'sc_home4'  %}
+    </div>
+
+  {% when 5 %}
+
+    {% if settings.use_slider_hp5 %}
+    <!-- Home slide -->
+    <div class="slider-homepage">
+      {% include 'shortcode-slider' %}
+    </div>
+    <!-- ./Home slide -->
+    {% endif %}
+    <div class="container">
+      {% include 'render-layout' register_section: 'sc_home5'  %}
+    </div>
+
+  {% when 6 %}
+
+    {% if settings.use_slider_hp6 %}
+    <!-- Home slide -->
+    <div class="slider-homepage">
+      {% include 'shortcode-slider' %}
+    </div>
+    <!-- ./Home slide -->
+    {% endif %}
+    <div class="container">
+      {% include 'render-layout' register_section: 'sc_home6'  %}
+    </div>
+
+{% endcase %}
+
