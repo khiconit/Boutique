@@ -67,6 +67,17 @@
     </div>
 
   {% when 6 %}
-  	{% assign import_style_homepage = 'large--one-sixth medium--one-half' %}
+
+    {% if settings.use_slider_hp6 %}
+    <!-- Home slide -->
+    <div class="slider-homepage">
+      {% include 'shortcode-slider' %}
+    </div>
+    <!-- ./Home slide -->
+    {% endif %}
+    <div class="container">
+      {% include 'render-layout' register_section: 'sc_home6'  %}
+    </div>
+
 {% endcase %}
 

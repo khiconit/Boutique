@@ -1,7 +1,7 @@
 <div class="product-details-full">                            
   <div class="container">
     <div class="row" id="product-single">
-      <div class="col-md-7 col-lg-7 col-sm-12">
+      <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
         <div class="product-detail-image">
           <div class="thumbnails" id="ProductThumbs">
             {% if product.images.size > 1 %}
@@ -27,7 +27,7 @@
           {% endif %}
         </div>
       </div>
-      <div class="col-md-5 col-lg-5 col-sm-12">
+      <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
         <div class="product-details-right">
           {% include 'breadcrumb-product' %}
           <h3 class="product-name">{{ product.title | upcase }}</h3>
@@ -44,30 +44,21 @@
           </span>
 
           <div class="short-descript">
-            {{ product.description | truncatewords: 200 }}
+            {% if product.metafields.meta.description %}
+            {{ product.metafields.meta.description }}
+            {% endif %}
           </div>  
           <form class="cart"  action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
             <div class="quantity">
               <span>{{ 'products.product.quantity' | t }}</span>
-              <input type="number" id="Quantity" name="quantity" value="1" min="1" class="input-text qty text quantity-selector">
+              <input style="border: 1px solid #e5e5e5; width: 55px; font-size: 14px; min-width: auto;" type="number" id="Quantity" name="quantity" value="1" min="1" class="input-text qty text quantity-selector">
             </div>
-            {% include 'wishlist-product' %}
+            {% if settings.use_wishlist %}
+          {% assign button = "button" %}
+          {% include 'wishlist-product' %}
+          {% endif %}
             <a id="AddToCart" class="button button-add-cart" data-quantity="1">{{ 'products.product.add_to_cart' | t }}</a>
           </form> 
-
-
-          <div class="product_meta"> 
-            <span class="posted_in">Category: 
-              {% for type in product.type %}
-              <a href="/collections/types?q={{ type }}">{{ type }}</a>
-              {% endfor %}
-            </span> 
-            <span class="tagged_as">Tags:
-              {% for tag in product.tags %}
-              <a href="/collections/all/{{ tag }}">{{ tag }}</a>
-              {% endfor %}
-            </span>
-          </div>
           
         </div>
 
@@ -77,18 +68,20 @@
 </div>
 <div class="container">                        
     <div class="tab-details-product padding-40-60">
-        <ul class="box-tabs nav-tab">
-            <li class="active"><a data-toggle="tab" href="#tab-1">DESCRIPTION</a></li>
-            <li><a data-toggle="tab" href="#tab-2">ADDITIONAL INFORMATION</a></li>
-        </ul>
-        <div class="tab-container">
-            <div id="tab-1" class="tab-panel active">
-              
-            </div>
-            <div id="tab-2" class="tab-panel">
-              
-            </div>     
-        </div>  
+      <ul class="box-tabs nav-tab">
+        <li class="active"><a data-toggle="tab" href="#tab-1">DESCRIPTION</a></li>
+        <li><a data-toggle="tab" href="#tab-2">ADDITIONAL INFORMATION</a></li>
+      </ul>
+      <div class="tab-container">
+        <div id="tab-1" class="tab-panel active">
+          {{ product.description }}
+        </div>
+        <div id="tab-2" class="tab-panel">
+          {% if product.metafields.meta.addition %}
+          {{ product.metafields.meta.addition }}
+          {% endif %}
+        </div>     
+      </div>  
     </div>
   <div class="upsell-products">{% include 'upsell-products' %}</div> 
 </div> <!--END CONTAINER-->  
