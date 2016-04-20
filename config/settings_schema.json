@@ -1533,12 +1533,18 @@
     "settings": [
       {
         "type": "header",
-        "content": "== Book Look"
+        "content": "== Look Book"
       },
       {
         "type": "image",
         "id": "47.jpg",
         "label": "Background Image About"
+      },
+      {
+        "type": "textarea",
+        "id": "shortcode_lookbook",
+        "label": "Shortcode Lookbook",
+        "info": "Write Shortcode image lookbook with [lookbook img_lookbook...]"
       }
     ]
   },
@@ -3337,94 +3343,8 @@
     "name": "Collection page",
     "settings": [
       {
-        "type": "checkbox",
-        "id": "collections_show_sale_circle",
-        "label": "Show product sale circle"
-      },
-      {
-        "type": "checkbox",
-        "id": "collections_show_sold_out_circle",
-        "label": "Show product sold out circle"
-      },
-      {
-        "type": "checkbox",
-        "id": "collections_sort_enable",
-        "label": "Enable collection sorting"
-      },
-      {
-        "type": "checkbox",
-        "id": "collections_tags_enable",
-        "label": "Enable tag sorting"
-      },
-      {
-        "type": "select",
-        "id": "collections_products_per_row",
-        "label": "Number of products per row",
-        "options": [
-          {
-            "value": "2",
-            "label": "2"
-          },
-          {
-            "value": "3",
-            "label": "3"
-          },
-          {
-            "value": "4",
-            "label": "4"
-          },
-          {
-            "value": "5",
-            "label": "5"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "id": "collections_rows",
-        "label": "Number of rows",
-        "options": [
-          {
-            "value": "1",
-            "label": "1"
-          },
-          {
-            "value": "2",
-            "label": "2"
-          },
-          {
-            "value": "3",
-            "label": "3"
-          },
-          {
-            "value": "4",
-            "label": "4"
-          },
-          {
-            "value": "5",
-            "label": "5"
-          },
-          {
-            "value": "6",
-            "label": "6"
-          },
-          {
-            "value": "7",
-            "label": "7"
-          },
-          {
-            "value": "8",
-            "label": "8"
-          },
-          {
-            "value": "9",
-            "label": "9"
-          },
-          {
-            "value": "10",
-            "label": "10"
-          }
-        ]
+        "type": "header",
+        "content": "==Use Image collection"
       },
       {
         "type": "checkbox",
@@ -3439,6 +3359,10 @@
         "info": "Image banner collection"
       },
       {
+        "type": "header",
+        "content": "== Use Image collectionList"
+      },
+      {
         "type": "checkbox",
         "id": "enable_banner_collection_list",
         "label": "Use banner image collection list",
@@ -3449,6 +3373,64 @@
         "id": "slider-cat2.jpg",
         "label": "Choose image banner collection view list",
         "info": "Image banner collection"
+      },
+      {
+        "type": "text",
+        "id": "collection_max_price",
+        "label": "Collection max price",
+        "default": "9999",
+        "info": "Format number 2 decimal. Example: 9999 => $99.99"
+      },
+      {
+        "type": "text",
+        "id": "collection_min_price",
+        "label": "Collection min  price",
+        "default": "0",
+        "info": "Format number 2 decimal. Example: 9999 => $99.99"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_use_filter_color",
+        "label": "Use filter by color",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "filter_color_title",
+        "label": "Filter color title",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "filter_color_name",
+        "label": "Color name",
+        "default": "red,blue,green,yellow,orange",
+        "info": "Example: red,blue,green,orange,yellow"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_use_filter_size",
+        "label": "Use filter by size",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "filter_size_title",
+        "label": "Filter size title",
+        "default": "Size"
+      },
+      {
+        "type": "textarea",
+        "id": "filter_size_name",
+        "label": "Size name",
+        "default": "XL,XXL,M,N,S,XS",
+        "info": "Example: XL,XXL,M,N,S,XS"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_collection_banner",
+        "label": "Use banner in collection page",
+        "default": true
       }
     ]
   },

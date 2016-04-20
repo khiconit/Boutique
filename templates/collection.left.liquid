@@ -1,3 +1,17 @@
+<script>
+  var json_collection_filter =  {{collection.products | json }};
+  var json_wishlist = [];
+  {% if customer %}
+  {% for tag in customer.tags %}
+     {% assign tag_rmx =   tag | remove: 'x'  %}
+     {% assign check_size =  tag.size | minus: tag_rmx.size  %}
+     {% assign check_mod =   check_size | modulo: 2  %}
+     {% if check_mod == 0  %}
+        json_wishlist.push({{tag_rmx}});
+     {% endif %}
+  {% endfor %}
+{% endif %}
+</script>
 {% if settings.enable_banner_content_collection %}
 	<div class="banner">
 		<div class="banner-content">
@@ -41,6 +55,16 @@
 			</div>
 
 			<div class="col-sm-4 col-md-3 sidebar">
+				<div class="widget widget_product_categories">
+			    <h2 class="widget-title">{{ 'blogs.sidebar.categories' | t }}</h2>
+			    <ul class="product-categories">
+			    	{% paginate collections by 12 %}
+			    		{% for line_collection in collections  %}
+			    			<li class="{% if collection.handle == line_collection.handle %} current-cat {% endif %}"><a href="{{line_collection.url}}?view=left">{{line_collection.title}} <span class="count">({{line_collection.products_count}})</span></a></li>
+			    		{% endfor %}
+			        {% endpaginate %}
+			    </ul>
+			</div>
 				{% include 'collection-sidebar' %}
             </div>
 		</div>

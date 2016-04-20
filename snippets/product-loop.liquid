@@ -61,11 +61,11 @@
           <a class="button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
         {% else %}
           {% if product.variants.first.available %}
-            <a class="button add_to_cart_button" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
+            <a class="button add_to_cart_button add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
           {% endif %}
         {% endif %}
       {% else %}
-    <a class="button" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
+    <a class="button btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
       {% endif %}
     </div>
   </div>

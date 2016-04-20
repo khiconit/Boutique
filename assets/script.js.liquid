@@ -116,7 +116,8 @@
                 data: args,
                 success: function(data, status) {
                     if (status == "success") {
-                        $this.hide(600).next('a.added-wishlist').show(700);
+                       $('[data-form="'+myid+'"]').hide(600).next('a.added-wishlist').css({visibility:'visible',display:'block'});
+                        // $this.hide(600).next('a.added-wishlist').show(700);
                         $("#loading").hide(500);
                         swal("Success!", "Added success to wishlist!", "success");
                     } else {
@@ -194,6 +195,10 @@
             });
         });
       /* end wishlist */
+    $(".filter-checkbox").click(function(event) {
+      /* Act on the event */
+      window.location.href = $(this).parent('span').next('a').prop('href');
+    });
 
     /* Compare Product*/
     var storage = $.localStorage;
@@ -256,7 +261,7 @@
         html = html + '</div>';
         //convert_currency_andy(el.price,'3');
         if (el.variants.length > 1) {
-          html = html + '<a href="#" onclick="location.href=\'/products/' + el.handle + '\'">Select Options</a>';
+          html = html + '<a onclick="location.href=\'/products/' + el.handle + '\'">Select Options</a>';
         } else {
           html = html + '<a href="#" title="Add to Cart" data-pid="' + el.variants[0].id + '" class="add-to-cart button">Add to Cart</a>';
         }
@@ -434,7 +439,7 @@
  /**
          * Quick view modal
          */
-        $(".quick-view").on('click', function(event) {
+         $(document).on('click','.quick-view' , function(event) {
             event.preventDefault();
             /* Act on the event */
             $("#loading").fadeIn(300);

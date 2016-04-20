@@ -1,3 +1,18 @@
+<script>
+  var json_collection_filter =  {{collection.products | json }};
+  var json_wishlist = [];
+  {% if customer %}
+  {% for tag in customer.tags %}
+     {% assign tag_rmx =   tag | remove: 'x'  %}
+     {% assign check_size =  tag.size | minus: tag_rmx.size  %}
+     {% assign check_mod =   check_size | modulo: 2  %}
+     {% if check_mod == 0  %}
+        json_wishlist.push({{tag_rmx}});
+     {% endif %}
+  {% endfor %}
+{% endif %}
+</script>
+
 <div class="main-container shop-with-banner left-slidebar">
 	<div class="container">
 		{% if settings.enable_banner_content_collection %}
@@ -6,8 +21,7 @@
             </div>
         {% endif %}
 		<div class="breadcrumbs style2">
-            <a href="#">Home</a>
-            <span>Categories_Leftsidebar</span>
+            {% include "breadcrumb" %}
         </div>
 		<div class="row">
 			<div class="main-content col-sm-8 col-md-9">
@@ -20,13 +34,13 @@
                         <div class="orderby-wapper">
                             {% include 'collection-sorting' %}
                         </div>
-                        <div class="orderby-wapper display-products">
+                        {% comment %}<div class="orderby-wapper display-products">
                             <span class="label-filter">SHOW:</span>
                             <select class="orderby">
                                 <option value="">9 products</option>
                                 <option value="">12 products</option>
                             </select>
-                        </div>
+                        </div>{% endcomment %}
 
                         {% include 'collection-views' %}
                     </div>
@@ -46,8 +60,18 @@
                 {% endpaginate %}
 			</div>
 			<div class="col-sm-4 col-md-3 sidebar"> 
+        <div class="widget widget_product_categories">
+          <h2 class="widget-title">{{ 'blogs.sidebar.categories' | t }}</h2>
+          <ul class="product-categories">
+              {% paginate collections by 12 %}
+                  {% for line_collection in collections  %}
+                      <li class="{% if collection.handle == line_collection.handle %} current-cat {% endif %}"><a href="{{line_collection.url}}?view=category-style4">{{line_collection.title}} <span class="count">({{line_collection.products_count}})</span></a></li>
+                  {% endfor %}
+              {% endpaginate %}
+          </ul>
+        </div>
                 {% include 'collection-sidebar-style' %}
-        	</div>
+      </div>
 		</div>
 	</div>
 </div>

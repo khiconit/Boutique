@@ -22,7 +22,12 @@
                   {% if variant.inventory_management != '' %}
                    {% comment %}{{ variant.inventory_quantity }}{% endcomment %} Available:
                       <span>{{ 'products.product.in_stock' | t }}</span>
+
                   {% endif %}
+                  
+                 {% else %}
+                 	 Available:
+                  <span> {{ 'products.product.out_of_stock' | t }}</span>
                 {% endif %}
         </div>
         <div class="short-descript">
