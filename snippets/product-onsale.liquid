@@ -1,7 +1,9 @@
 <div class="container">
+  {% if settings.enable_banner_content_collection %}
   <div class="shop-banner">
-        <img src="images/slides/slider-cat2.jpg" alt="">
-    </div>
+    {{ 'slider-cat2.jpg' | asset_url | img_tag }}
+  </div>
+  {% endif %}
   <div class="breadcrumbs style2">
       {% include "breadcrumb" %}
   </div>
@@ -14,9 +16,9 @@
       {% endif %}
 
         <div class="row" id="product-single">
-          <div class="col-sm-5">
+          <div class="col-sm-5 col-xs-12">
             <div class="product-detail-image style2">
-                  <div class="main-image-wapper">
+                  <div class="main-image-wapper" id="ProductPhoto">
                     {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
                     <img class="main-image" src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"{% if settings.product_image_zoom_type == 'zoom-in' %} data-zoom="{{ featured_image | img_url: '1024x1024' }}"{% endif %} data-image-id="{{ featured_image.id }}">
                   </div>
@@ -40,7 +42,7 @@
                 {% endif %}
               </div>
           </div>
-          <div class="col-sm-7">
+          <div class="col-sm-7 col-xs-12">
               <div class="product-details-right style2">
                   <h3 class="product-name">{{ product.title }}</h3>
                   <div class="rating">
@@ -61,7 +63,9 @@
                   </div>
                 {% endcomment %}
                   <div class="short-descript">
-                    {{ product.description | truncatewords: 200 }}
+                    {% if product.metafields.meta.description %}
+                    {{ product.metafields.meta.description }}
+                    {% endif %}
                   </div>
                 
                   <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
@@ -80,108 +84,68 @@
                     </select>
                     <div class="cart-form">
                       <div class="product-single__quantity{% unless settings.product_quantity_enable %} is-hidden{% endunless %}">
-                        <label class="quantity" for="Quantity">{{ 'products.product.quantity' | t }}</label>
+                          <div class="clearfixx">
                           <a class="down" >-</a>
-                          <input type="text" id="Quantity" size="4" class="input-text qty text quantity-selector" title="Qty" value="03" min="1" max="100" name="quantity">
+                          <input type="text" id="Quantity" class="input-text qty text quantity-selector" title="Qty" value="01" min="1" max="100" name="quantity">
                           <a class="up" >+</a>
+                        </div>
                       </div>
                       
                       <script type="text/javascript"> 
-                        $(document).ready(function(){
-                          
-                          
-                           
-                          
+                        jQuery(document).ready(function($){
                           $('#Quantity').keyup(function(){                              
-                              var textinput = $(this).val();                      
-                              $(this).attr('value',textinput);
+                            var textinput = $(this).val();                      
+                            $(this).attr('value',textinput);
                           });
-                          
-                        var quan = parseInt($("#Quantity").val());
-                          
                           $(".up").click(function(){
+                          var quan = parseInt($("#Quantity").val());
                             quan = quan+1; 
                             var zero;
-                          if(quan<10){
-                            zero = "0"+quan;
-                          }
-                          else{
-                            zero=quan;
-                          }
-                             $('.down').css('pointer-events', 'auto'); 
-                             $("#Quantity").val(zero).attr('value',zero);    
+                            if(quan<10){
+                              zero = "0"+quan;
+                            }
+                            else{
+                              zero=quan;
+                            }
+                            $('.down').css('pointer-events', 'auto'); 
+                            $("#Quantity").val(zero).attr('value',zero);    
                           }); 
-                          $(".down").click(function(){                            
+                          $(".down").click(function(){    
+                          var quan = parseInt($("#Quantity").val());                        
                             quan = quan-1;
                             var zero;
-                          if(quan<10){
-                            zero = "0"+quan;
-                          }
-                          else{
-                            zero=quan;
-                          }
-                             $("#Quantity").val(zero).attr('value',zero);
-                            if(quan == 1){
-                            	$('.down').css('pointer-events', 'none');
+                            if(quan<10){
+                              zero = "0"+quan;
                             }
-                          	if(quan == 1000){
-                            	$('.down').css('pointer-events', 'none');
+                            else{
+                              zero=quan;
+                            }
+                            $("#Quantity").val(zero).attr('value',zero);
+                            if(quan == 1){
+                              $('.down').css('pointer-events', 'none');
+                            }
+                            if(quan == 100){
+                              $('.down').css('pointer-events', 'none');
                             }
                           });     
-                          
+
                         });
                       </script>
-                      <a id="AddToCart" class="button button-add-cart" data-quantity="1">Add to cart</a>
-                      	{% assign button = "button" %}
-            			{% include 'wishlist-product' %}
-                      <a class="button compare" data-pid="{{product.handle}}">
-                        <i class="fa fa-exchange"></i>
-                      </a>
-                    </div>
-                  </form>
-      
-                {% comment %}
-                  <div class="select-color">
-                    <label>COLOR</label>
-                    <div class="inner">
-                      <a href="#"><span style="background-color:#736357;"></span></a>
-                      <a class="active" href="#"><span style="background-color:#bdb871;"></span></a>
-                      <a href="#"><span style="background-color:#f26522;"></span></a>
-                      <a href="#"><span style="background-color:#fff799;"></span></a>
-                    </div>
-                  </div>
-                  <div class="select-size">
-                    <label>SIZE OPTIONS</label>
-                    <div class="inner">
-                        <a href="#"><span>S</span></a>
-                        <a class="active" href="#"><span>M</span></a>
-                        <a href="#"><span>L</span></a>
-                        <a href="#"><span>XL</span></a>
-                        <a href="#"><span>XXL</span></a>
-                      </div>
-                  </div>
-                
-                  <div class="size-chart">
-                      <a href="#">SIZE chart</a>
-                  </div>
 
-                  <form class="cart-form" enctype="multipart/form-data" method="post">
-                      <div class="quantity">
-                          <a href="#">-</a>
-                          <input type="text" size="4" class="input-text qty text" title="Qty" value="03" name="quantity">
-                          <a href="#">+</a>
-                      </div>
-                      <a class="button button-add-cart" data-quantity="1"  href="#">Add to cart</a>
-            			{% include 'wishlist-product' %}
+                      <a id="AddToCart" class="button button-add-cart boutique__add-to-cart" data-quantity="1">Add to cart</a>
+                                            
+                      {% if settings.use_wishlist %}
+                      {% assign button = "button" %}
+            		  {% include 'wishlist-product' %}
+                      {% endif %}
+
+                      {% if settings.use_compare %}
                       <a class="button compare" data-pid="{{product.handle}}">
                         <i class="fa fa-exchange"></i>
                       </a>
+                      {% endif %}
+                    </div>
                   </form>
-                  <div class="share">
-                      <a href="#"><i class="fa fa-print"></i> Print</a>
-                      <a href="#"><i class="fa fa-envelope-o"></i> Send to a friend</a>
-                  </div> 
-                {% endcomment %}
               </div>
           </div>
         </div>
@@ -192,10 +156,12 @@
           </ul>
           <div class="tab-container">
                 <div id="tab-1" class="tab-panel active">
-                  
+                  {{ product.description }}
               </div>
               <div id="tab-2" class="tab-panel">
-                  
+                  {% if product.metafields.meta.addition %}
+                		{{ product.metafields.meta.addition }}
+                {% endif %}
               </div>     
           </div>  
         </div> 
@@ -222,41 +188,6 @@
         </div>
         <!-- ./Product category -->
       
-      {% comment %}
-         <!-- Filter price -->
-        <div class="widget widget_price_filter">
-            <h2 class="widget-title">PRICES</h2>
-            <div class="price_slider_wrapper">
-                <div class="amount-range-price">Price: $85.00 - $125.00</div>
-                <div data-label-reasult="price:" data-min="0" data-max="500" data-unit="$" class="slider-range-price " data-value-min="50" data-value-max="350"></div>
-                <button class="button">Filter NOW</button>
-            </div>
-        </div>
-        <!-- ./Filter price -->
-         <!-- By color -->
-        <div class="widget widget_fillter_color">
-            <h2 class="widget-title">COLOUR</h2>
-            <div class="inner">
-              <a href="#"><span style="background-color:#736357;"></span></a>
-              <a class="active" href="#"><span style="background-color:#bdb871;"></span></a>
-              <a href="#"><span style="background-color:#f26522;"></span></a>
-              <a href="#"><span style="background-color:#fff799;"></span></a>
-            </div>
-        </div>
-         <!-- ./By color -->
-         <!-- By color -->
-        <div class="widget widget_fillter_size">
-            <h2 class="widget-title">SIZE Option</h2>
-            <div class="inner">
-              <a href="#"><span>S</span></a>
-              <a class="active" href="#"><span>M</span></a>
-              <a href="#"><span>L</span></a>
-              <a href="#"><span>XL</span></a>
-              <a href="#"><span>XXL</span></a>
-            </div>
-        </div>
-         <!-- ./By color -->
-      {% endcomment %}
          {% include 'recent-product-sidebar' %}
         <!-- Product tags -->
         <div class="widget widget_product_tag_cloud style2">
@@ -277,131 +208,7 @@
 </div>
 <!-- ./tab -->
 
-
-
-<div class="product-single container">
-    <div class="grid product-single__hero">
-      <div class="grid__item large--one-half">
-
-        {% if settings.product_thumbnails_position == 'below' or product.images.size < 2 %}
-
-          <div class="product-single__photos" id="ProductPhoto">
-            {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-            <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"{% if settings.product_image_zoom_type == 'zoom-in' %} data-zoom="{{ featured_image | img_url: '1024x1024' }}"{% endif %} data-image-id="{{ featured_image.id }}">
-          </div>
-
-          {% if product.images.size > 1 %}
-
-            <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
-              {% for image in product.images %}
-                <li class="grid__item large--one-third medium-down--one-third">
-                  <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
-                    <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-
-          {% endif %}
-
-        {% else %}
-
-          <div class="grid">
-
-            <div class="grid__item four-fifths product-single__photos" id="ProductPhoto">
-              {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
-              <img src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"{% if settings.product_image_zoom_type == 'zoom-in' %} data-zoom="{{ featured_image | img_url: '1024x1024' }}"{% endif %} data-image-id="{{ featured_image.id }}">
-            </div>
-
-            <div class="grid__item one-fifth">
-
-              <ul class="grid product-single__thumbnails" id="ProductThumbs">
-                {% for image in product.images %}
-                  <li class="grid__item">
-                    <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
-                      <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-
-            </div>
-
-          </div>
-
-        {% endif %}
-
-        {% if settings.product_image_zoom_type == 'lightbox' %}
-        <ul class="gallery" class="hidden">
-          {% for image in product.images %}
-          <li data-image-id="{{ image.id }}" class="gallery__item" data-mfp-src="{{ image | img_url: '1024x1024' }}"></li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-
-      </div>
-      <div class="grid__item large--one-half">
-        {% comment %}
-          <h3 itemprop="brand">{{ product.vendor }}</h3>
-        {% endcomment %}
-        <h1 itemprop="name">{{ product.title }}</h1>
-
-        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-          {% assign variant = product.selected_or_first_available_variant %}
-
-          <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-          <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-
-          <div class="product-single__prices">
-            <span id="ProductPrice" class="product-single__price" itemprop="price">
-              {{ product.price | money }}
-            </span>
-
-            {% if product.compare_at_price > product.price %}
-              <s id="ComparePrice" class="product-single__sale-price">
-                {{ product.compare_at_price_max | money }}
-              </s>
-            {% endif %}
-          </div>
-
-          <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-            <select name="id" id="productSelect" class="product-single__variants">
-              {% for variant in product.variants %}
-                {% if variant.available %}
-
-                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-
-                {% else %}
-                  <option disabled="disabled">
-                    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                  </option>
-                {% endif %}
-              {% endfor %}
-            </select>
-
-            <div class="product-single__quantity{% unless settings.product_quantity_enable %} is-hidden{% endunless %}">
-              <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-              <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
-            </div>
-
-            <button type="submit" name="add" id="AddToCart" class="btn">
-              <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-            </button>
-          </form>
-
-          <div class="product-description rte" itemprop="description">
-            {{ product.description }}
-          </div>
-
-          {% if settings.social_sharing_products %}
-            <hr class="hr--clear hr--small">
-            {% include 'social-sharing' %}
-          {% endif %}
-        </div>
-
-      </div>
-    </div>
-  </div>
+  {% include 'shortcode-shipping-icon' %}
 
 
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}

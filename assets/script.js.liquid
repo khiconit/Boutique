@@ -479,8 +479,8 @@
         }
       }
       
-      $(document).on('click',".add-to-cart", function(event) {
-        $(this).attr('disabled','disabled');
+      $(document).on('click',".boutique__add-to-cart", function(event) {
+        $(this).attr('disabled','disabled').css('pointer-events', 'none');
         var $this = $(this);
         $("#quick-view-modal #AddToCart span.added").css({'z-index': '0'});
         $("#quick-view-modal #AddToCart span.adding").css({'opacity':'1','z-index':'1','left':'40%'}).addClass('fa-2x fa fa-spinner fa-pulse');;
@@ -504,13 +504,13 @@
           },  
           success: function(response) {
             show_dropdown_cart();
-            $('.add-to-cart').removeAttr("disabled");
+            $('.boutique__add-to-cart').removeAttr("disabled").css('pointer-events', 'auto');
             $("#quick-view-modal #AddToCart span.adding").removeClass('fa-spinner fa-pulse fa-2x').addClass('fa fa-check').css({'left':'86%'});
             $("#quick-view-modal #AddToACart span.added").css({'z-index': '-1'});
 
             $this.next(".adding-cart").removeClass('fa-2x fa fa-spinner fa-pulse');
             
-            $this.removeClass("add-to-cart").addClass('added-cart').text("View Cart").attr("href","/cart");
+            $this.removeClass("boutique__add-to-cart").addClass('added-cart').text("View Cart").attr("href","/cart");
             
             $this.next().removeClass("adding-cart");
 
