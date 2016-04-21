@@ -531,7 +531,7 @@
           dataType: 'json',
           data:"updates["+id+"]=0",
           success: function(data) {
-         $(".cartCost").text(convert_currency_andy(data.total_price));
+          $(".cartCost").text(convert_currency_andy(data.total_price));
           $(".cartCount").text(data.item_count);          
         	show_dropdown_cart();
         
