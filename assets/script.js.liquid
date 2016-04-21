@@ -76,9 +76,9 @@
                 html = html + '</li>';
               });
                 html = html + '</ul>';
-                html = html + ' Subtotal:<div class="sub-total cartCost">xxxxx';
+                html = html + '<div class="sub-total">{{ 'cart.general.subtotal' | t }} <div class="cartCost">';
                 html = html + '<span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency="'+Currency.currentCurrency+'"></span>';
-                html = html + '</div>';
+                html = html + '</div></div>';
                 html = html + '<div class="group-button">';
                 html = html + '<a href="/cart" class="button">Shopping Cart</a>';
                 html = html + '<a href="/checkout" class="check-out button">Check Out</a>';
@@ -101,7 +101,6 @@
       }
 
       /* wishlist */
-      	$(".added-wishlist").hide();
         $(document).on('click',".wishlist", function(event) {
             var $this = $(this);
             event.preventDefault();
@@ -263,7 +262,7 @@
         if (el.variants.length > 1) {
           html = html + '<a onclick="location.href=\'/products/' + el.handle + '\'">Select Options</a>';
         } else {
-          html = html + '<a href="#" title="Add to Cart" data-pid="' + el.variants[0].id + '" class="add-to-cart button">Add to Cart</a>';
+          html = html + '<a href="#" title="Add to Cart" data-pid="' + el.variants[0].id + '" class="boutique__add-to-cart button">Add to Cart</a>';
         }
         html = html + ' </td>';
 

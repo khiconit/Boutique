@@ -1006,8 +1006,8 @@
         "content": "== About section settings"
       },
       {
-        "type": "image",
-        "id": "43.jpg",
+        "type": "text",
+        "id": "about_bg",
         "label": "Background Image About"
       },
       {
@@ -1047,18 +1047,7 @@
       },
       {
         "type": "header",
-        "content": "==== Team section setting"
-      },
-      {
-        "type": "checkbox",
-        "id": "use_section_team",
-        "label": "Use Team Section",
-        "default": true
-      },
-      {
-        "type": "image",
-        "id": "bg_team.png",
-        "label": "Background Image Team"
+        "content": "== Team section setting"
       },
       {
         "type": "color",
@@ -1331,6 +1320,11 @@
       },
       {
         "type": "text",
+        "id": "bg_testimonial",
+        "label": "Link Background Testimonial"
+      },
+      {
+        "type": "text",
         "id": "sub_testimonial_title",
         "label": "Sub Title testimonial",
         "default": "Testimonials!"
@@ -1491,8 +1485,8 @@
         "content": "Contact Us"
       },
       {
-        "type": "image",
-        "id": "45.jpg",
+        "type": "text",
+        "id": "bg_contact",
         "label": "Background Image About"
       },
       {

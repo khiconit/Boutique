@@ -11,7 +11,7 @@
     {% if cattegories_item_image_title == blank %}
     	<span class="icon">{{'cattegories-item.gif' | asset_url | img_tag}}</span>
     {% else %}
-    	<span class="icon">{{image_title | file_url | img_tag}}</span>
+    	<span class="icon">{{cattegories_item_image_title | file_url | img_tag}}</span>
     {% endif %}
 
     {% if cattegories_item_image_title == blank %}
@@ -26,7 +26,7 @@
     {% if cattegories_item_image_title == blank %}
     	{{'cattegories-item.gif' | asset_url | img_tag}}
     {% else %}
-    	{{image_title | file_url | img_tag}}
+    	{{cattegories_item_image_title | file_url | img_tag}}
     {% endif %}
     
     {% if cattegories_item_image_title == blank %}

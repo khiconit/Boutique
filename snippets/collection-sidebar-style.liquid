@@ -4,9 +4,9 @@
     <h2 class="widget-title">{{ 'cart.label.price' | t }}</h2>
     <form method="get" action="#">
         <div class="price_slider_wrapper">
-            <div class="amount-range-price">{{ 'cart.label.price' | t }}: <span class="from">{{settings.collection_min_price | money }}</span> — <span class="to">{{settings.collection_max_price | money }}</div>
+            <div class="amount-range-price">{{ 'cart.label.price' | t }}: <span class="from">{{settings.collection_min_price | money }}</span> — <span class="to">{{settings.collection_max_price | money }}</span></div>
             <div id="slider-range" class="price_slider"></div>
-            <button class="button">Filter Now</button>
+            {% comment %}<button class="button">Filter Now</button>{% endcomment %}
         </div>
     </form>
 </div>
@@ -30,12 +30,12 @@
             {% endfor %}
             {% if check %}
               <li class="advanced-filter-1 active active-filter" data-group="{{ settings.filter_color_title }}" data-handle="{{ size | handleize }}">
-                <span class="status-filter checked"><div class="filter-checkbox"></div></span>
+                <span class="status-filter checked"><span class="filter-checkbox"></span></span>
                 {{ color | link_to_remove_tag: color }}
               </li>
             {% else %}
               <li class="advanced-filter-1" data-group="{{ settings.filter_color_title }}" data-handle="{{ size | handleize }}">
-                <span class="status-filter no-check"><div class="filter-checkbox" ></div> </span>
+                <span class="status-filter no-check"><span class="filter-checkbox" ></span> </span>
                 {{ color | link_to_add_tag: color }}
               </li>
             {% endif %}
@@ -66,14 +66,14 @@
                   {% if check %}
                    
                     <div class="advanced-filter active active-filter" data-group="{{ settings.filter_size_title }}" data-handle="{{ size | handleize }}">
-                       <span class="status-filter checked"><div class="filter-checkbox"></div></span>
+                       <span class="status-filter checked"><span class="filter-checkbox"></span></span>
                       {{ custom_tag | link_to_remove_tag: size }}
                      
                     </div>
                   {% else %}
                    
                     <div class="advanced-filter" data-group="{{ settings.filter_size_title }}" data-handle="{{ size | handleize }}">
-                      <span class="status-filter no-check"><div class="filter-checkbox"></div></span>
+                      <span class="status-filter no-check"><span class="filter-checkbox"></span></span>
                       
                       {{ custom_tag | link_to_add_tag: size }}
                     </div>

@@ -19,7 +19,7 @@
             <img class="main-image" src="{{ featured_image | img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"{% if settings.product_image_zoom_type == 'zoom-in' %} data-zoom="{{ featured_image | img_url: '1024x1024' }}"{% endif %} data-image-id="{{ featured_image.id }}">
           </div>
           {% if settings.product_image_zoom_type == 'lightbox' %}
-          <ul class="gallery" class="hidden">
+          <ul class="gallery hidden">
             {% for image in product.images %}
             <li data-image-id="{{ image.id }}" class="gallery__item" data-mfp-src="{{ image | img_url: '1024x1024' }}"></li>
             {% endfor %}
@@ -87,8 +87,8 @@
 </div> <!--END CONTAINER-->  
 <div class="box-list-reviews">
   <div class="container">  
-    <div class="row">
       <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-    </div>
   </div>
 </div>
+{% assign margin_shipping_icon = "margin-top-60 margin-bottom-30" %}
+  {% include 'shortcode-shipping-icon' %}

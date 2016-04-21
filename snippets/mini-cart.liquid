@@ -24,7 +24,7 @@
     <h3 class="title">YOU HAVE <span class="text-primary">({{ cart.item_count }} ITEMS)</span> IN YOUR CART</h3>
 
     <ul class="list-product">
-      {% for item in cart.items %}
+      {% for item in cart.items limit:4 %}
       <li class="item-{{ item.id }}">
         <div class="thumb">
           <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
@@ -39,8 +39,11 @@
       </li>
       {% endfor %}
     </ul>
-    <div class="sub-total cartCost">
-      {{ 'cart.general.subtotal' | t }}{{ cart.total_price | money }}
+    <div class="sub-total">
+      {{ 'cart.general.subtotal' | t }} 
+      <div class="cartCost">
+        {{ cart.total_price | money }}
+      </div>
     </div>
     <div class="group-button">
       <a href="/cart" class="button">{{ 'cart.general.view_cart' | t }}</a>
