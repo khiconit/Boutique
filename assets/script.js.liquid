@@ -375,23 +375,21 @@
       var check_compare = true;
       if (Object.keys(compare).length >= total_compare) {
         swal({
-          // title: "info",
-          // text: "Product Added over 3 product !. Do you want to compare 3 added product ?",
-          // type: "warning",
-          // showCancelButton: true,
-          // confirmButtonColor: "#4cae4c",
-          // confirmButtonText: "Yes,I want view it!",
-          // timer: 3000,
-          // cancelButtonText: "Continue",
-          // closeOnConfirm: true
+          title: "info",
+          text: "Product Added over 8 product !. Do you want to compare 8 added product ?",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#4cae4c",
+          confirmButtonText: "Yes,I want view it!",
+          timer: 3000,
+          cancelButtonText: "Continue",
+          closeOnConfirm: true
         },
              function() {
          
-          if(jQuery(window).width()> 768 ){
+          
                modal_compare(compare);
-            }else{
-              window.open("/pages/compare",'_blank');
-            }
+            
         });
       } else {
         for (var i = 1; i <= 8; i++) {
