@@ -960,7 +960,6 @@ blockquote.style2:after{
     font-family: 'Roboto';
     background-repeat: no-repeat;
     background-position: right bottom;
-    pointer-events:none;
 }
 
 .main-menu .show-submenu>.sub-menu {
@@ -971,7 +970,6 @@ blockquote.style2:after{
     opacity: 1;
     filter: alpha(opacity=100);
     visibility: inherit;
-  	pointer-events:auto;
 }
 .main-menu>li:nth-last-child(1) .sub-menu,
 .main-menu>li:nth-last-child(2) .sub-menu,
@@ -2717,7 +2715,7 @@ p.cartCost{
 /*------------------------------------
 PRODUCT
 ------------------------------------*/
-.product-item.view-list, .product-item.view-grid {
+#collection-product .product-item.view-list, #collection-product .product-item.view-grid {
     display: none;
 }
 .product-item.view-list .product-info .pro-add-to-cart .adding-cart{
@@ -5466,6 +5464,7 @@ FOOTER
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  float:left;
 }
 .lastest-blog .blog-title a:hover{
     color: #c99947;
@@ -9452,13 +9451,16 @@ table{
 /* ----------
 FIX
 ---------- */
+
+.gorup-button a.added-wishlist{display:none;}
+.cartCost{display:inline-block;}
+.boutique__add-to-cart{cursor:pointer;}
 #product-single .product-details-right .wishlist-login.button,
 #product-single .product-details-right .wishlist.button{
   background-color: transparent;
   border: 1px solid #eaeaea;
   color: #999;
   font-size: 14px;
-  margin-top: 10px;
   cursor: pointer;
 }
 #product-single .product-details-right .added-wishlist.button:hover a,
@@ -9540,6 +9542,9 @@ li.gallery__item {
 /* ----------
 RESPONSIVE
 ---------- */
+@media (min-width: 1366px){
+  #quick-view-modal .modal-dialog.modal-lg{width:1199px !important;}
+}
 @media (min-width: 1280px){
     .container {
         width: 1200px;
@@ -10428,7 +10433,7 @@ RESPONSIVE
     .page-banner .banner-content .title{
         letter-spacing: 5px;
     }
-
+  .header.style2 .main-header .main-menu-wapper .box-control .box-search.show-icon.open .inner{min-width: 300px;}
 }
 @media (max-width: 480px){
     .product-item .product-thumb img{
@@ -10896,6 +10901,7 @@ RESPONSIVE
 #quick-view-modal .modal-dialog.modal-lg .modal-content .product_meta{
     margin-top: 20px;
 }
+#quick-view-modal #product-single .product-detail-image .thumbnails{width:100px;}
 .mejs-container{
     margin-top: 35px;
 }

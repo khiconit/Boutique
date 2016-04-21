@@ -36,7 +36,7 @@
           </a>
         {% endif %}
         {% if settings.use_quickview %}
-          <a class="quick-view"><i class="fa fa-search"></i></a>
+          <a class="quick-view" href="{{ product.url | within: collection }}" pid="{{ product.id }}"><i class="fa fa-search"></i></a>
         {% endif %}
       </div>
       

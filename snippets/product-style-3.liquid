@@ -32,7 +32,7 @@
 					<a class="compare" data-pid="{{product.handle}}">
 			          <i class="fa fa-exchange"></i>
 			        </a>
-			        <a class="quick-view"><i class="fa fa-search"></i></a>
+			        <a class="quick-view" href="{{ product.url | within: collection }}" pid="{{ product.id }}"><i class="fa fa-search"></i></a>
 				</div>
 
 			    
@@ -42,7 +42,7 @@
 			        		<a class="button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
 			          {% else %}
 			        	{% if product.variants.first.available %}
-			          		<a class="button add_to_cart_button add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
+			          		<a class="button add_to_cart_button boutique__add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
 			              
 			        	{% endif %}
 			          {% endif %}

@@ -76,9 +76,9 @@
                 html = html + '</li>';
               });
                 html = html + '</ul>';
-                html = html + ' Subtotal:<div class="sub-total cartCost">xxxxx';
+                html = html + '<div class="sub-total">{{ 'cart.general.subtotal' | t }} <div class="cartCost">';
                 html = html + '<span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency="'+Currency.currentCurrency+'"></span>';
-                html = html + '</div>';
+                html = html + '</div></div>';
                 html = html + '<div class="group-button">';
                 html = html + '<a href="/cart" class="button">Shopping Cart</a>';
                 html = html + '<a href="/checkout" class="check-out button">Check Out</a>';
@@ -101,7 +101,6 @@
       }
 
       /* wishlist */
-      	$(".added-wishlist").hide();
         $(document).on('click',".wishlist", function(event) {
             var $this = $(this);
             event.preventDefault();
@@ -450,9 +449,40 @@
               html = html + "<span class='adding'></span><span class='added'></span><span id='AddToCartText'>Add to Cart</span>";
               $("#quick-view-modal #AddToCart").html(html);
                setTimeout(function() {
-                  
-                 }, 200);
-                $("#loading").hide();
+                   //theme.productImageGallery();
+                 
+  				
+                 $(document).on('click', "#ProductPhoto",function(event) {
+                   var id = $(this).children('img').data('imageId');
+                   $("#ProductThumbs").magnificPopup({
+                    delegate: 'a', // child items selector, by clicking on it popup will open
+                    type: 'image',
+                    gallery: {
+                      enabled: true,
+                      navigateByImgClick: false,
+                      arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"><span class="mfp-chevron mfp-chevron-%dir%"></span></button>',
+                      tPrev: '{{ "products.zoom.prev" | t }}',
+                      tNext: '{{ "products.zoom.next" | t }}'
+                    },
+                     callbacks: {
+                      open: function(){
+                        $('html').css('overflow-y','hidden');
+                      },
+                      close: function(){
+                        $('html').css('overflow-y','');
+                    	$("#ProductThumbs").off('click');
+                      }
+                    },
+                    // other options
+                  });
+                   $("#ProductThumbs .product-single__thumbnail[data-image-id='"+id+"']").trigger('click');
+                 });	
+//                  $(document).on('click','.mfp-close'),function(){
+                 
+//                  });
+                                 
+               }, 200);
+              $("#loading").hide();
             });
         });
         /**

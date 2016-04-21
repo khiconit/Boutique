@@ -8,7 +8,7 @@
       {% include "breadcrumb" %}
   </div>
   <div class="row left-slidebar">
-    <div class="main-content col-sm-9">
+    <div class="main-content {% if settings.product_sidebar_enable %}col-sm-9 col-md-9 col-xs-12{% else %}col-lg-12 col-xs-12{% endif %}">
       
       {% if product.available %}
       {% assign sold_out = false %}
@@ -64,7 +64,9 @@
                 {% endcomment %}
                   <div class="short-descript">
                     {% if product.metafields.meta.description %}
-                    {{ product.metafields.meta.description }}
+                   		{{ product.metafields.meta.description }}
+                    {%else%}
+                    	{{ product.description }}
                     {% endif %}
                   </div>
                 
@@ -85,54 +87,13 @@
                     <div class="cart-form">
                       <div class="product-single__quantity{% unless settings.product_quantity_enable %} is-hidden{% endunless %}">
                           <div class="clearfixx">
-                          <a class="down" >-</a>
+                          <a class="down">-</a>
                           <input type="text" id="Quantity" class="input-text qty text quantity-selector" title="Qty" value="01" min="1" max="100" name="quantity">
-                          <a class="up" >+</a>
+                          <a class="up">+</a>
                         </div>
                       </div>
-                      
-                      <script type="text/javascript"> 
-                        jQuery(document).ready(function($){
-                          $('#Quantity').keyup(function(){                              
-                            var textinput = $(this).val();                      
-                            $(this).attr('value',textinput);
-                          });
-                          $(".up").click(function(){
-                          var quan = parseInt($("#Quantity").val());
-                            quan = quan+1; 
-                            var zero;
-                            if(quan<10){
-                              zero = "0"+quan;
-                            }
-                            else{
-                              zero=quan;
-                            }
-                            $('.down').css('pointer-events', 'auto'); 
-                            $("#Quantity").val(zero).attr('value',zero);    
-                          }); 
-                          $(".down").click(function(){    
-                          var quan = parseInt($("#Quantity").val());                        
-                            quan = quan-1;
-                            var zero;
-                            if(quan<10){
-                              zero = "0"+quan;
-                            }
-                            else{
-                              zero=quan;
-                            }
-                            $("#Quantity").val(zero).attr('value',zero);
-                            if(quan == 1){
-                              $('.down').css('pointer-events', 'none');
-                            }
-                            if(quan == 100){
-                              $('.down').css('pointer-events', 'none');
-                            }
-                          });     
 
-                        });
-                      </script>
-
-                      <a id="AddToCart" class="button button-add-cart boutique__add-to-cart" data-quantity="1">Add to cart</a>
+                      <a id="AddToCart" class="button button-add-cart boutique__add-to-cart" data-pid="{{ product.variants.first.id }}" data-quantity="1">Add to cart</a>
                                             
                       {% if settings.use_wishlist %}
                       {% assign button = "button" %}
@@ -149,22 +110,27 @@
               </div>
           </div>
         </div>
+      
+      {% if product.metafields.meta.addition %}
         <div class="tab-details-product style2">
           <ul class="box-tabs nav-tab">
+            {% if product.description !="" %}
               <li class="active"><a data-toggle="tab" href="#tab-1">DESCRIPTION</a></li>
+            {% endif %}
+            {% if product.metafields.meta.addition %}
               <li><a data-toggle="tab" href="#tab-2">ADDITIONAL INFORMATION</a></li>
+            {% endif %}
           </ul>
           <div class="tab-container">
-                <div id="tab-1" class="tab-panel active">
-                  {{ product.description }}
-              </div>
-              <div id="tab-2" class="tab-panel">
-                  {% if product.metafields.meta.addition %}
-                		{{ product.metafields.meta.addition }}
-                {% endif %}
-              </div>     
+            {% if product.description !="" %}
+            	<div id="tab-1" class="tab-panel active">{{ product.description }}</div>
+            {% endif %}
+            {% if product.metafields.meta.addition %}
+            	<div id="tab-2" class="tab-panel">{{ product.metafields.meta.addition }}</div>     
+            {% endif %}
           </div>  
         </div> 
+      {% endif %}
         <div class="product-slide upsell-products">
         {% if settings.product_related_enable %}
           {% assign data_responsive = '{"0":{"items":1},"600":{"items":2},"1000":{"items":3}}' %}
@@ -172,7 +138,8 @@
         {% endif %}   
         </div>
     </div>
-    <div class="col-sm-4 col-md-3 sidebar"> 
+    {% if settings.product_sidebar_enable %}
+    <div class="col-sm-3 col-md-3 col-xs-12 sidebar"> 
         <!-- Product category -->
         <div class="widget widget_product_categories">
             <h2 class="widget-title">Categories</h2>
@@ -204,6 +171,7 @@
         </div>
         <!-- ./Product tags -->
   </div>
+    {% endif %}
   </div>
 </div>
 <!-- ./tab -->
@@ -246,5 +214,64 @@
 </script>
 
 
+<script type="text/javascript"> 
+  jQuery(document).ready(function($){
+    $('#Quantity').keyup(function(){                              
+      var textinput = $(this).val();                      
+      $(this).attr('value',textinput);
+    });
+    $(".up").click(function(){
+      var quan = parseInt($("#Quantity").val());
+      quan = quan+1; 
+      var zero;
+      if(quan<10){
+        zero = "0"+quan;
+      }
+      else{
+        zero=quan;
+      }
+      $('.down').css('pointer-events', 'auto'); 
+      $("#Quantity").val(zero).attr('value',zero);    
+    }); 
+    $(".down").click(function(){    
+      var quan = parseInt($("#Quantity").val());                        
+      quan = quan-1;
+      var zero;
+      if(quan<10){
+        zero = "0"+quan;
+      }
+      else{
+        zero=quan;
+      }
+      $("#Quantity").val(zero).attr('value',zero);
+      if(quan == 1){
+        $('.down').css('pointer-events', 'none');
+      }
+      if(quan == 100){
+        $('.down').css('pointer-events', 'none');
+      }
+    });
+    var text1 = 0;
+    var text2 = 0;
+    $( ".short-descript" ).each(function( index ) {
+      var text11 = $( this ).text().length;
+      if( text11 > 0 ){
+        text1 = text11;
+      }
+    });
+    $( "#tab-2" ).each(function( index ) {
+      var text22 = $( this ).text().length;
+      if( text22 > 0 ){
+        text2 = text22;
+      }
+    });
+    if((text1 > 0) && (text2 == 0)){
+      $(".tab-details-product").remove();
+      $(".upsell-products").css('margin-top','50px');
+    }else{
+      $(".tab-details-product").css('display','block');
+    };
+  });
+</script>
 
 

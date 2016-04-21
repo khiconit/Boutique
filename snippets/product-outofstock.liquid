@@ -28,7 +28,9 @@
 
           <div class="short-descript">
             {% if product.metafields.meta.description %}
-            {{ product.metafields.meta.description }}
+            	{{ product.metafields.meta.description }}
+            {%else%}
+            	{{ product.description }}
             {% endif %}
           </div>                                            
           {% if settings.use_wishlist %}
@@ -41,22 +43,26 @@
   </div>
 </div>
 <div class="container">                        
-  <div class="tab-details-product padding-40-60">
-    <ul class="box-tabs nav-tab">
-      <li class="active"><a data-toggle="tab" href="#tab-1">DESCRIPTION</a></li>
-      <li><a data-toggle="tab" href="#tab-2">ADDITIONAL INFORMATION</a></li>
-    </ul>
-    <div class="tab-container">
-      <div id="tab-1" class="tab-panel active">
-        {{ product.description }}
-      </div>
-      <div id="tab-2" class="tab-panel">
-        {% if product.metafields.meta.addition %}
-        {{ product.metafields.meta.addition }}
-        {% endif %}
-      </div>     
-    </div>    
-  </div>
+	{% if product.metafields.meta.addition !="" %}
+        <div class="tab-details-product style2">
+          <ul class="box-tabs nav-tab">
+            {% if product.description !="" %}
+              <li class="active"><a data-toggle="tab" href="#tab-1">DESCRIPTION</a></li>
+            {% endif %}
+            {% if product.metafields.meta.addition !="" %}
+              <li><a data-toggle="tab" href="#tab-2">ADDITIONAL INFORMATION</a></li>
+            {% endif %}
+          </ul>
+          <div class="tab-container">
+            {% if product.description !="" %}
+            	<div id="tab-1" class="tab-panel active">{{ product.description }}</div>
+            {% endif %}
+            {% if product.metafields.meta.addition %}
+            	<div id="tab-2" class="tab-panel">{{ product.metafields.meta.addition }}</div>     
+            {% endif %}
+          </div>  
+        </div> 
+      {% endif %}
   <div class="upsell-products">{% include 'upsell-products' %}</div> 
 </div> <!--END CONTAINER-->  
 <div class="box-list-reviews">
@@ -66,3 +72,29 @@
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript"> 
+  jQuery(document).ready(function($){
+    var text1 = 0;
+    var text2 = 0;
+    $( ".short-descript" ).each(function( index ) {
+      var text11 = $( this ).text().length;
+      if( text11 > 0 ){
+        text1 = text11;
+      }
+    });
+    $( "#tab-2" ).each(function( index ) {
+      var text22 = $( this ).text().length;
+      if( text22 > 0 ){
+        text2 = text22;
+      }
+    });
+    if((text1 > 0) && (text2 == 0)){
+      $(".tab-details-product").remove();
+      $(".upsell-products").css('margin-top','50px');
+    }else{
+      $(".tab-details-product").css('display','block');
+    };
+  });
+</script>

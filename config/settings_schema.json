@@ -2895,6 +2895,12 @@
       },
       {
         "type": "checkbox",
+        "id": "product_sidebar_enable",
+        "label": "Enable Sidebar Products Page",
+        "default": true
+      },
+      {
+        "type": "checkbox",
         "id": "product_related_enable",
         "label": "Enable upsell products"
       }
