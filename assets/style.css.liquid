@@ -2821,17 +2821,17 @@ DS
     cursor: pointer;
 }
 .product-item .compare.added, .compare.add-success{
-    color: #fff;
-    background-color: {{settings.color_primary}};
+    color: #fff !important;
+    background-color: {{settings.color_primary}} !important;
 }
 .product-item .compare.added:hover, .compare.add-success:hover{
-    color: {{settings.color_primary}};
-    background-color: #fff;
+    color: {{settings.color_primary}} !important;
+    background-color: #fff !important;
 }
 .product-item .added-wishlist,
 .product-item .view-added-wishlist{
-    color: #fff;
-    background-color: {{settings.color_primary}};
+    color: #fff !important;
+    background-color: {{settings.color_primary}} !important;
 }
 .product-item:hover .wishlist,
 .product-item:hover .added-wishlist,
@@ -2847,8 +2847,8 @@ DS
 
 .product-item .added-wishlist:hover ,
 .product-item .view-added-wishlist:hover{
-  color: {{settings.color_primary}};
-  background-color: #fff;
+  color: {{settings.color_primary}} !important;
+  background-color: #fff !important;
 }
 
 .product-item .wishlist-login:hover,
@@ -2910,7 +2910,8 @@ DS
     margin-top: 15px;
     display: inline-block;
 }
-
+.product-item .gorup-button a.added-wishlist,
+.product-item.list .gorup-button a.added-wishlist{display:none;}
 .product-item.list .gorup-button a{
     border: 1px solid #cecece;
     color: #999999;
@@ -6737,7 +6738,7 @@ FOOTER
  SINGLE PRODUCT
  -------------------------------*/
 .product-details-full{
-    background-color: #eaeaea;
+    background-color: {{settings.color_product_bg}};
     padding-top: 60px;
     margin-top: -1px;
 }
@@ -6907,14 +6908,34 @@ FOOTER
     display: inline-block;
     float: left;
     margin-right: 5px;
-  cursor:pointer;
+    cursor:pointer;
 }
-
+#product-single .product-details-right .view-added-wishlist.button,
+#product-single .product-details-right .added-wishlist.button{
+    color: #fff !important;
+    background-color: {{settings.color_primary}} !important;
+    border: 1px solid #cecece;
+}
+#product-single .product-details-right .view-added-wishlist.button:hover,
+#product-single .product-details-right .added-wishlist.button:hover{
+    color: {{settings.color_primary}} !important;
+    background-color: #fff !important;
+}
+#product-single .product-details-right .compare.added,
+#product-single .product-details-right .compare.add-success{
+    color: #fff !important;
+    background-color: {{settings.color_primary}} !important;
+}
+#product-single .product-details-right .compare.added:hover,
+#product-single .product-details-right .compare.add-success:hover{
+    color: {{settings.color_primary}} !important;
+    background-color: #fff !important;
+}
 #product-single .product-details-right .wishlist.button:hover,
 #product-single .product-details-right .wishlist-login.button:hover,
 #product-single .product-details-right .compare.button:hover{
-	color: {{settings.color_primary}} !important;
-  border-color:  {{settings.color_primary}} !important;
+	color: {{settings.color_primary}};
+    border-color:  {{settings.color_primary}};
 }
 
 #product-single .product-details-right.style2{
@@ -8763,6 +8784,9 @@ table{
 .shop_table.cart .product-remove a{
     color: {{settings.color_body_text}};
 }
+.shop_table.cart .product-remove a:hover{
+    color: {{settings.color_primary}}
+}
 .shop_table.cart #inventory{
     margin: 0;
 }
@@ -9450,7 +9474,7 @@ table{
 FIX
 ---------- */
 
-.gorup-button a.added-wishlist{display:none;}
+
 .cartCost{display:inline-block;}
 .boutique__add-to-cart, .btn-sold-out{cursor:pointer;}
 #product-single .product-details-right .wishlist-login.button,
