@@ -248,7 +248,7 @@ function get_price_only(price){
               }else{
                 $html +='    <a class="compare" href="" data-pid="'+product.handle+'"><i class="fa fa-exchange"></i></a>';
               }
-              $html += '<a class="quick-view" href=\'/products/'+product.handle+'\' pid="'+product.variants[0].id +'"><i class="fa fa-search"></i></a>';
+              $html += '<a class="quick-view" href=\'/products/'+product.handle+'\' data-pid="'+product.variants[0].id +'"><i class="fa fa-search"></i></a>';
               $html +=' </div>';
               $html +=' </div>';
               $html +='</li>';
@@ -288,7 +288,7 @@ function get_price_only(price){
                 $html +='    <a class="compare" href="" data-pid="'+product.handle+'"><i class="fa fa-exchange"></i></a>';
               }
 
-          $html +='<a class="quick-view" href=\'/products/'+product.handle+'\' pid="'+product.variants[0].id +'"><i class="fa fa-search"></i></a>';
+          $html +='<a class="quick-view" href=\'/products/'+product.handle+'\' data-pid="'+product.variants[0].id +'"><i class="fa fa-search"></i></a>';
           $html +='</div>';
           $html +='</div>';
           $html +='<div class="product-info">';

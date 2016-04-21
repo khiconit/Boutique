@@ -9,8 +9,7 @@
   </div>
   <div class="row left-slidebar">
     <div class="main-content {% if settings.product_sidebar_enable %}col-sm-9 col-md-9 col-xs-12{% else %}col-lg-12 col-xs-12{% endif %}">
-      
-      {% if product.available %}
+    {% if product.available %}
       {% assign sold_out = false %}
       {% assign sold_out_text = 'products.product.in_stock' | t %}
       {% endif %}
@@ -34,7 +33,7 @@
                   {% endif %}
                   </div>
                 {% if settings.product_image_zoom_type == 'lightbox' %}
-                <ul class="gallery" class="hidden">
+                <ul class="gallery hidden">
                   {% for image in product.images %}
                   <li data-image-id="{{ image.id }}" class="gallery__item" data-mfp-src="{{ image | img_url: '1024x1024' }}"></li>
                   {% endfor %}
@@ -175,7 +174,7 @@
   </div>
 </div>
 <!-- ./tab -->
-
+{% assign margin_shipping_icon = "margin-top-60 margin-bottom-30" %}
   {% include 'shortcode-shipping-icon' %}
 
 

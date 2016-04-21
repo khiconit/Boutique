@@ -34,7 +34,7 @@
         <a class="compare" data-pid="{{product.handle}}">
           <i class="fa fa-exchange"></i>
         </a>
-        <a class="quick-view" href="{{ product.url | within: collection }}" pid="{{ product.id }}"><i class="fa fa-search"></i></a>
+        <a class="quick-view" href="{{ product.url | within: collection }}" data-pid="{{ product.id }}"><i class="fa fa-search"></i></a>
       </div>
     </div>
     <div class="product-info">
@@ -59,7 +59,7 @@
           {% endif %}
         </div>
       {% else %}
-		<a class="button" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
+		<a class="button btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
       {% endif %}
     </div>
   </div>

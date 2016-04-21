@@ -67,12 +67,9 @@
 </div> <!--END CONTAINER-->  
 <div class="box-list-reviews">
   <div class="container">  
-    <div class="row">
       <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-    </div>
   </div>
 </div>
-
 
 <script type="text/javascript"> 
   jQuery(document).ready(function($){
@@ -98,3 +95,6 @@
     };
   });
 </script>
+
+{% assign margin_shipping_icon = "margin-top-60 margin-bottom-30" %}
+  {% include 'shortcode-shipping-icon' %}

@@ -20,40 +20,40 @@
                 <div class="row">
 
                   <div class="col-xs-12 col-md-12">
-                    <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                    <input type="text" id="AddressFirstNameNew" class="address_form" name="address[first_name]" value="{{form.first_name}}" autocapitalize="words">
+                    <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}<abbr class="address-required">*</abbr></label>
+                    <input required type="text" id="AddressFirstNameNew" class="address_form" name="address[first_name]" value="{{form.first_name}}" autocapitalize="words">
                   </div>
 
                   <div class="col-xs-12 col-md-12">
-                    <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                    <input type="text" id="AddressLastNameNew" class="address_form" name="address[last_name]" value="{{form.last_name}}" autocapitalize="words">
+                    <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}<abbr class="address-required">*</abbr></label>
+                    <input required type="text" id="AddressLastNameNew" class="address_form" name="address[last_name]" value="{{form.last_name}}" autocapitalize="words">
                   </div>
 
                 </div>
 
                 <label for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}</label>
-                <input type="text" id="AddressCompanyNew" class="address_form" name="address[company]" value="{{form.company}}" autocapitalize="words">
+                <input required type="text" id="AddressCompanyNew" class="address_form" name="address[company]" value="{{form.company}}" autocapitalize="words">
 
-                <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                <input type="text" id="AddressAddress1New" class="address_form" name="address[address1]" value="{{form.address1}}" autocapitalize="words">
+                <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}<abbr class="address-required">*</abbr></label>
+                <input required type="text" id="AddressAddress1New" class="address_form" name="address[address1]" value="{{form.address1}}" autocapitalize="words">
 
-                <label for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                <input type="text" id="AddressAddress2New" class="address_form" name="address[address2]" value="{{form.address2}}" autocapitalize="words">
+                <label for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}<abbr class="address-required">*</abbr></label>
+                <input required type="text" id="AddressAddress2New" class="address_form" name="address[address2]" value="{{form.address2}}" autocapitalize="words">
 
                 <div class="row">
                   <div class="col-xs-12 col-md-12">
-                    <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                    <input type="text" id="AddressCityNew" class="address_form" name="address[city]" value="{{form.city}}" autocapitalize="words">
+                    <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}<abbr class="address-required">*</abbr></label>
+                    <input required type="text" id="AddressCityNew" class="address_form" name="address[city]" value="{{form.city}}" autocapitalize="words">
                   </div>
 
                   <div class="col-xs-12 col-md-12">
-                    <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                    <select id="AddressCountryNew" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+                    <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}<abbr class="address-required">*</abbr></label>
+                    <select required id="AddressCountryNew" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
                   </div>
 
                   <div class="col-xs-12 col-md-12" id="AddressProvinceContainerNew" style="display:none">
-                    <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                    <select id="AddressProvinceNew" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
+                    <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}<abbr class="address-required">*</abbr></label>
+                    <select required id="AddressProvinceNew" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
                   </div>
 
                   <div class="col-xs-12 col-md-12">
@@ -72,7 +72,7 @@
                   <label for="address_default_address_new" class="inline">{{ 'customer.addresses.set_default' | t }}</label>
                 </p>
 
-                <p><input type="submit" class="button" value="{{ 'customer.addresses.add' | t }}"></p>
+                <p><input required type="submit" class="button" value="{{ 'customer.addresses.add' | t }}"></p>
                 <p><a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">{{ 'customer.addresses.cancel' | t }}</a></p>
                 <hr>
             </div>
@@ -110,45 +110,45 @@
                   {{ form.errors | default_errors }}
                   <div class="row">
                     <div class="col-xs-12 col-md-12">
-                      <label for="AddressFirstName_{{form.id}}">{{ 'customer.addresses.first_name' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                      <input type="text" id="AddressFirstName_{{form.id}}" class="address_form" name="address[first_name]" value="{{form.first_name}}" autocapitalize="words">
+                      <label for="AddressFirstName_{{form.id}}">{{ 'customer.addresses.first_name' | t }}<abbr class="address-required">*</abbr></label>
+                      <input required type="text" id="AddressFirstName_{{form.id}}" class="address_form" name="address[first_name]" value="{{form.first_name}}" autocapitalize="words">
                     </div>
           
                     <div class="col-xs-12 col-md-12">
-                      <label for="AddressLastName_{{form.id}}">{{ 'customer.addresses.last_name' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                      <input type="text" id="AddressLastName_{{form.id}}" class="address_form" name="address[last_name]" value="{{form.last_name}}" autocapitalize="words">
+                      <label for="AddressLastName_{{form.id}}">{{ 'customer.addresses.last_name' | t }}<abbr class="address-required">*</abbr></label>
+                      <input required type="text" id="AddressLastName_{{form.id}}" class="address_form" name="address[last_name]" value="{{form.last_name}}" autocapitalize="words">
                     </div>
                   </div>
           
                   <label for="AddressCompany_{{form.id}}">{{ 'customer.addresses.company' | t }}</label>
-                  <input type="text" id="AddressCompany_{{form.id}}" class="address_form" name="address[company]" value="{{form.company}}" autocapitalize="words">
+                  <input required type="text" id="AddressCompany_{{form.id}}" class="address_form" name="address[company]" value="{{form.company}}" autocapitalize="words">
           
-                  <label for="AddressAddress1_{{form.id}}">{{ 'customer.addresses.address1' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                  <input type="text" id="AddressAddress1_{{form.id}}" class="address_form" name="address[address1]" value="{{form.address1}}" autocapitalize="words">
+                  <label for="AddressAddress1_{{form.id}}">{{ 'customer.addresses.address1' | t }}<abbr class="address-required">*</abbr></label>
+                  <input required type="text" id="AddressAddress1_{{form.id}}" class="address_form" name="address[address1]" value="{{form.address1}}" autocapitalize="words">
           
-                  <label for="AddressAddress2_{{form.id}}">{{ 'customer.addresses.address2' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                  <input type="text" id="AddressAddress2_{{form.id}}" class="address_form" name="address[address2]" value="{{form.address2}}" autocapitalize="words">
+                  <label for="AddressAddress2_{{form.id}}">{{ 'customer.addresses.address2' | t }}<abbr class="address-required">*</abbr></label>
+                  <input required type="text" id="AddressAddress2_{{form.id}}" class="address_form" name="address[address2]" value="{{form.address2}}" autocapitalize="words">
           
-                  <label for="AddressCity_{{form.id}}">{{ 'customer.addresses.city' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                  <input type="text" id="AddressCity_{{form.id}}" class="address_form" name="address[city]" value="{{form.city}}" autocapitalize="words">
+                  <label for="AddressCity_{{form.id}}">{{ 'customer.addresses.city' | t }}<abbr class="address-required">*</abbr></label>
+                  <input required type="text" id="AddressCity_{{form.id}}" class="address_form" name="address[city]" value="{{form.city}}" autocapitalize="words">
           
-                  <label for="AddressCountry_{{form.id}}">{{ 'customer.addresses.country' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                  <select id="AddressCountry_{{form.id}}" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+                  <label for="AddressCountry_{{form.id}}">{{ 'customer.addresses.country' | t }}<abbr class="address-required">*</abbr></label>
+                  <select required id="AddressCountry_{{form.id}}" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
           
                   <div id="AddressProvinceContainer_{{form.id}}" style="display:none">
-                    <label for="AddressProvince_{{form.id}}">{{ 'customer.addresses.province' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                    <select id="AddressProvince_{{form.id}}" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
+                    <label for="AddressProvince_{{form.id}}">{{ 'customer.addresses.province' | t }}<abbr class="address-required">*</abbr></label>
+                    <select required id="AddressProvince_{{form.id}}" class="address_form" name="address[province]" data-default="{{form.province}}"></select>
                   </div>
           
                   <div class="row">
                     <div class="col-xs-12 col-md-12">
                       <label for="AddressZip_{{form.id}}">{{ 'customer.addresses.zip' | t }}</label>
-                      <input type="text" id="AddressZip_{{form.id}}" class="address_form" name="address[zip]" value="{{form.zip}}" autocapitalize="characters">
+                      <input required type="text" id="AddressZip_{{form.id}}" class="address_form" name="address[zip]" value="{{form.zip}}" autocapitalize="characters">
                     </div>
           
                     <div class="col-xs-12 col-md-12">
-                      <label for="AddressPhone_{{form.id}}">{{ 'customer.addresses.phone' | t }}<abbr class="address-required required" title="required">*</abbr></label>
-                      <input type="tel" id="AddressPhone_{{form.id}}" class="address_form" name="address[phone]" value="{{form.phone}}">
+                      <label for="AddressPhone_{{form.id}}">{{ 'customer.addresses.phone' | t }}<abbr class="address-required">*</abbr></label>
+                      <input required type="tel" id="AddressPhone_{{form.id}}" class="address_form" name="address[phone]" value="{{form.phone}}">
                     </div>
                   </div>
           
@@ -157,7 +157,7 @@
                     <label for="address_default_address_{{form.id}}" class="inline">{{ 'customer.addresses.set_default' | t }}</label>
                   </p>
           
-                  <p><input type="submit" class="button" value="{{ 'customer.addresses.update' | t }}"></p>
+                  <p><input required type="submit" class="button" value="{{ 'customer.addresses.update' | t }}"></p>
                   <p><a href="#" onclick="Shopify.CustomerAddress.toggleForm({{form.id}}); return false;">{{ 'customer.addresses.cancel' | t }}</a></p>
           
                   <hr>
