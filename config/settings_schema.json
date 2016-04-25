@@ -35,7 +35,7 @@
         "default": "#c99947"
       },
       {
-      	"type": "color",
+        "type": "color",
         "id": "color_product_bg",
         "label": "Background color product single",
         "default": "#eaeaea"
