@@ -625,29 +625,14 @@ $class-type: unquote(".");
   }
 }
 
-/*================ Helper show/hide classes around our breakpoints ================*/
-@mixin device-helper($namespace:"") {
-  #{$class-type}#{$namespace}show        { display: block!important; }
-  #{$class-type}#{$namespace}hide        { display: none!important; }
-
-  #{$class-type}#{$namespace}text-left   { text-align: left!important; }
-  #{$class-type}#{$namespace}text-right  { text-align: right!important; }
-  #{$class-type}#{$namespace}text-center { text-align: center!important; }
-
-  #{$class-type}#{$namespace}left        { float: left!important; }
-  #{$class-type}#{$namespace}right       { float: right!important; }
-}
-
 /*================ Our regular, non-responsive width and helper classes ================*/
 @include device-type();
-@include device-helper();
 
 /*================ Our responsive classes, if we have enabled them ================*/
 @if $responsive == true {
   @each $name in $breakpoint-has-widths {
     @include grid-media-query($name) {
       @include device-type('#{$name}--');
-      @include device-helper('#{$name}--');
       @include clearfix-helper('#{$name}--');
     }
   }

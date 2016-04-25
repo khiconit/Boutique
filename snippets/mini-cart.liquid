@@ -24,7 +24,8 @@
     <h3 class="title">YOU HAVE <span class="text-primary">({{ cart.item_count }} ITEMS)</span> IN YOUR CART</h3>
 
     <ul class="list-product">
-      {% for item in cart.items limit:4 %}
+      {% assign index_item_cart = 0 %}
+      {% for item in cart.items limit:3 %}
       <li class="item-{{ item.id }}">
         <div class="thumb">
           <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
@@ -38,6 +39,15 @@
         </div>
       </li>
       {% endfor %}
+      
+      {% for item in cart.items %}
+      {% assign index_item_cart = index_item_cart | plus: 1 %}
+      {% endfor %}
+      {% if index_item_cart > 2 %}{% assign index_item_cart = index_item_cart | minus: 3%}
+      {% if index_item_cart != 0 %}
+      <label>Show more {{index_item_cart}} item in your cart... </label>
+      {% endif %}
+      {% endif %}
     </ul>
     <div class="sub-total">
       {{ 'cart.general.subtotal' | t }} 

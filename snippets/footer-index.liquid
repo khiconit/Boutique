@@ -1,2 +1,4 @@
 {% assign footer_imported = 'footer-index' | append: settings.import_footer %}
-{% include footer_imported %}
+{% if settings.import_footer != "0" %}
+  {% include footer_imported %}
+{% endif %}

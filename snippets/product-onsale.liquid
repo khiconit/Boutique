@@ -9,7 +9,8 @@
   </div>
   <div class="row left-slidebar">
     <div class="main-content {% if settings.product_sidebar_enable %}col-sm-9 col-md-9 col-xs-12{% else %}col-lg-12 col-xs-12{% endif %}">
-    {% if product.available %}
+      
+      {% if product.available %}
       {% assign sold_out = false %}
       {% assign sold_out_text = 'products.product.in_stock' | t %}
       {% endif %}
@@ -33,7 +34,7 @@
                   {% endif %}
                   </div>
                 {% if settings.product_image_zoom_type == 'lightbox' %}
-                <ul class="gallery hidden">
+                <ul class="gallery" class="hidden">
                   {% for image in product.images %}
                   <li data-image-id="{{ image.id }}" class="gallery__item" data-mfp-src="{{ image | img_url: '1024x1024' }}"></li>
                   {% endfor %}
@@ -60,6 +61,13 @@
                       <span>Only 15 left  3</span>
                       <span>Availalbe: <span class="text-primary">{{sold_out_text}}</span></span>
                   </div>
+                
+                      
+                      {% if product.available and product.variants.size > 1 %}
+                        {% for option in product.options %}
+                          {% include 'swatch' with option %}
+                        {% endfor %}
+                      {% endif %}
                 {% endcomment %}
                   <div class="short-descript">
                     {% if product.metafields.meta.description %}
@@ -92,7 +100,7 @@
                         </div>
                       </div>
 
-                      <a id="AddToCart" class="button button-add-cart boutique__add-to-cart" data-pid="{{ product.variants.first.id }}" data-quantity="1">Add to cart</a>
+                      <a id="AddToCart" class="button button-add-cart boutique__add-to-cart" data-pid="{{ product.variants.first.id }}">Add to cart</a>
                                             
                       {% if settings.use_wishlist %}
                       {% assign button = "button" %}
@@ -174,7 +182,7 @@
   </div>
 </div>
 <!-- ./tab -->
-{% assign margin_shipping_icon = "margin-top-60 margin-bottom-30" %}
+
   {% include 'shortcode-shipping-icon' %}
 
 
@@ -209,47 +217,26 @@
     {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
       $('.selector-wrapper').hide();
     {% endif %}
+    
+    {%comment%}
+    // BEGIN SWATCHES
+    if (variant) {
+      var form = jQuery('#' + selector.domIdPrefix).closest('form');
+      for (var i=0,length=variant.options.length; i<length; i++) {
+        var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+        if (radioButton.size()) {
+          radioButton.get(0).checked = true;
+        }
+      }
+    }
+    // END SWATCHES
+    {%endcomment%}
   });
 </script>
 
 
 <script type="text/javascript"> 
   jQuery(document).ready(function($){
-    $('#Quantity').keyup(function(){                              
-      var textinput = $(this).val();                      
-      $(this).attr('value',textinput);
-    });
-    $(".up").click(function(){
-      var quan = parseInt($("#Quantity").val());
-      quan = quan+1; 
-      var zero;
-      if(quan<10){
-        zero = "0"+quan;
-      }
-      else{
-        zero=quan;
-      }
-      $('.down').css('pointer-events', 'auto'); 
-      $("#Quantity").val(zero).attr('value',zero);    
-    }); 
-    $(".down").click(function(){    
-      var quan = parseInt($("#Quantity").val());                        
-      quan = quan-1;
-      var zero;
-      if(quan<10){
-        zero = "0"+quan;
-      }
-      else{
-        zero=quan;
-      }
-      $("#Quantity").val(zero).attr('value',zero);
-      if(quan == 1){
-        $('.down').css('pointer-events', 'none');
-      }
-      if(quan == 100){
-        $('.down').css('pointer-events', 'none');
-      }
-    });
     var text1 = 0;
     var text2 = 0;
     $( ".short-descript" ).each(function( index ) {
@@ -272,5 +259,3 @@
     };
   });
 </script>
-
-

@@ -1,9 +1,12 @@
+{% unless include %}
 {% capture handle_name %}{% include 'shortcode-render' render:'handle' default:'news' %}{% endcapture %}
+{% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
+{% capture number_post_title %}{% include 'shortcode-render' render:'title' default: '' %}{% endcapture %}
+{% endunless %}
+
 {% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '2' %}{% endcapture %}
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '1' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
-{% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
-{% capture number_post_title %}{% include 'shortcode-render' render:'title' default: '' %}{% endcapture %}
 
 {% if number_post_dt == blank %}
 	{% assign number_post_dt_end = 2 %}
@@ -21,8 +24,12 @@
 	{% assign number_post_mb_end = number_post_mb | plus: 0 %}
 {% endif %}
 
+{% unless margin_blog_post %}
+{% assign margin_blog_post = "margin-top-30" %}
+{% endunless %}
+
 {% unless handle_name =="" %}
-<div class="margin-top-30 section-lasttest-blog">
+<div class="{{margin_blog_post}} section-lasttest-blog">
   {% if number_post_title != "" %}
   <div class="section-title text-center">
     <h3>{{number_post_title}}</h3>
@@ -41,14 +48,10 @@
           <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title| truncate: 20 }}</a></h3>
           <div class="meta">
             <span class="author">{{ article.author }}</span>
-              {% assign title_counts = 'comment' %}
-              {% assign title_count = 0 %}
-              {% for comment in article.comments %}
-                {% assign title_count = title_count | plus: 1 %}
-              {% endfor %}
-              {% if title_count > 1 %}
-              	{% assign title_counts = 'comments' %}
-              {% endif %}
+            {% assign title_counts = 'comment' %}
+            {% if article.comments_count > 1 %}
+            {% assign title_counts = 'comments' %}
+            {% endif %}
             <span class="comment"><i class="fa fa-comment"></i> {{article.comments_count}} {{ title_counts }}</span>
           </div>
         </div>

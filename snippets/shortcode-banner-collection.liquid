@@ -1,13 +1,18 @@
+{% unless include %}
 {% capture bn_cll_title %}{% include 'shortcode-render' render:'title' default:'FEATURED ITEMS' %}{% endcapture %}
 {% capture bn_cll_des %}{% include 'shortcode-render' render:'description' default:'Our Featured today!' %}{% endcapture %}
 {% capture bn_cll_title_link %}{% include 'shortcode-render' render:'title_link' default:'SHOP MORE ITEMS' %}{% endcapture %}
 {% capture bn_cll__link %}{% include 'shortcode-render' render:'link' default:'#' %}{% endcapture %}
+{% capture bn_cll__style %}{% include 'shortcode-render' render:'banner_position' default:'' %}{% endcapture %}
 {% capture image_title  %}{% include 'shortcode-render' render:'image_title' default: "" %}{% endcapture %}
 {% capture handleize_tab  %}{% include 'shortcode-render' render:'collection' default:''%}{% endcapture %}
+{% endunless %}
+{% unless margin_bn_cll %}
+{% assign margin_bn_cll = "margin-top-60" %}
+{% endunless %}
 
-
-<div class="margin-top-60">
-  <div class="box-product-featured">
+<div class="{{margin_bn_cll}}">
+  <div class="box-product-featured{% if bn_cll__style == "right" %} right{% endif %}">
     <div class="box-head">
       {% if image_title == blank %}
       {{'4.gif' | asset_url | img_tag}}

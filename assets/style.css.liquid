@@ -5465,7 +5465,10 @@ FOOTER
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  float:left;
+    float:left;
+}
+.item-megamenu .lastest-blog .blog-title {
+    float:none;
 }
 .lastest-blog .blog-title a:hover{
     color: {{settings.color_primary}};
@@ -9472,7 +9475,13 @@ table{
 /* ----------
 FIX
 ---------- */
-
+#quick-view-modal #product-single #productSelect {
+  display: block !important;
+  outline: none;
+  padding: 15px 15px;
+  color: inherit;
+  min-width: 150px;
+}
 .gorup-button a.added-wishlist{display:none;}
 .cartCost{display:inline-block;}
 .boutique__add-to-cart{cursor:pointer;}

@@ -75,9 +75,73 @@
     </div>
     <!-- ./Home slide -->
     {% endif %}
+      {% include 'index_h6'%}
+      {% comment %}
+      <div class="container">
+        <div class="row left-slidebar">
+          <div class="col-sm-8 col-md-9 main-content">
+            {% include 'render-layout' register_section: 'sc_home6'  %}
+          </div>
+          <div class="col-sm-4 col-md-3">
+          </div>
+        </div>
+      </div>
+      {% endcomment %}
+
+  {% when 7 %}
+ 	{% include 'index_h7'%}
+
+  {% when 8 %}
+
+    {% if settings.use_slider_hp8 %}
+    <!-- Home slide -->
+    <div class="slider-homepage">
+      {% include 'shortcode-slider' %}
+    </div>
+    <!-- ./Home slide -->
+    {% endif %}
+
+    {% if settings.use_categories_right_home8 %}
+    <div class="header-categoy-menu">
+	<span class="close-header-sidebar"><span class="icon pe-7s-close"></span></span>
+	<span class="open-header-sidebar"><i class="fa fa-angle-double-left"></i></span>
+      <div class="inner">
+        <div class="block-category-carousel">
+          <h3 class="title">{{settings.cat_title}}</h3>
+          <span class="sub-title">{{settings.cat_sub_title}}</span>
+          <div class="block-inner owl-carousel nav-center-center nav-style2" data-nav="true" data-dots="true" data-items="1" data-loop="false" data-autoplay="true">
+            {% assign check_row_catt = 1 %}
+            {% for i in (1..12) %}
+            {% assign catt_icon = 'catt_icon' | append: i | append: '.png' %}
+            {% assign catt_collection = 'catt_collection' | append: i %}
+
+            {% if check_row_catt == 1 %}
+            <ul class="list-cat">
+              {% endif %} 
+              {% if settings[catt_collection] != blank %}
+              <li>
+                <a href="/collections/{{settings[catt_collection]}}">
+                  <img src="{{catt_icon | asset_url}}" alt="{{settings[catt_collection]}}">
+                  {{settings[catt_collection] | capitalize | replace: '-', ' ' }}
+                </a>
+              </li>
+              {% endif %}
+              {% if  check_row_catt  >=  4  or forloop.last %}
+            </ul>
+            {% assign check_row_catt = 0 %}
+            {% endif %}
+            {% assign check_row_catt = check_row_catt | plus : 1 %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
     <div class="container">
-      {% include 'render-layout' register_section: 'sc_home6'  %}
+      {% include 'render-layout' register_section: 'sc_home8'  %}
     </div>
 
+  {% when 9 %}
+ 	{% include 'index_h9'%}
 {% endcase %}
 
