@@ -75,20 +75,20 @@
                 html = html + '</a>';
                 html = html + '</div>';
                 html = html + '</li>';
-                                                  if (index == 2){
-                                                  return false;
-                                                  };
+                                                  // if (index == 2){
+                                                  // return false;
+                                                  // };
               });
                                                   
-                                                  $.each(data.items, function(kiti, el) {
-                                                  index_item = index_item + 1;
-                                                  });
-                                                  if (index_item > 2) {
-                                                  index_item = index_item - 3;
-                                                  if (index_item != 0){
-                                                  html = html + '<label>Show more '+index_item+' item in your cart... </label>';
-                                                  }
-                                                  };
+                                                  // $.each(data.items, function(kiti, el) {
+                                                  // index_item = index_item + 1;
+                                                  // });
+                                                  // if (index_item > 2) {
+                                                  // index_item = index_item - 3;
+                                                  // if (index_item != 0){
+                                                  // html = html + '<label>Show more '+index_item+' item in your cart... </label>';
+                                                  // }
+                                                  // };
                 html = html + '</ul>';
                 html = html + '<div class="sub-total">{{ 'cart.general.subtotal' | t }} <div class="cartCost">';
                 html = html + '<span class="money" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency-'+Currency.currentCurrency+'="'+convert_currency_andy(data.price,'11')+'" data-currency="'+Currency.currentCurrency+'"></span>';
@@ -632,6 +632,7 @@
         });
 
       var view_mode  = $.localStorage;
+
       var get_view_mode = view_mode.get('view_mode');
       setTimeout(function(){
         if(get_view_mode == 'list'){
@@ -640,14 +641,15 @@
           $(".show-grid").trigger('click');
         }
       }, 2000);
+
       $('.change-view').on('click', function() {
         $('.change-view').removeClass('active');
         $(this).addClass('active');
+
         var view = $(this).data('view');
         view_mode.set('view_mode',view);
 
-
-        $("#collection-product").find('li.product-item').hide();
+        $("#collection-product").find('li.product-item').hide();        
         $("#collection-product").find('li.product-item.view-'+view).show();
         if (view == 'list') {
           $("#collection-product").addClass( 'product-list').removeClass('row');
@@ -656,7 +658,8 @@
           $("#collection-product").addClass( 'row').removeClass('product-list');
         }
       });
-      
+
+
     $(document).on('keyup',"#Quantity", function(event) {                            
       var textinput = $(this).val();                      
       $(this).attr('value',textinput);
@@ -693,5 +696,29 @@
         $('.down').css('pointer-events', 'none');
       }
     });
+    $(document).on("click","[id^='count_']", function(event) {      
+      event.preventDefault();
+      var id = $(this).attr('id');
+        $(".product-item").hide();                  
+        $(".product-list-grid li").addClass('hide');        
+        $(".page_"+id).removeClass('hide');
+
+          $(".navigation li").removeClass("active");
+            $(this).parent().addClass("active");
+
+        var view =$(".change-view.active").data('view');
+        if(view == 'list') {
+          $(".view-list").show();
+        } 
+        else{
+          $(".view-grid").show();
+        }
+        var num = parseInt($(this).text()) ;
+        console.log(num);
+
+        $('html, body').animate({scrollTop: 0}, 800);            
+
+    });
+
     });
 })(jQuery);

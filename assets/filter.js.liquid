@@ -1,7 +1,7 @@
 (function(){
        'use strict'; 
     jQuery(document).ready(function($) {
-          function check_compare(value){
+      function check_compare(value){
               for (var i = 1; i <=8; i++) {
                 if (compare_list['p' + i] == value ) {
                     return true
@@ -10,7 +10,7 @@
               }
               return false;
           }
-          function readMore(string, maxWords) {       
+      function readMore(string, maxWords) {       
               var strippedString = $("<p>" + string + "</p>").text().trim();      
               var array = strippedString.split(" ");
               var string = array.splice(0, maxWords).join(" ");
@@ -21,7 +21,7 @@
 
               return string ;
             }
-            function roadtip(element) { 
+      function roadtip(element) { 
               var tipText = element.html();
               element.bind('mouseover', function() {
                 if (jQuery('.roadtip').length == 0) {
@@ -36,7 +36,7 @@
                 jQuery('.roadtip').remove();
               });
             }
-            function convert_currency(value,type){
+      function convert_currency(value,type){
 
                 try{
                   var newCurrency = Currency.currentCurrency;
@@ -86,7 +86,7 @@
           }
           return sym;
       }
-function get_price_only(price){
+      function get_price_only(price){
        var  price_convert= price.toString();
         var get_currencies = 0;
          var $split = price_convert.split(';');
@@ -108,7 +108,6 @@ function get_price_only(price){
       {% assign min_price = settings.collection_min_price %}
       {% assign min_price = min_price | plus: 0 %}
 
-
         var max_price_slide = convert_currency({{max_price}},'');
         var get_currencies = convert_currency({{max_price}},'');
         var min_price_slide = convert_currency({{min_price}},'');
@@ -121,7 +120,7 @@ function get_price_only(price){
            get_currencies = (isNaN(parseInt( get_currencies.substring(1,0)))) ? get_symbol( get_currencies):   get_currencies.substring(1,-1);
         }
 
-       
+      
        $slider_filter = $('#slider-range').slider({
             range: true,
             min: get_price_only(min_price_slide),
@@ -145,53 +144,78 @@ function get_price_only(price){
                 $(".amount-range-price .to span").html(max_pr);
             },
             change: function(event, ui) {
+
               var view_mode = ($(".show-grid").hasClass('active')) ? '.show-grid' : '.show-list';
-              $(".orderby-wapper").hide();
-              $(".navigation").hide();
-              $(".woocommerce-result-count").hide();
+              $(".orderby").hide();
                 $("#loading").show(0);
                 var max_price = ui.values[1];
                 var min_price =ui.values[0];
                  
                 var check = 1;
+                var sum_product   = 0;
+                var page = 0;
+                var count;
                 $("#collection-product").empty();
+                $(".woocommerce-result-count").empty();
+                $(".navigation").empty();
                 var html = '';
                 var view =$(".change-view.active").data('view');
                 var has_product = false;
                 $.each(json_collection_filter,function(index, elem) { 
-                    if (check <= 12) {
-                      console.log(check);
-                        var current_price =  convert_currency(elem.price,'');
-                        current_price = get_price_only(current_price);
-                        if (current_price <= max_price && current_price >= min_price) {
-                          has_product = true;
-                          
-                                html = html +    json_to_html(elem);
-                              
-                                html = html +  json_to_html_grid(elem);
 
-                        }
-                    }
+                var current_price =  convert_currency(elem.price,'');
+                    current_price = get_price_only(current_price);
+                    if (current_price <= max_price && current_price >= min_price) {                          
+                      
+                      has_product = true;
+                      
+                      if (sum_product  % 9 === 0) {
+                        page++;
+                        var count = (sum_product / 9) + 1;
+                        $('.navigation').append('<li><a id= "count_'+count+'" class="paginate ' + count + '" >' + count + '</a></li>');
+
+                      }
+
+                      html = html + '<li class="product-item page_count_'+page+' list  view-list  row">';
+                      html = html + json_to_html(elem);
+
+                      html +='<li class="product-item page_count_'+page+' view-grid col-sm-6 col-md-4">';  
+                      html = html + json_to_html_grid(elem);                      
+
+                      sum_product++;
+                    } 
+                               
                     check++;
                 });
+                  
+
                 if(! has_product){
                   html +='<p class="text-center"> No products were found matching your selection.</p>';
                 }
-                $("#collection-product").append(html);
+                //showing results
+                  var htmlresult ='';
+                    htmlresult += '<span class="woocommerce-result-count"> Results '+sum_product+' products  filter </span>';
+                    $(".woocommerce-result-count").append(htmlresult);
+
+                $("#collection-product").append(html);                
+
                 $(view_mode).trigger('click');
 
                 window.setTimeout(function() {
                      $("#loading").hide(700);
                 }, 1000);
-            } 
-        });
 
-        $(".added-wishlist").hide();
+                $("#count_1").trigger("click");
+            } 
+
+        });   
+        
         function json_to_html(product){
          // shop-products
          var  is_sale = false;
+         
          var $html = '';
-              $html +='<li class="product-item list view-list  row">';
+              // $html +='<li class="product-item list  view-list  row">';
               $html +='<div class="product-thumb col-sm-4">';
               $html +='<a href="'+product.handle+'">';
               $html +='<img src="'+product.featured_image+'" alt="'+product.title+'">';
@@ -254,13 +278,13 @@ function get_price_only(price){
               $html +=' </div>';
               $html +=' </div>';
               $html +='</li>';
-              console.log(product);
+              //console.log(product);
               return $html ;
         }
 
         function json_to_html_grid(product){
+          
           var $html = '';
-          $html +='<li class="product-item view-grid col-sm-6 col-md-4">';
           $html +='<div class="product-inner">';
           $html +='<div class="product-thumb has-back-image">';
           $html +='<a href="'+product.handle+'">';
@@ -316,6 +340,6 @@ function get_price_only(price){
           $html += '</li>';
           return $html ;
         }
-     
+      
     });
 })(jQuery);

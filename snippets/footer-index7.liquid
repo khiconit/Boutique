@@ -1,0 +1,50 @@
+<footer class="footer style8">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="widget contact-info">
+            <div class="logo">
+              {% if settings.use_footer_logo %}
+              <a href="/">{{'footer_logo.png' | asset_url | img_tag}}</a>
+              {% else %}
+              <a href="/"><img src="{{'logo.gif' | asset_url}}" alt=""></a>
+              {%endif%}
+            </div>
+            <div class="content">
+              <p class="address"><span>{{settings.footer_widget_address_contact}}</span></p>
+              <p class="phone"><i class="fa fa-phone"></i> <span> {{settings.footer_widget_phone_contact}}</span></p>
+            </div>
+          </div>
+          {% assign footer_handle1 = settings.footer_widget_handle_services %}
+          <ul class="footer-menu">
+            {% for link in linklists[footer_handle1].links %}
+            <li><a href="{{link.url}}">{{link.title | capitalize }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="payment">
+        <div class="head">
+          <span>{{settings.footer_small_title_payment}}</span>
+          <span class="PlayfairDisplay">{{settings.footer_widget_title_payment}}</span>
+        </div>
+        <div class="list">
+          {% for i in (1..8) %}
+          {% assign link = "payment_link_" %}
+          {% assign image = "payment_image_" | append : i %}
+          {% assign link = link | append : i %}
+          {% assign image = image | append : ".png"%}
+          {% if settings[link] != blank %}
+          	<a href="{{settings[link]}}" class="item"><img src="{{image | asset_url}}" alt=""></a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,6 +1,12 @@
+{% unless include %}
 {% capture image_title  %}{% include 'shortcode-render' render:'image_title' default: "logo.gif" %}{% endcapture %}
 {% capture text_quote  %}{% include 'shortcode-render' render:'text' default:''%}{% endcapture %}
-<div class="margin-top-40">
+{% endunless%}
+
+{% unless magin_top %}
+	{% assign magin_top = "margin-top-30" %}
+{% endunless %}
+<div class="{{magin_top}}">
   <div class="row">
     <div class="col-sm-4" style="text-align: right;">
       <img style="margin-right: 20px;" class=" margin-top-25" src="{% if image_title != "" %}{{image_title | file_url }}{% else %}{{'logo.gif' | asset_url}}{% endif %}" alt="logo">

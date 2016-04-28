@@ -196,6 +196,18 @@
           {
             "value": "17",
             "label": "Style Homepage 17"
+          },
+          {
+            "value": "18",
+            "label": "Style Homepage 18"
+          },
+          {
+            "value": "19",
+            "label": "Style Homepage 19"
+          },
+          {
+            "value": "20",
+            "label": "Style Homepage 20"
           }
         ],
         "label": "=== Select Style Homepage",
@@ -232,6 +244,10 @@
           {
             "value": "6",
             "label": "Footer Style 6"
+          },
+          {
+            "value": "7",
+            "label": "Footer Style 7"
           }
         ],
         "label": "=== Select Footer",
@@ -978,6 +994,365 @@
         "type": "checkbox",
         "id": "use_shipping_text_home9",
         "label": "Use Shipping Text",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 19",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp19",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_home19",
+        "label": "Use Banner ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_home19",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_link_home19",
+        "label": "Link banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_home19",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_link_home19",
+        "label": "Link banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_home19",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_link_home19",
+        "label": "Link banner"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Product content)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_home19",
+        "label": "Use Product Collection",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "handleize_product_home19",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Testimonials)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_testimonials_home19",
+        "label": "Use Testimonials",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Slide group product)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_group_product_home19",
+        "label": "Use group product",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "--Group product 1"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_product_1_s3_home19",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "--Group product 2"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_product_2_s3_home19",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "--Group product 3"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_product_3_s3_home19",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 5 (Block quote)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_quote_home19",
+        "label": "Use block quote ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "image_title",
+        "label": "Name image quote in file"
+      },
+      {
+        "type": "textarea",
+        "id": "text_quote",
+        "label": "Text quote"
+      },      
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 6 (Block Newletter)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blocknewletter_home19",
+        "label": "Use block newletter ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "bg_img_newletter_home19",
+        "label": "Background Image Newletter"
+      },
+      {
+        "type": "text",
+        "id": "title_newletter_home19",
+        "label": "Title Newletter"
+      },      
+      {
+        "type": "textarea",
+        "id": "sub_title_newletter_home19",
+        "label": "Subtitle Newletter"
+      },
+      {
+        "type": "text",
+        "id": "form_desc_newletter_home19",
+        "label": "Link Image Form Newletter"
+      },            
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 7 (Our Blog)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_our_blog_home19",
+        "label": "Use Our Blog",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_blog_home19",
+        "label": "Title Blog Section",
+        "default": "Our BLog"
+      },
+      {
+        "type": "blog",
+        "id": "id_blog_home19",
+        "label": "Choose Blog"
+      },      
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 8 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home19",
+        "label": "Use Brand",
+        "default": true
+      }
+      
+    ]
+  },
+  {
+    "name": "Content Homepage 20",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp20",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Categories)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_categories20",
+        "label": "Use categories",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Block banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_block_banner20",
+        "label": "Use block banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_home20",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_link_home20",
+        "label": "Link banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_home20",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_link_home20",
+        "label": "Link banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_home20",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_link_home20",
+        "label": "Link banner"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Product tab content)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab_home20",
+        "label": "Use Product Tab",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s3_home20",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_2_s3_home20",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_3_s3_home20",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_4_s3_home20",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_5_s3_home20",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_6_s3_home20",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Video About us)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_video_about_home20",
+        "label": "Use Video About us",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "section_title_video_home20",
+        "label": "Title about Video"
+      },
+      {
+        "type": "text",
+        "id": "section_subtitle_video_home20",
+        "label": "Subtitle about Video"
+      },
+      {
+        "type": "text",
+        "id": "video_about_bg_home20",
+        "label": "Background Image Video"
+      },
+      {
+        "type": "text",
+        "id": "link_videoid_home20",
+        "label": "Link Videoid"
+      },
+      {
+        "type": "text",
+        "id": "link_videosite_home20",
+        "label": "Link Videosite"
+      },
+      {
+        "type": "textarea",
+        "id": "description_video_home20",
+        "label": "Description Video"
+      },
+      {
+        "type": "text",
+        "id": "signature_video_home20",
+        "label": "Signature Video"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 5 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home20",
+        "label": "Use Brand",
         "default": true
       }
     ]
