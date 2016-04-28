@@ -2,7 +2,7 @@
 {% capture width_mega_menu %}{% include 'shortcode-render' render:'width' default:'820' %}{% endcapture %}
 {% capture dropdown_start %}{% include 'shortcode-render' render:'dropdown_start' default:'start' %}{% endcapture %}
 {% capture dropdown_end %}{% include 'shortcode-render' render:'dropdown_end' default:'end' %}{% endcapture %}
-
+{% capture label %}{% include 'shortcode-render' render:'label' default:'' %}{% endcapture %}
 {% capture style_class %}{% include 'shortcode-render' render:'style' default:'' %}{% endcapture %}
 {% capture image_title %}{% include 'shortcode-render' render:'image_title' default: "" %}{% endcapture %}
 
@@ -10,7 +10,7 @@
 {% for handle in linklists[main_nav_mega].links %}
   {% if handleize_menu == handle.handle %}
 
-	{% assign link = handle.url %}
+  {% assign link = handle.url %}
 
     {% assign title = handle.title %}
     
@@ -20,12 +20,12 @@
 
 <!-- Width Dropdown -->
 {% if width_mega_menu =="100%" %}
-	{% assign width_mega_menu = "100%" %}
+  {% assign width_mega_menu = "100%" %}
 {% else %}
   {% if width_mega_menu =="" %}
-  	{% assign width_mega_menu = "820" %}
+    {% assign width_mega_menu = "820" %}
   {% else %}
-  	{% assign width_mega_menu = width_mega_menu | plus :0 | append: "px" %}
+    {% assign width_mega_menu = width_mega_menu | plus :0 | append: "px" %}
   {% endif %}
 {% endif %}
 
@@ -38,6 +38,10 @@
 
 <li class="{% if link.active %}active{% endif %} menu-item-has-children item-megamenu">
   <a href="{{ link.url }}">{{ link.title }}</a>
+  {% if label != "" %}
+  <span class="label">{{label}}</span>
+  {% endif %}
+  
   {% if linklists[child_list_handle].links.size > 14  %}
   <div style="width:500px;" class="sub-menu megamenu">
     <div class="row">
@@ -99,7 +103,11 @@
 {% if style_class == "background_image" %}
 <li class="menu-item-has-children item-megamenu">
   <a href="{{link}}">{{title}}</a>
-  	<div style="width:{{width_mega_menu}}; background-image:url('{% if image_title =="" %}{{'bg-megamenu.gif' | asset_url}}{%else%}{{image_title | file_url}}{%endif%}');" class="sub-menu megamenu megamenu-bg" >
+  {% if label != "" %}
+  <span class="label">{{label}}</span>
+  {% endif %}
+  
+    <div style="width:{{width_mega_menu}}; background-image:url('{% if image_title =="" %}{{'bg-megamenu.gif' | asset_url}}{%else%}{{image_title | file_url}}{%endif%}');" class="sub-menu megamenu megamenu-bg" >
     <div class="row">
       {% for child_link in linklists[child_list_handle].links %}
       {% assign grand_child_list_handle = child_link.title | handle %}
@@ -126,6 +134,10 @@
 {% if style_class == "blog" %}
   <li class="menu-item-has-children item-megamenu">
     <a href="{{link}}">{{title}}</a>
+    {% if label != "" %}
+    <span class="label">{{label}}</span>
+    {% endif %}
+
     <div style="width:{{width_mega_menu}};" class="sub-menu megamenu">
       <div class="row">
     {% assign style_class = "blog"  %}
@@ -138,6 +150,10 @@
 {% if style_class == "features" %}
 <li class="menu-item-has-children item-megamenu">
   <a href="{{link}}">{{title}}</a>
+  {% if label != "" %}
+  <span class="label">{{label}}</span>
+  {% endif %}
+  
   <div style="width:{{width_mega_menu}};" class="sub-menu megamenu">
     <div class="row">
       {% assign style_class = "features"  %}

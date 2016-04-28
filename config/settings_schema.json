@@ -83,19 +83,19 @@
           },
           {
             "value": "8",
-            "label": "Header Style 8"
+            "label": "Header Style 8 (Home 10)"
           },
           {
             "value": "9",
-            "label": "Header Style 9"
+            "label": "Header Style 9 (Home 11)"
           },
           {
             "value": "10",
-            "label": "Header Style 10"
+            "label": "Header Style 10 (Home 12)"
           },
           {
             "value": "11",
-            "label": "Header Style 11"
+            "label": "Header Style 11 (Home 13)"
           },
           {
             "value": "12",
@@ -244,6 +244,28 @@
     "settings": [
       {
         "type": "header",
+        "content": "== About Your Site"
+      },
+      {
+        "type": "text",
+        "id": "footer_widget_address_contact",
+        "label": "Address",
+        "default": "5701 Outlets at Tejon Pkwy, Tejon ranch CA 93203 UK."
+      },
+      {
+        "type": "text",
+        "id": "footer_widget_phone_contact",
+        "label": "Phone",
+        "default": "(+800) 6868 2268"
+      },
+      {
+        "type": "text",
+        "id": "footer_widget_email_contact",
+        "label": "Email",
+        "default": "info@demo.com"
+      },
+      {
+        "type": "header",
         "content": "== Slogan"
       },
       {
@@ -283,7 +305,7 @@
       {
         "type": "checkbox",
         "id": "use_quickview",
-        "label": "Use Compare",
+        "label": "Use Quickview",
         "default": true
       },
       {
@@ -789,17 +811,17 @@
       },
       {
         "type": "paragraph",
-        "content": "+ Section 1 (Shipping text)"
+        "content": "------------------------------------------------------------- Section 1 (Shipping text)"
       },
       {
         "type": "checkbox",
         "id": "use_shipping_icon_home9",
-        "label": "Use Shipping Icon",
+        "label": "Use Shipping Text",
         "default": true
       },
       {
         "type": "paragraph",
-        "content": "+ Section 2 (Banner Collection)"
+        "content": "------------------------------------------------------------- Section 2 (Banner Collection)"
       },
       {
         "type": "checkbox",
@@ -843,7 +865,7 @@
       },
       {
         "type": "paragraph",
-        "content": "+ Section 3 (Cattegories)"
+        "content": "------------------------------------------------------------- Section 3 (Cattegories)"
       },
       {
         "type": "checkbox",
@@ -853,7 +875,7 @@
       },
       {
         "type": "paragraph",
-        "content": "+ Section 4 (Banner Collection)"
+        "content": "------------------------------------------------------------- Section 4 (Banner Collection)"
       },
       {
         "type": "checkbox",
@@ -897,7 +919,7 @@
       },
       {
         "type": "paragraph",
-        "content": "+ Section 5 (Brand)"
+        "content": "------------------------------------------------------------- Section 5 (Brand)"
       },
       {
         "type": "checkbox",
@@ -907,7 +929,7 @@
       },
       {
         "type": "paragraph",
-        "content": "+ Section 6 (Banner Collection)"
+        "content": "------------------------------------------------------------- Section 6 (Banner Collection)"
       },
       {
         "type": "checkbox",
@@ -951,7 +973,7 @@
       },
       {
         "type": "paragraph",
-        "content": "+ Section 7 (Blog)"
+        "content": "------------------------------------------------------------- Section 7 (Blog)"
       },
       {
         "type": "checkbox",
@@ -972,13 +994,856 @@
       },
       {
         "type": "paragraph",
-        "content": "+ Section 8 (Shipping Icon)"
+        "content": "------------------------------------------------------------- Section 8 (Shipping Icon)"
       },
       {
         "type": "checkbox",
         "id": "use_shipping_text_home9",
         "label": "Use Shipping Text",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 10",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp10",
+        "label": "Use Slider Homepage",
+        "default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Banner Slide)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_carousel_home10",
+        "label": "Use Banner Carousel",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Product Full Width)"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_1_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_2_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_3_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_4_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_5_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_6_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_7_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_8_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_9_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "product",
+        "id": "handle_product_fw_10_home10",
+        "label": "Choose Product"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home10",
+        "label": "Use Brand",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Shipping Icon)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_shipping_text_home10",
+        "label": "Use Shipping Text",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 11",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp11",
+        "label": "Use Slider Homepage",
+        "default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Banner Slide)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_carousel_home11",
+        "label": "Use Banner Carousel",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Shipping Icon)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_shipping_icon_home11",
+        "label": "Use Shipping Icon",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Product Tab)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab_home11",
+        "label": "Use Product Tab",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "number_product_show",
+        "label": "Number products in tab",
+        "default": "12"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s3_home11",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_2_s3_home11",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_3_s3_home11",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_4_s3_home11",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_5_s3_home11",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_6_s3_home11",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home11",
+        "label": "Use Brand",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 5 (Blog)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_our_blog_home11",
+        "label": "Use Our Blog",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_blog_home11",
+        "label": "Title Blog Section",
+        "default": "Our BLog"
+      },
+      {
+        "type": "blog",
+        "id": "id_blog_home11",
+        "label": "Choose Blog"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 6 (Shipping text)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_shipping_text_home11",
+        "label": "Use Shipping Text",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 12",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp12",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Banner Slide)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_carousel_home12",
+        "label": "Use Banner Carousel",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_home12",
+        "label": "Use Banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_home12",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_link_home12",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_home12",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_link_home12",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_home12",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_link_home12",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_4_home12",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_4_link_home12",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Product Tab)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab_home12",
+        "label": "Use Product Tab",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s3_home12",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_2_s3_home12",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_3_s3_home12",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_4_s3_home12",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_5_s3_home12",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_6_s3_home12",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home12",
+        "label": "Use Brand",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 13",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp13",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Banner Slide)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_carousel_home13",
+        "label": "Use Banner Carousel",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_home13",
+        "label": "Use Banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_home13",
+        "label": "Link Image Banner (Border)"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_1_link_home13",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_home13",
+        "label": "Link Image Banner (Title)"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_title_home13",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_2_link_home13",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_home13",
+        "label": "Link Image Banner (Title)"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_title_home13",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_3_link_home13",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_4_home13",
+        "label": "Link Image Banner (Title)"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_4_title_home13",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "banner_sc2_4_link_home13",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Shipping text)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_shipping_text_home13",
+        "label": "Use Shipping Text",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Top Selling)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab_home13",
+        "label": "Use Top Selling",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "use_product_tab_title_home13",
+        "label": "Link",
+        "default": "Top Selling"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s3_home13",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Cattegories)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_categories_home13",
+        "label": "Use Cattegories",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 5 (Feature Products)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab_sc5_home13",
+        "label": "Use Feature Products",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "use_product_tab_sc5_title_home13",
+        "label": "Link",
+        "default": "Feature Products"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s5_home13",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 6 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home13",
+        "label": "Use Brand",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 7 (Newsletter Section)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_newsletter_sc_home13",
+        "label": "Use Newsletter Section",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 14",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp14",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_carousel_home14",
+        "label": "Use Banner",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Banner Description Middle"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_title_sc1_home14",
+        "label": "Title",
+        "default": "Fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_stitle_sc1_home14",
+        "label": "Sub Title",
+        "default": "For Women"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_status_sc1_home14",
+        "label": "Status",
+        "default": "-30<span>%<\/span>"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_description_description_sc1_home14",
+        "label": "Description",
+        "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ndustry's standard"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_link_sc1_home14",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_link_title_sc1_home14",
+        "label": "Title Button",
+        "default": "read more"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_image_sc1_home14",
+        "label": "Link Image"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Banner Description Top Left"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_title_sc21_home14",
+        "label": "Title",
+        "default": "WOMEN ACCESSORIES"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_stitle_sc21_home14",
+        "label": "Sub Title",
+        "default": "112 model items"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_link_sc21_home14",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_image_sc21_home14",
+        "label": "Link Image"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Product Tab text head)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab_home14",
+        "label": "Use Product Tab",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "text_head_sc2_home14",
+        "label": "Text Head",
+        "default": "W"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s2_home14",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_2_s2_home14",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_3_s2_home14",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Shipping Icon Parallax)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_shipping_icon_home14",
+        "label": "Use Shipping icon",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_carousel_sc3_home14",
+        "label": "Use Banner",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Banner Description Top Right"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_title_sc23_home14",
+        "label": "Title",
+        "default": "MEN ACCESSORIES"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_stitle_sc23_home14",
+        "label": "Sub Title",
+        "default": "112 model items"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_link_sc23_home14",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_image_sc23_home14",
+        "label": "Link Image"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Banner Description Middle"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_title_sc3_home14",
+        "label": "Title",
+        "default": "Fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_stitle_sc3_home14",
+        "label": "Sub Title",
+        "default": "For Men"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_status_sc3_home14",
+        "label": "Status",
+        "default": "-20<span>%<\/span>"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_description_description_sc3_home14",
+        "label": "Description",
+        "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ndustry's standard"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_link_sc3_home14",
+        "label": "Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_link_title_sc3_home14",
+        "label": "Title Button",
+        "default": "read more"
+      },
+      {
+        "type": "text",
+        "id": "banner_description_image_sc3_home14",
+        "label": "Link Image"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 5 (Product Tab text head)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab2_home14",
+        "label": "Use Product Tab",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "text_head_sc4_home14",
+        "label": "Text Head",
+        "default": "W"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s4_home14",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_2_s4_home14",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_3_s4_home14",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 6 (Testimonial)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_testimonial_home14",
+        "label": "Use Testimonial Parallax",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 7 (Blog)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blog_home14",
+        "label": "Use Blog Parallax",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_blog_home14",
+        "label": "Title Blog Section",
+        "default": "Our BLog"
+      },
+      {
+        "type": "blog",
+        "id": "id_blog_home14",
+        "label": "Choose Blog"
+      }
+    ]
+  },
+  {
+    "name": "Banner Slide",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Banner Slide Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Image Icon"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide1.png",
+        "label": "Icon Image 1"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide2.png",
+        "label": "Icon Image 2"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide3.png",
+        "label": "Icon Image 3"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Shortcode for Banner slide"
+      },
+      {
+        "type": "textarea",
+        "id": "sc_banner_slide",
+        "label": "Enter your shortcode"
       }
     ]
   },
@@ -1335,13 +2200,18 @@
         "content": "== Shipping Icon"
       },
       {
+        "type": "image",
+        "id": "background_paralax1.png",
+        "label": "Background section when use paralax shipping icon"
+      },
+      {
         "type": "checkbox",
         "id": "use_img_1",
         "label": "Use Image"
       },
       {
         "type": "image",
-        "id": "shipping_info_1_img",
+        "id": "shipping_info_1_img.png",
         "label": "Image 1",
         "max-width": 36,
         "info": "Image ratio 40 x 40"
@@ -1353,13 +2223,19 @@
         "default": "FREE SHIPPING WORLD WIDE"
       },
       {
+        "type": "text",
+        "id": "shipping_sinfo_1_content",
+        "label": "Shipping Sub Info 1 Content (Show in parallax shipping section)",
+        "default": "From $50 or purchase"
+      },
+      {
         "type": "checkbox",
         "id": "use_img_2",
         "label": "Use Image"
       },
       {
         "type": "image",
-        "id": "shipping_info_2_img",
+        "id": "shipping_info_2_img.png",
         "label": "Image 2",
         "max-width": 36,
         "info": "Image ratio 40 x 40"
@@ -1371,13 +2247,19 @@
         "default": "MONEY BACK GUARANTEE"
       },
       {
+        "type": "text",
+        "id": "shipping_sinfo_2_content",
+        "label": "Shipping Sub Info 2 Content (Show in parallax shipping section)",
+        "default": "In 30 days"
+      },
+      {
         "type": "checkbox",
         "id": "use_img_3",
         "label": "Use Image"
       },
       {
         "type": "image",
-        "id": "shipping_info_3_img",
+        "id": "shipping_info_3_img.png",
         "label": "Image 3",
         "max-width": 36,
         "info": "Image ratio 40 x 40"
@@ -1387,6 +2269,12 @@
         "id": "shipping_info_3_content",
         "label": "Shipping Info 3 Content",
         "default": "ONLINE SUPPORT 24\/7"
+      },
+      {
+        "type": "text",
+        "id": "shipping_sinfo_3_content",
+        "label": "Shipping Sub Info 3 Content (Show in parallax shipping section)",
+        "default": "SUPPORT 24\/7"
       },
       {
         "type": "header",
@@ -1853,167 +2741,6 @@
         "label": "Shortcode Processbar",
         "default": "OUR AWESOME SKILLS",
         "info": "Write Shortcode Processbar"
-      },
-      {
-        "type": "header",
-        "content": "==Testimonials section setting"
-      },
-      {
-        "type": "text",
-        "id": "bg_testimonial",
-        "label": "Link Background Testimonial"
-      },
-      {
-        "type": "text",
-        "id": "sub_testimonial_title",
-        "label": "Sub Title testimonial",
-        "default": "Testimonials!"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_title",
-        "label": "Title",
-        "default": "WHAT OUR CILENTS SAY"
-      },
-      {
-        "type": "header",
-        "content": "===Content testimonial 1"
-      },
-      {
-        "type": "checkbox",
-        "id": "testimonial_box_use1",
-        "label": "Check if you want use this box testimonial 1",
-        "default": false
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content1",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name1",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position1",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
-      {
-        "type": "header",
-        "content": "===Content testimonial 2"
-      },
-      {
-        "type": "checkbox",
-        "id": "testimonial_box_use2",
-        "label": "Check if you want use this box testimonial 2",
-        "default": false
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content2",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name2",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position2",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
-      {
-        "type": "header",
-        "content": "===Content testimonial 3"
-      },
-      {
-        "type": "checkbox",
-        "id": "testimonial_box_use3",
-        "label": "Check if you want use this box testimonial 3",
-        "default": false
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content3",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name3",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position3",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
-      {
-        "type": "header",
-        "content": "===Content testimonial 4"
-      },
-      {
-        "type": "checkbox",
-        "id": "testimonial_box_use4",
-        "label": "Check if you want use this box testimonial 4",
-        "default": false
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content4",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name4",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position4",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
-      },
-      {
-        "type": "header",
-        "content": "===Content testimonial 5"
-      },
-      {
-        "type": "checkbox",
-        "id": "testimonial_box_use5",
-        "label": "Check if you want use this box testimonial 5",
-        "default": false
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_content5",
-        "label": "Testimonial content",
-        "placeholder": "Say something"
-      },
-      {
-        "type": "text",
-        "id": "testimonial_box_name5",
-        "label": "Name",
-        "default": "David truong"
-      },
-      {
-        "type": "textarea",
-        "id": "testimonial_box_position5",
-        "label": "Testimonial position Member",
-        "placeholder": "Position Member"
       }
     ]
   },
@@ -2103,6 +2830,213 @@
         "id": "shortcode_lookbook",
         "label": "Shortcode Lookbook",
         "info": "Write Shortcode image lookbook with [lookbook img_lookbook...]"
+      }
+    ]
+  },
+  {
+    "name": "Testimonial",
+    "settings": [
+      {
+        "type": "header",
+        "content": "==Testimonials section setting"
+      },
+      {
+        "type": "text",
+        "id": "bg_testimonial",
+        "label": "Link Background Testimonial"
+      },
+      {
+        "type": "text",
+        "id": "bg_testimonial_p",
+        "label": "Link Background Parallax"
+      },
+      {
+        "type": "text",
+        "id": "bg_testimonial_hp",
+        "label": "Link Background Section (in homepage)"
+      },
+      {
+        "type": "text",
+        "id": "sub_testimonial_title",
+        "label": "Sub Title testimonial",
+        "default": "Testimonials!"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_title",
+        "label": "Title",
+        "default": "WHAT OUR CILENTS SAY"
+      },
+      {
+        "type": "text",
+        "id": "sub_testimonial_des",
+        "label": "Description testimonial",
+        "default": "Customer & Partner talk about us!"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use1",
+        "label": "Check if you want use this box testimonial 1",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "testimonial_box_use1.png",
+        "label": "Avatar"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content1",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name1",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position1",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use2",
+        "label": "Check if you want use this box testimonial 2",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "testimonial_box_use2.png",
+        "label": "Avatar"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content2",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name2",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position2",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use3",
+        "label": "Check if you want use this box testimonial 3",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "testimonial_box_use3.png",
+        "label": "Avatar"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content3",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name3",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position3",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use4",
+        "label": "Check if you want use this box testimonial 4",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "testimonial_box_use4.png",
+        "label": "Avatar"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content4",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name4",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position4",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
+      },
+      {
+        "type": "header",
+        "content": "===Content testimonial 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial_box_use5",
+        "label": "Check if you want use this box testimonial 5",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "testimonial_box_use5.png",
+        "label": "Avatar"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_content5",
+        "label": "Testimonial content",
+        "placeholder": "Say something"
+      },
+      {
+        "type": "text",
+        "id": "testimonial_box_name5",
+        "label": "Name",
+        "default": "David truong"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial_box_position5",
+        "label": "Testimonial position Member",
+        "placeholder": "Position Member"
       }
     ]
   },
@@ -3169,24 +4103,6 @@
         "id": "footer_widget_title_contact",
         "label": "Widget Title",
         "default": "Contact Us"
-      },
-      {
-        "type": "text",
-        "id": "footer_widget_address_contact",
-        "label": "Address",
-        "default": "5701 Outlets at Tejon Pkwy, Tejon ranch CA 93203 UK."
-      },
-      {
-        "type": "text",
-        "id": "footer_widget_phone_contact",
-        "label": "Phone",
-        "default": "(+800) 6868 2268"
-      },
-      {
-        "type": "text",
-        "id": "footer_widget_email_contact",
-        "label": "Email",
-        "default": "info@demo.com"
       },
       {
         "type": "header",

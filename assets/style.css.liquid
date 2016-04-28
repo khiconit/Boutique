@@ -258,7 +258,7 @@ input[type=password]{
     font-style: italic;
 }
 .text-primary{
-  color:  {{settings.color_primary}};
+  color: {{settings.color_body_text}};
 }
 .GreatVibes{
     font-family: 'Great Vibes';
@@ -2878,6 +2878,7 @@ DS
     color: {{settings.color_primary}};
     text-decoration: underline;
   cursor:pointer;
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 .product-item.style2 .add_to_cart_button:before{
     content: '+';
@@ -5467,6 +5468,9 @@ FOOTER
     text-overflow: ellipsis;
     float:left;
 }
+.lastest-blog.style3 .blog-title{
+  float:none;
+}
 .item-megamenu .lastest-blog .blog-title {
     float:none;
 }
@@ -6936,9 +6940,8 @@ FOOTER
 #product-single .product-details-right .wishlist.button:hover,
 #product-single .product-details-right .wishlist-login.button:hover,
 #product-single .product-details-right .compare.button:hover{
-	color: #fff !important;
+	color: {{settings.color_primary}};
     border-color:  {{settings.color_primary}};
-    background-color: {{settings.color_primary}} !important;
 }
 
 #product-single .product-details-right.style2{
@@ -9377,11 +9380,15 @@ table{
 .block-paralax1{
     margin-top: 60px;
     padding: 110px 0 70px 0;
-    background-image: url('pralax1.jpg');
+    background-image: url('background_paralax1.png');
 }
 .block-paralax2{
     margin-top: 60px;
-    background-image: url('pralax2.jpg');
+  {% if settings.bg_testimonial_p != blank %}
+    background-image: url('bg_testimonial_p');
+  {% else %}
+    background-image: url('pralax2.gif');
+  {% endif %}
     padding-bottom: 120px;
 }
 .block-paralax3{
@@ -9401,7 +9408,11 @@ table{
 .block-paralax4{
     padding: 60px 0 75px 0;
     margin-top: 60px;
-    background-image: url('bg-19.jpg');
+  {% if settings.bg_testimonial_p != blank %}
+    background-image: url('bg_testimonial_hp');
+  {% else %}
+    background-image: url('bg-19.gif');
+  {% endif %}
 }
 .block-paralax4 .head{
     text-align: center;
@@ -9476,6 +9487,27 @@ table{
 /* ----------
 FIX
 ---------- */
+.item-megamenu span.label {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  background: #C99947;
+  border-radius: 0;
+  padding: .3em .6em;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+.item-megamenu span.label:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  right: 50%;
+  height: 0;
+  top: 16px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #C99947;
+}
 #quick-view-modal #product-single #productSelect {
   display: block !important;
   outline: none;
@@ -10772,6 +10804,7 @@ RESPONSIVE
 
 .pro-add-to-cart .add-to-cart, .select-option{
     cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0);
 }
 .product-info .pro-add-to-cart .added-cart{
 

@@ -588,28 +588,66 @@
        
       });
       
+     /* ---------------------------------------------
+     Currency Choose
+     --------------------------------------------- */
       $(document).on('mouseover','.box-settings',function(){
-          var names = $('.currency-list ul li.active a').attr('class');
-          var name_check = $('.currency-picker__wrapper .chosen-single span').first().text();
-          if(names != name_check ){
-            $('.currency-list ul li').removeAttr("class");
-            $('.currency-list ul li a.' + name_check + '').parent("li").attr("class","active");
-          }else{
-            $('.currency-list ul li a.' + name_check + '').parent("li").attr("class","active");
-          }
-        });
-        $(document).on('click','.currency-list ul li',function(e){
-          $('.currency-list ul li').removeAttr("class");
-          $(this).attr("class","active");
-          var name_currency = $(this).find("a").attr('class');
-          $('.currency-picker__wrapper .chosen-single span').text(name_currency);
-          $('.currency-picker').val(name_currency);
-          $('.currency-picker').val(name_currency).change();
-          Currency.cookie.write(name_currency);     
-            show_dropdown_cart();
+        var names = $('.currency-lists ul li.active a').attr('class');
+        var name_check = $('.currency-picker__wrapper .chosen-single span').first().text();
+        if(names != name_check ){
+          $('.currency-lists ul li').removeAttr("class");
+          $('.currency-lists ul li a.' + name_check + '').parent("li").attr("class","active");
+        }else{
+          $('.currency-lists ul li a.' + name_check + '').parent("li").attr("class","active");
+        }
+      });
+      $(document).on('click','.currency-lists ul li',function(e){
+        $('.currency-lists ul li').removeAttr("class");
+        $(this).attr("class","active");
+        var name_currency = $(this).find("a").attr('class');
+        $('.currency-picker__wrapper .chosen-single span').text(name_currency);
+        $('.currency-picker').val(name_currency);
+        $('.currency-picker').val(name_currency).change();
+        Currency.cookie.write(name_currency);     
+        show_dropdown_cart();
 
-          //location.reload();
-        });
+        //location.reload();
+      });
+      
+      
+      $('.currency-select').click(function(e){
+
+        var name_currency = $(this).attr('name');
+        $('.currency-picker').val(name_currency);
+        $('.currency_display').text(name_currency);
+        $('.currency-picker').val(name_currency).change();
+		Currency.cookie.write(name_currency);
+        
+        //location.reload();
+      });
+
+
+      if (cookieCurrency != null) {
+        $(".currency_display").text(cookieCurrency);
+      };
+      
+     /* ---------------------------------------------
+     Loadmore Product
+     --------------------------------------------- */
+      var first_click  = false; 
+      $(document).on('click','.button-loadmore',function(event){
+        event.preventDefault();
+        var name = $(this).attr('name');
+        var link = $(this).attr('title');
+        $( '#' + name + ' li.hidden').css({'-webkit-animation-delay':'0ms','-o-animation-delay':'0ms','animation-delay':'0ms'});
+        $( '#' + name + ' li.hidden').removeClass("hidden");
+        $(this).text("VIEW MORE!");
+        if(first_click ){
+         location.href='/collections/'+link;
+        };
+        first_click = true;
+      })
+      
       $("#quick-view-modal button.close").on('click', function(){
         $('#modal-cart').remove();
       })
@@ -656,7 +694,10 @@
           $("#collection-product").addClass( 'row').removeClass('product-list');
         }
       });
-      
+           
+     /* ---------------------------------------------
+     Quantity Product Page
+     --------------------------------------------- */ 
     $(document).on('keyup',"#Quantity", function(event) {                            
       var textinput = $(this).val();                      
       $(this).attr('value',textinput);
@@ -692,6 +733,6 @@
       if(quan == 100){
         $('.down').css('pointer-events', 'none');
       }
-    });
+    });      
     });
 })(jQuery);

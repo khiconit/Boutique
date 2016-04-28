@@ -1,12 +1,19 @@
-{% unless include %}
-{% capture text_content %}{% include 'shortcode-render' render:'text' default:'' %}{% endcapture %}
-{% capture position %}{% include 'shortcode-render' render:'position' default:'' %}{% endcapture %}
-{% capture style %}{% include 'shortcode-render' render:'style' default:'' %}{% endcapture %}
-{% endunless %}
 
 {% unless margin_shipping_text %}
 {% assign margin_shipping_text = "margin-top-20" %}
 {% endunless %}
+
+{% unless include %}
+{% capture text_content %}{% include 'shortcode-render' render:'text' default:'' %}{% endcapture %}
+{% capture position %}{% include 'shortcode-render' render:'position' default:'' %}{% endcapture %}
+{% capture margin_shipping %}{% include 'shortcode-render' render:'margin' default:'' %}{% endcapture %}
+{% capture style %}{% include 'shortcode-render' render:'style' default:'' %}{% endcapture %}
+{% if margin_shipping != blank %}
+{% assign margin_shipping_text = "margin-top-" | append: margin_shipping %}
+{% endif %}
+{% endunless %}
+
+
 
 {% if position == "" and style == "" %}
 <div class="text-center {{margin_shipping_text}}">

@@ -1,3 +1,7 @@
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'large--one-third medium-down--one-half' %}
+{% endunless %}
+
 {% unless current_collection == blank %}
   {% assign current_collection = collection %}
 {% endunless %}
@@ -13,9 +17,14 @@
 {% if product.available %}
   {% assign sold_out = false %}
 {% endif %}
-<li class="product-item view-grid style2 {{grid_item_width}}">
+
+
+<li class="product-item style5">
   <div class="product-inner">
     <div class="product-thumb has-back-image">
+      {% if on_sale %}
+      <span class="sale">Sale</span>
+      {% endif %}
       <a href="{{ product.url | within: collection }}">
         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
       </a>
@@ -25,9 +34,20 @@
         {% endif %}
       {% endif %}
       <div class="gorup-button">
-        {% if settings.use_wishlist %}
-          {% assign button = "" %}
-          {% include 'wishlist-product' %}
+        
+        {% if sold_out == false %}
+          {% if product.variants.size > 1 %}
+          <a class="button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
+          {% else %}
+            {% if product.variants.first.available %}
+            <a class="button add_to_cart_button  boutique__add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
+            {% endif %}
+          {% endif %}
+        {% else %}
+          <a class="button btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
+        {% endif %}
+        {% if settings.use_quickview %}
+          <a class="quick-view" href="{{ product.url | within: collection }}" data-pid="{{ product.id }}"><i class="fa fa-search"></i></a>
         {% endif %}
         
         {% if settings.use_compare %}
@@ -35,18 +55,7 @@
             <i class="fa fa-exchange"></i>
           </a>
         {% endif %}
-        {% if settings.use_quickview %}
-          <a class="quick-view" href="{{ product.url | within: collection }}" data-pid="{{ product.id }}"><i class="fa fa-search"></i></a>
-        {% endif %}
-      </div>
-      
-        {% if settings.use_sale_label %}
-          {% if on_sale %}
-          	{% unless sale_box %}
-            <span class="discount">{{'products.product.sale' | t}} </span>
-          	{% endunless %}
-          {% endif %}
-        {% endif %}
+      </div>					
     </div>
     <div class="product-info">
       <h3 class="product-name"><a href="{{ product.url | within: collection }}">{{ product.title }}</a></h3>
@@ -58,17 +67,10 @@
         <ins>{{product.price | money }}</ins>
         {% endif %}
       </span>
-      {% if sold_out == false %}
-        {% if product.variants.size > 1 %}
-          <a class="button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
-        {% else %}
-          {% if product.variants.first.available %}
-            <a class="button add_to_cart_button  boutique__add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
-         {% endif %}
+        {% if settings.use_wishlist %}
+          {% assign button = "" %}
+          {% include 'wishlist-product' %}
         {% endif %}
-      {% else %}
-    <a class="button btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
-      {% endif %}
     </div>
   </div>
 </li>

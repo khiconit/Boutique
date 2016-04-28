@@ -18,6 +18,16 @@
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '1' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
 {% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
+
+{% comment %}
+<!-- Features Style -->
+{% endcomment %}
+{% capture image_title %}{% include 'shortcode-render' render:'image_title' default: "" %}{% endcapture %}
+
+
+{% capture hot %}{% include 'shortcode-render' render:'hot' default:'' %}{% endcapture %}
+{% capture new %}{% include 'shortcode-render' render:'new' default:'' %}{% endcapture %}
+
 {% if number_post_dt == blank %}
 	{% assign number_post_dt_end = 2 %}
 {% else %}
@@ -57,7 +67,9 @@
 {{dropdown_col_start}}
 {% if style_class == "features"%}
   <div class="element-icon">
-    <div class="icon"><img src="{{'icon-color.gif' | asset_url}}" alt=""></div>
+    <div class="icon">
+      <img src="{% if image_title =="" %}{{'icon-color.gif' | asset_url}}{% else %}{{image_title | file_url}}{% endif %}" alt="">
+    </div>
     <div class="content">
       <h4 class="title">{{mega_service__title}}</h4>
       <div class="text"><p>{{mega_service__text}}</p></div>

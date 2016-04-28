@@ -146,9 +146,7 @@ function get_price_only(price){
             },
             change: function(event, ui) {
               var view_mode = ($(".show-grid").hasClass('active')) ? '.show-grid' : '.show-list';
-              $(".orderby-wapper").hide();
-              $(".navigation").hide();
-              $(".woocommerce-result-count").hide();
+              $(".orderby").hide();
                 $("#loading").show(0);
                 var max_price = ui.values[1];
                 var min_price =ui.values[0];
@@ -158,9 +156,9 @@ function get_price_only(price){
                 var html = '';
                 var view =$(".change-view.active").data('view');
                 var has_product = false;
+                 console.log(json_collection_filter.length);
                 $.each(json_collection_filter,function(index, elem) { 
                     if (check <= 12) {
-                      console.log(check);
                         var current_price =  convert_currency(elem.price,'');
                         current_price = get_price_only(current_price);
                         if (current_price <= max_price && current_price >= min_price) {

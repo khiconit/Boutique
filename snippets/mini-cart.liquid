@@ -19,7 +19,7 @@
         <p class="cartCost">{{ cart.total_price | money }}</p>
       </a>
 {% endif %}
-  <div class="show-shopping-cart">
+  <div class="show-shopping-cart {% if hidden == "hidden" %}hidden {% endif %}">
     {% if cart.item_count > 0 %}
     <h3 class="title">YOU HAVE <span class="text-primary">({{ cart.item_count }} ITEMS)</span> IN YOUR CART</h3>
 

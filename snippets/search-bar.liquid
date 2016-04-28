@@ -1,5 +1,5 @@
 {% comment %}
-{% if search-bar == 'header' %}
+{% if search_bar == 'header' %}
   <form action="/search" method="get" class="header-bar__search-form clearfix" role="search">
     {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
     <button type="submit" class="btn icon-fallback-text header-bar__search-submit">
@@ -44,6 +44,17 @@
   <div class="inner">
     <input type="search" name="q" value="{{ search.terms | escape }}" class="search" placeholder="{{ 'general.search.placeholder' | t }}" required>
   <button class="button-search"><span class="pe-7s-search"></span></button>
+  </div>
+</form>
+{% endif %}
+
+{% if search_style == "icon2" %}
+
+<form  class="box-search show-icon" action="/search" method="get">
+  <span class="icon"><span class="pe-7s-search"></span></span>
+  <div class="inner">
+    <input type="search" name="q" value="{{ search.terms | escape }}" class="search" placeholder="{{ 'general.search.placeholder' | t }}" required>
+    <span class="close-box pe-7s-close"></span>
   </div>
 </form>
 {% endif %}

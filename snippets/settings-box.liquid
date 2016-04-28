@@ -15,7 +15,7 @@
       <div class="select-currency">
         <div class="currency-title">{{'layout.settings_dropdown.currency_title' | t}}</div>
         <div class="currency-topbar">                                                
-          <div class="currency-list">
+          <div class="currency-list currency-lists">
             {% include "currency-picker" %}
             <ul class="clearfix">
               {% assign money = settings.default_currency | downcase %}

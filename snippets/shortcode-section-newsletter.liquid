@@ -1,9 +1,14 @@
-
+{% unless include %}
 {% capture videoid %}{% include 'shortcode-render' render:'videoid' default: 'atL_tVQxFSg' %}{% endcapture %}
 {% capture videosite %}{% include 'shortcode-render' render:'videosite' default: 'youtube' %}{% endcapture %}
 {% capture image_background  %}{% include 'shortcode-render' render:'image_background' default: "" %}{% endcapture %}
 {% capture newsletter_title %}{% include 'shortcode-render' render:'title' default: 'NEWSLETTER' %}{% endcapture %}
 {% capture newsletter_description %}{% include 'shortcode-render' render:'text' default: 'Sign up for Our Newsletter &amp; Promotions' %}{% endcapture %}
+{% endunless %}
+
+{% unless margin_newsletter_sc %}
+{% assign margin_newsletter_sc = "margin-top-60" %}
+{% endunless %}
 
 {% if videoid == blank %}
 	{% assign videoid = "134060140" %}
@@ -18,7 +23,7 @@
 	{% assign newsletter_description = "Sign up for Our Newsletter &amp; Promotions" %}
 {% endif %}
 
-<div class="margin-top-60">
+<div class="{{margin_newsletter_sc}}">
   <div class="row">
     <div class="col-sm-12 col-md-7">
       <div class="video video-lightbox">

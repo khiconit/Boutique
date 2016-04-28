@@ -1,6 +1,7 @@
 {% assign handle_brand_use = 'brand_use_' %}
 {% assign handle_brand_image ='brand_logo_'  %}
 {% assign handle_brand_link = 'brand_link_'  %}
+{% capture banner_text_top %}{% include 'shortcode-render' render:'top' default:'' %}{% endcapture %}
 {% capture banner_text_bottom %}{% include 'shortcode-render' render:'bottom' default:'' %}{% endcapture %}
 {% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '5' %}{% endcapture %}
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '3' %}{% endcapture %}
@@ -24,6 +25,10 @@
 {% endif %}
 
 {% if banner_text_top != "" %}
+  {% capture banner_text_top %} margin-top-{{banner_text_top}} {% endcapture %}
+{% endif %}
+
+{% if banner_text_bottom != "" %}
   {% capture banner_text_bottom %} margin-bottom-{{banner_text_bottom}} {% endcapture %}
 {% endif %}
 

@@ -17,7 +17,7 @@
 {% if product.available %}
   {% assign sold_out = false %}
 {% endif %}
-	<li class="product-item style3 view-grid {{grid_item_width}}">
+	<li class="product-item style3 view-grid {{grid_item_width}} {% if check_product_style_2 > 8 %}hidden{% endif %}">
 		<div class="product-inner">
 			<div class="product-thumb has-back-image">
 				<a href="{{ product.url | within: collection }}"><img src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}"></a>
