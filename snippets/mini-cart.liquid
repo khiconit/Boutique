@@ -15,8 +15,12 @@
     <div class="mini-cart">
       <a class="cart-link" href="/cart">
         <span class="icon pe-7s-cart"></span>
-        <span class="count cartCount">{{ cart.item_count }}</span> 
-        <p class="cartCost">{{ cart.total_price | money }}</p>
+        <span class="count cartCount">{{ cart.item_count }}</span>
+        {% if style20 == "style20" %}
+        	<span class="amout">{{ cart.total_price | money }}</span>
+        {% else %}
+        	<p class="cartCost">{{ cart.total_price | money }}</p>
+        {% endif %}
       </a>
 {% endif %}
   <div class="show-shopping-cart {% if hidden == "hidden" %}hidden {% endif %}">
@@ -24,8 +28,8 @@
     <h3 class="title">YOU HAVE <span class="text-primary">({{ cart.item_count }} ITEMS)</span> IN YOUR CART</h3>
 
     <ul class="list-product">
-      {% assign index_item_cart = 0 %}
-      {% for item in cart.items limit:3 %}
+      {% comment %}{% assign index_item_cart = 0 %}{% endcomment %}
+      {% for item in cart.items%}
       <li class="item-{{ item.id }}">
         <div class="thumb">
           <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
@@ -40,14 +44,14 @@
       </li>
       {% endfor %}
       
-      {% for item in cart.items %}
+      {% comment %}{% for item in cart.items %}
       {% assign index_item_cart = index_item_cart | plus: 1 %}
       {% endfor %}
       {% if index_item_cart > 2 %}{% assign index_item_cart = index_item_cart | minus: 3%}
       {% if index_item_cart != 0 %}
       <label>Show more {{index_item_cart}} item in your cart... </label>
       {% endif %}
-      {% endif %}
+      {% endif %}{% endcomment %}
     </ul>
     <div class="sub-total">
       {{ 'cart.general.subtotal' | t }} 

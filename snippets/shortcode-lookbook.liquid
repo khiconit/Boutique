@@ -39,7 +39,7 @@
             <li id="prev-left"><a href=""><i class="fa fa-long-arrow-left"></i></a></li>
              {% assign sum_page = page | plus: 1 %}
              {% for i_page in (1..sum_page) %}
-             <li style="cursor:pointer;"{% if forloop.first  %} class="active" {% endif %}><a href="" id="p_{{i_page}}" >{{i_page}}</a></li>
+              <li style="cursor:pointer;"{% if forloop.first  %} class="active" {% endif %}><a href="" id="p_{{i_page}}" >{{i_page}}</a></li>
              {% endfor %}
             <li id="next-right"><a href=""><i class="fa fa-long-arrow-right"></i></a></li>
           </ul>
@@ -57,6 +57,7 @@
         $(".page_look").hide();
         $(".page_"+id).show();
         currenp = $(this).text();
+        $('html, body').animate({scrollTop: 0}, 800);
       });
 
         var pageItem = $("#paginate-ul li").not("#prev-left, #next-right");

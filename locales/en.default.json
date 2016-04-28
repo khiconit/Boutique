@@ -51,6 +51,7 @@
   },
   "blogs": {
     "article": {
+      "title_recent_post": "YOU MAY ALSO LIKE",
       "older_post": "Older Post",
       "newer_post": "Newer Post",
       "tags": "Tags",

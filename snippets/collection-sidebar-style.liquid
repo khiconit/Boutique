@@ -30,12 +30,12 @@
             {% endfor %}
             {% if check %}
               <li class="advanced-filter-1 active active-filter" data-group="{{ settings.filter_color_title }}" data-handle="{{ size | handleize }}">
-                <span class="status-filter checked"><span class="filter-checkbox"></span></span>
+                <span class="status-filter checked"><input type="checkbox" class="filter-checkbox"  value="{{color}}" checked="checked" /></span>
                 {{ color | link_to_remove_tag: color }}
               </li>
             {% else %}
               <li class="advanced-filter-1" data-group="{{ settings.filter_color_title }}" data-handle="{{ size | handleize }}">
-                <span class="status-filter no-check"><span class="filter-checkbox" ></span> </span>
+                <span class="status-filter no-check"><input type="checkbox" class="filter-checkbox"  value="{{color}}"  /> </span>
                 {{ color | link_to_add_tag: color }}
               </li>
             {% endif %}
