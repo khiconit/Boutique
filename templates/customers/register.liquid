@@ -8,6 +8,7 @@
         <div class="page-main-content">
           <div class="woocommerce">
           <div class="col2-set row" id="customer_login">
+			<!-- Login -->
             <div class="col-1 col-sm-6">
                 
                 <div class="note form-success" id="ResetSuccess" style="display:none;">
@@ -78,7 +79,8 @@
                   {% endform %}
                 {% endif %}
               </div>
-
+            
+            <!-- Register -->
               <div class="col-2 col-sm-6">
                 <h2 class="form-heading">{{ 'customer.register.title' | t }}</h2>
                 {% form 'create_customer' %}

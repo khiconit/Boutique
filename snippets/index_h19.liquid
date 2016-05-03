@@ -51,39 +51,8 @@
 {% endif %}
 
 {% if settings.use_testimonials_home19 %}
-	<div class="block-paralax4">
-  <div class="container">
-    <div class="head">
-      <h3 class="title">testimonials</h3>
-      <span class="sub-title">Customer & Partner talk about us!</span>
-    </div>
-    <div class="row">
-      <div class="col-lg-offset-2 col-sm-12 col-lg-8">
-        <div class="testimonials style2 owl-carousel nav-style2 nav-center-center" data-autoplay="true" data-items="1" data-nav="true" data-dots="false">
-          <div class="testimonial">
-            <div class="avatar">
-              <img src="images/testimonials/1.jpg" alt="" />
-            </div>
-            <div class="inner">
-              <p class="text-in">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
-              <h6>John Brown</h6>
-            </div>
-          </div>
-          <div class="testimonial">
-            <div class="avatar">
-              <img src="images/testimonials/1.jpg" alt="" />
-            </div>
-            <div class="inner">
-              <p class="text-in">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
-              <h6>John Brown</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
+  {% assign style = "background" %}
+    {% include "shortcode-testimonial" %}
 {% endif %}
 
 {% if settings.use_group_product_home19 %}

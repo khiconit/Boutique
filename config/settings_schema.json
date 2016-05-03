@@ -107,19 +107,23 @@
           },
           {
             "value": "14",
-            "label": "Header Style 14"
+            "label": "Header Style 14 (Home 16)"
           },
           {
             "value": "15",
-            "label": "Header Style 15"
+            "label": "Header Style 15 (Home 17)"
           },
           {
             "value": "16",
-            "label": "Header Style 16"
+            "label": "Header Style 16 (Home 19)"
           },
           {
             "value": "17",
-            "label": "Header Style 17"
+            "label": "Header Style 17 (Home 20)"
+          },
+          {
+            "value": "18",
+            "label": "Header Style 18 (Home 18)"
           }
         ],
         "label": "=== Select Header",
@@ -1827,39 +1831,194 @@
     ]
   },
   {
-    "name": "Banner Slide",
+    "name": "Content Homepage 18",
     "settings": [
       {
         "type": "header",
-        "content": "== Banner Slide Settings"
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp18",
+        "label": "Use Slider Homepage",
+        "default": true
       },
       {
         "type": "paragraph",
-        "content": "------------------------------------------------------------- Image Icon"
+        "content": "------------------------------------------------------------- Section 1 (Cattegories)"
       },
       {
-        "type": "image",
-        "id": "icon_banner_slide1.png",
-        "label": "Icon Image 1"
-      },
-      {
-        "type": "image",
-        "id": "icon_banner_slide2.png",
-        "label": "Icon Image 2"
-      },
-      {
-        "type": "image",
-        "id": "icon_banner_slide3.png",
-        "label": "Icon Image 3"
+        "type": "checkbox",
+        "id": "use_categories_home18",
+        "label": "Use Cattegories",
+        "default": true
       },
       {
         "type": "paragraph",
-        "content": "------------------------------------------------------------- Shortcode for Banner slide"
+        "content": "------------------------------------------------------------- Section 2 (Block banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_block_banner_home18",
+        "label": "Use block banner",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "-------BANNER COL LEFT"
+      },
+      {
+        "type": "text",
+        "id": "databackground_1_home18",
+        "label": "Link image banner 1"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_1_home18",
+        "label": "Link banner 1"
+      },
+      {
+        "type": "text",
+        "id": "databackground_2_home18",
+        "label": "Link image banner 1 "
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_2_home18",
+        "label": "Link banner 2 "
+      },
+      {
+        "type": "text",
+        "id": "databackground_3_home18",
+        "label": "Link image banner 3"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_3_home18",
+        "label": "Link banner 3 "
+      },
+      {
+        "type": "paragraph",
+        "content": "--Form Newletter left "
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blocknewletter_home18",
+        "label": "Use block newletter ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_newletter_home18",
+        "label": "Title Newletter"
       },
       {
         "type": "textarea",
-        "id": "sc_banner_slide",
-        "label": "Enter your shortcode"
+        "id": "sub_title_newletter_home18",
+        "label": "Subtitle Newletter"
+      },
+      {
+        "type": "text",
+        "id": "form_desc_newletter_home18",
+        "label": "Link Image Form Newletter"
+      },
+      {
+        "type": "paragraph",
+        "content": "-------BANNER COL RIGHT"
+      },
+      {
+        "type": "text",
+        "id": "databackground_4_home18",
+        "label": "Link image banner 4"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_4_home18",
+        "label": "Link banner 4"
+      },
+      {
+        "type": "text",
+        "id": "databackground_5_home18",
+        "label": "Link image banner 5 "
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_5_home18",
+        "label": "Link banner 5 "
+      },
+      {
+        "type": "text",
+        "id": "databackground_6_home18",
+        "label": "Link image banner 6"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_6_home18",
+        "label": "Link banner 6 "
+      },
+      {
+        "type": "text",
+        "id": "databackground_7_home18",
+        "label": "Link image banner 7"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_7_home18",
+        "label": "Link banner 7 "
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Video & banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_video_banner_home18",
+        "label": "Use block video banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "databackground_8_home18",
+        "label": "Link image banner 8"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_8_home18",
+        "label": "Link banner 8 "
+      },
+      {
+        "type": "paragraph",
+        "content": "----BANNER AND VIDEO"
+      },
+      {
+        "type": "text",
+        "id": "databackground_9_home18",
+        "label": "Link image banner 9"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_9_home18",
+        "label": "Link banner 9 "
+      },
+      {
+        "type": "text",
+        "id": "link_videoid_home18",
+        "label": "Link Videoid"
+      },
+      {
+        "type": "text",
+        "id": "link_videosite_home18",
+        "label": "Link Videosite"
+      },
+      {
+        "type": "text",
+        "id": "databackground_10_home18",
+        "label": "Link image banner 10"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_10_home18",
+        "label": "Link banner 10 "
       }
     ]
   },
@@ -1997,7 +2156,7 @@
         "type": "textarea",
         "id": "text_quote",
         "label": "Text quote"
-      },      
+      },
       {
         "type": "paragraph",
         "content": "------------------------------------------------------------- Section 6 (Block Newletter)"
@@ -2017,7 +2176,7 @@
         "type": "text",
         "id": "title_newletter_home19",
         "label": "Title Newletter"
-      },      
+      },
       {
         "type": "textarea",
         "id": "sub_title_newletter_home19",
@@ -2027,7 +2186,7 @@
         "type": "text",
         "id": "form_desc_newletter_home19",
         "label": "Link Image Form Newletter"
-      },            
+      },
       {
         "type": "paragraph",
         "content": "------------------------------------------------------------- Section 7 (Our Blog)"
@@ -2048,7 +2207,7 @@
         "type": "blog",
         "id": "id_blog_home19",
         "label": "Choose Blog"
-      },      
+      },
       {
         "type": "paragraph",
         "content": "------------------------------------------------------------- Section 8 (Brand)"
@@ -2059,7 +2218,6 @@
         "label": "Use Brand",
         "default": true
       }
-      
     ]
   },
   {
@@ -2219,6 +2377,43 @@
         "id": "use_brand_home20",
         "label": "Use Brand",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Banner Slide",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Banner Slide Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Image Icon"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide1.png",
+        "label": "Icon Image 1"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide2.png",
+        "label": "Icon Image 2"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide3.png",
+        "label": "Icon Image 3"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Shortcode for Banner slide"
+      },
+      {
+        "type": "textarea",
+        "id": "sc_banner_slide",
+        "label": "Enter your shortcode"
       }
     ]
   },
