@@ -99,11 +99,11 @@
           },
           {
             "value": "12",
-            "label": "Header Style 12"
+            "label": "Header Style 12 (Home 14)"
           },
           {
             "value": "13",
-            "label": "Header Style 13"
+            "label": "Header Style 13 (Home 15)"
           },
           {
             "value": "14",
@@ -115,11 +115,15 @@
           },
           {
             "value": "16",
-            "label": "Header Style 16"
+            "label": "Header Style 16 (Home 19)"
           },
           {
             "value": "17",
-            "label": "Header Style 17"
+            "label": "Header Style 17 (Home 20)"
+          },
+          {
+            "value": "18",
+            "label": "Header Style 18 (Home 18)"
           }
         ],
         "label": "=== Select Header",
@@ -1827,39 +1831,722 @@
     ]
   },
   {
-    "name": "Banner Slide",
+    "name": "Content Homepage 15",
     "settings": [
       {
         "type": "header",
-        "content": "== Banner Slide Settings"
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp15",
+        "label": "Use Slider Homepage",
+        "default": true
       },
       {
         "type": "paragraph",
-        "content": "------------------------------------------------------------- Image Icon"
+        "content": "------------------------------------------------------------- Section 1 (Banner)"
       },
       {
-        "type": "image",
-        "id": "icon_banner_slide1.png",
-        "label": "Icon Image 1"
-      },
-      {
-        "type": "image",
-        "id": "icon_banner_slide2.png",
-        "label": "Icon Image 2"
-      },
-      {
-        "type": "image",
-        "id": "icon_banner_slide3.png",
-        "label": "Icon Image 3"
+        "type": "checkbox",
+        "id": "use_banner_carousel_home15",
+        "label": "Use Banner",
+        "default": true,
+        "info": "[* Tutorial Image](https:\/\/cdn.shopify.com\/s\/files\/1\/1227\/4348\/files\/Banner-1-Home-15.gif?16278465154998890825)"
       },
       {
         "type": "paragraph",
-        "content": "------------------------------------------------------------- Shortcode for Banner slide"
+        "content": "-- Item 1"
+      },
+      {
+        "type": "text",
+        "id": "banner_1_sc1_home15",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_1_sc1_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_1_sc1_home15",
+        "label": "Title",
+        "default": "On Sale"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_1_sc1_home15",
+        "label": "Sub title",
+        "default": "leather watch"
+      },
+      {
+        "type": "text",
+        "id": "des_banner_1_sc1_home15",
+        "label": "Description",
+        "default": "2016 Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Item 2"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_2_sc1_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_2_sc1_home15",
+        "label": "Title",
+        "default": "Lookbook"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_2_sc1_home15",
+        "label": "Sub title",
+        "default": "New collection"
+      },
+      {
+        "type": "text",
+        "id": "title_link_banner_2_sc1_home15",
+        "label": "Title Link",
+        "default": "Explore Now!"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Item 3"
+      },
+      {
+        "type": "text",
+        "id": "banner_3_sc1_home15",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_3_sc1_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Item 4"
+      },
+      {
+        "type": "text",
+        "id": "banner_4_sc1_home15",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_4_sc1_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_4_sc1_home15",
+        "label": "Title",
+        "default": "New Arrival"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_4_sc1_home15",
+        "label": "Sub title",
+        "default": "diamond jewelry"
+      },
+      {
+        "type": "text",
+        "id": "des_banner_4_sc1_home15",
+        "label": "Description",
+        "default": "sale 30% off"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- Item 5"
+      },
+      {
+        "type": "text",
+        "id": "banner_5_sc1_home15",
+        "label": "Link Image Banner"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_5_sc1_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Shipping Icon)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_shipping_icon_home15",
+        "label": "Use Shipping icon",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Product Tab)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_tab_home15",
+        "label": "Use Product Tab",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_title_tab_home15",
+        "label": "Title",
+        "default": "OUR PRODUCTS"
+      },
+      {
+        "type": "text",
+        "id": "product_stitle_tab_home15",
+        "label": "Sub Title",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s4_home15",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_2_s4_home15",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_3_s4_home15",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_4_s4_home15",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_5_s4_home15",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_banner_carousel_sc4_home15",
+        "label": "Use Banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "banner_1_sc4_home15",
+        "label": "Link Image Banner 1"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_1_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_1_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_1_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_2_sc4_home15",
+        "label": "Link Image Banner 2"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_2_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_2_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_2_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_3_sc4_home15",
+        "label": "Link Image Banner 3"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_3_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_3_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_3_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_4_sc4_home15",
+        "label": "Link Image Banner 4"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_4_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_4_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_4_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_5_sc4_home15",
+        "label": "Link Image Banner 5"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_5_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_5_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_5_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_6_sc4_home15",
+        "label": "Link Image Banner 6"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_6_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_6_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_6_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_7_sc4_home15",
+        "label": "Link Image Banner 7"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_7_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_7_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_7_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_8_sc4_home15",
+        "label": "Link Image Banner 8"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_8_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_8_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_8_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "text",
+        "id": "banner_9_sc4_home15",
+        "label": "Link Image Banner 9"
+      },
+      {
+        "type": "text",
+        "id": "link_banner_9_sc4_home15",
+        "label": "Link To"
+      },
+      {
+        "type": "text",
+        "id": "title_banner_9_sc4_home15",
+        "label": "Title",
+        "default": "trending"
+      },
+      {
+        "type": "text",
+        "id": "stitle_banner_9_sc4_home15",
+        "label": "Sub title",
+        "default": "autumn fashion"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 5 (Block Newletter)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blocknewletter_home15",
+        "label": "Use block newletter ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_newletter_home15",
+        "label": "Title Newletter"
       },
       {
         "type": "textarea",
-        "id": "sc_banner_slide",
-        "label": "Enter your shortcode"
+        "id": "sub_title_newletter_home15",
+        "label": "Subtitle Newletter"
+      },
+      {
+        "type": "text",
+        "id": "form_desc_newletter_home15",
+        "label": "Link Image Form Newletter"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 6 (Blog)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blog_home15",
+        "label": "Use Blog ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_blog_home15",
+        "label": "Title Blog Section",
+        "default": "Our BLog"
+      },
+      {
+        "type": "blog",
+        "id": "id_blog_home15",
+        "label": "Choose Blog"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 7 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home15",
+        "label": "Use Brand",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 16",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp16",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 6 (Block Newletter)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blocknewletter_home16",
+        "label": "Use block newletter ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_newletter_home16",
+        "label": "Title Newletter"
+      },
+      {
+        "type": "textarea",
+        "id": "sub_title_newletter_home16",
+        "label": "Subtitle Newletter"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 7 (Our Blog)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_our_blog_home16",
+        "label": "Use Our Blog",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_blog_home16",
+        "label": "Title Blog Section",
+        "default": "FROM TO BLOG"
+      },
+      {
+        "type": "text",
+        "id": "stitle_blog_home16",
+        "label": "Title Blog Section",
+        "default": "There are many variations of passages"
+      },
+      {
+        "type": "blog",
+        "id": "id_blog_home16",
+        "label": "Choose Blog"
+      }
+    ]
+  },
+  {
+    "name": "Content Homepage 18",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp18",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Cattegories)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_categories_home18",
+        "label": "Use Cattegories",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Block banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_block_banner_home18",
+        "label": "Use block banner",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "-------Banner Col Left"
+      },
+      {
+        "type": "text",
+        "id": "databackground_1_home18",
+        "label": "Link image banner 1"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_1_home18",
+        "label": "Link banner 1"
+      },
+      {
+        "type": "text",
+        "id": "databackground_2_home18",
+        "label": "Link image banner 1 "
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_2_home18",
+        "label": "Link banner 2 "
+      },
+      {
+        "type": "text",
+        "id": "databackground_3_home18",
+        "label": "Link image banner 3"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_3_home18",
+        "label": "Link banner 3 "
+      },
+      {
+        "type": "paragraph",
+        "content": "--Form Newletter left "
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blocknewletter_home18",
+        "label": "Use block newletter ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_newletter_home18",
+        "label": "Title Newletter"
+      },
+      {
+        "type": "textarea",
+        "id": "sub_title_newletter_home18",
+        "label": "Subtitle Newletter"
+      },
+      {
+        "type": "text",
+        "id": "form_desc_newletter_home18",
+        "label": "Link Image Form Newletter"
+      },
+      {
+        "type": "paragraph",
+        "content": "-------Banner Col Right"
+      },
+      {
+        "type": "text",
+        "id": "databackground_4_home18",
+        "label": "Link image banner 4"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_4_home18",
+        "label": "Link banner 4"
+      },
+      {
+        "type": "text",
+        "id": "databackground_5_home18",
+        "label": "Link image banner 5 "
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_5_home18",
+        "label": "Link banner 5 "
+      },
+      {
+        "type": "text",
+        "id": "databackground_6_home18",
+        "label": "Link image banner 6"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_6_home18",
+        "label": "Link banner 6 "
+      },
+      {
+        "type": "text",
+        "id": "databackground_7_home18",
+        "label": "Link image banner 7"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_7_home18",
+        "label": "Link banner 7 "
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Video & banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_video_banner_home18",
+        "label": "Use block video banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "databackground_8_home18",
+        "label": "Link image banner 8"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_8_home18",
+        "label": "Link banner 8 "
+      },
+      {
+        "type": "paragraph",
+        "content": "----Banner and VIDEO"
+      },
+      {
+        "type": "text",
+        "id": "databackground_9_home18",
+        "label": "Link image banner 9"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_9_home18",
+        "label": "Link banner 9 "
+      },
+      {
+        "type": "text",
+        "id": "link_videoid_home18",
+        "label": "Link Videoid"
+      },
+      {
+        "type": "text",
+        "id": "link_videosite_home18",
+        "label": "Link Videosite"
+      },
+      {
+        "type": "text",
+        "id": "databackground_10_home18",
+        "label": "Link image banner 10"
+      },
+      {
+        "type": "text",
+        "id": "banner_link_button_10_home18",
+        "label": "Link banner 10 "
       }
     ]
   },
@@ -1997,7 +2684,7 @@
         "type": "textarea",
         "id": "text_quote",
         "label": "Text quote"
-      },      
+      },
       {
         "type": "paragraph",
         "content": "------------------------------------------------------------- Section 6 (Block Newletter)"
@@ -2017,7 +2704,7 @@
         "type": "text",
         "id": "title_newletter_home19",
         "label": "Title Newletter"
-      },      
+      },
       {
         "type": "textarea",
         "id": "sub_title_newletter_home19",
@@ -2027,7 +2714,7 @@
         "type": "text",
         "id": "form_desc_newletter_home19",
         "label": "Link Image Form Newletter"
-      },            
+      },
       {
         "type": "paragraph",
         "content": "------------------------------------------------------------- Section 7 (Our Blog)"
@@ -2048,7 +2735,7 @@
         "type": "blog",
         "id": "id_blog_home19",
         "label": "Choose Blog"
-      },      
+      },
       {
         "type": "paragraph",
         "content": "------------------------------------------------------------- Section 8 (Brand)"
@@ -2059,7 +2746,6 @@
         "label": "Use Brand",
         "default": true
       }
-      
     ]
   },
   {
@@ -2219,6 +2905,43 @@
         "id": "use_brand_home20",
         "label": "Use Brand",
         "default": true
+      }
+    ]
+  },
+  {
+    "name": "Banner Slide",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Banner Slide Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Image Icon"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide1.png",
+        "label": "Icon Image 1"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide2.png",
+        "label": "Icon Image 2"
+      },
+      {
+        "type": "image",
+        "id": "icon_banner_slide3.png",
+        "label": "Icon Image 3"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Shortcode for Banner slide"
+      },
+      {
+        "type": "textarea",
+        "id": "sc_banner_slide",
+        "label": "Enter your shortcode"
       }
     ]
   },
