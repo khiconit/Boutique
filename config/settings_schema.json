@@ -107,11 +107,11 @@
           },
           {
             "value": "14",
-            "label": "Header Style 14"
+            "label": "Header Style 14 (Home 16)"
           },
           {
             "value": "15",
-            "label": "Header Style 15"
+            "label": "Header Style 15 (Home 17)"
           },
           {
             "value": "16",
@@ -2393,7 +2393,7 @@
       },
       {
         "type": "paragraph",
-        "content": "-------Banner Col Left"
+        "content": "-------BANNER COL LEFT"
       },
       {
         "type": "text",
@@ -2452,7 +2452,7 @@
       },
       {
         "type": "paragraph",
-        "content": "-------Banner Col Right"
+        "content": "-------BANNER COL RIGHT"
       },
       {
         "type": "text",
@@ -2516,7 +2516,7 @@
       },
       {
         "type": "paragraph",
-        "content": "----Banner and VIDEO"
+        "content": "----BANNER AND VIDEO"
       },
       {
         "type": "text",
