@@ -1,5 +1,5 @@
 {% unless grid_item_width %}
-  {% assign grid_item_width = 'large--one-third medium-down--one-half' %}
+  {% assign grid_item_width = 'style5' %}
 {% endunless %}
 
 {% unless current_collection == blank %}
@@ -18,12 +18,19 @@
   {% assign sold_out = false %}
 {% endif %}
 
-
-<li class="product-item style5">
+<li class="product-item {{grid_item_width}} {% if check_product_style_2 > 4 %} hidden {% endif%} ">
   <div class="product-inner">
     <div class="product-thumb has-back-image">
-      {% if on_sale %}
-      <span class="sale">Sale</span>
+      {% if style =="home19" %}
+        {% if on_sale %}
+          <div class="status">
+            <span class="sale"><span class="text">Sale</span></span>
+          </div>
+        {% endif %}
+      {% else %}
+        {% if on_sale %}
+        	<span class="sale">Sale</span>
+        {% endif %}
       {% endif %}
       <a href="{{ product.url | within: collection }}">
         <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">

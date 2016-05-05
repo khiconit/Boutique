@@ -696,7 +696,6 @@
           $("#collection-product").addClass( 'row').removeClass('product-list');
         }
       });
-           
      /* ---------------------------------------------
      Quantity Product Page
      --------------------------------------------- */ 
@@ -735,7 +734,7 @@
       if(quan == 100){
         $('.down').css('pointer-events', 'none');
       }
-    });      
+    });
     $(document).on("click","[id^='count_']", function(event) {      
       event.preventDefault();
       var id = $(this).attr('id');
@@ -759,5 +758,38 @@
         $('html, body').animate({scrollTop: 0}, 800);            
 
     });
+      
+     /* ---------------------------------------------
+     order product
+     --------------------------------------------- */
+      $(window).load(function() {
+        $("[href^='#tab-1-']").trigger("click");
+      });
+      $(document).on("click","ul.home17 li.kiti a", function(event) {
+        event.preventDefault();
+        var $view = $(this).data('view');
+        var $handle = $(this).data('handle');
+        var $block_id = $(this).attr('href');
+        
+
+        if ($handle != "") {
+          $.ajax({
+            url: '/collections/' + $handle,
+            type: 'GET',
+            dataType: 'html',
+            data: {
+              view: 'json',
+              sort_by: $view
+            },
+            success: function(responsive) {
+              $( $block_id ).html(responsive);
+              var $block = $( $block_id ).find('.owl-carousel');
+              var config = $block.data();
+              $block.owlCarousel(config);
+            }
+          });
+        }
+      });
+      
     });
 })(jQuery);
