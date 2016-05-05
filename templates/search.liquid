@@ -52,7 +52,7 @@
           {% endcomment %}
           {% if search.results_count == 0 %}
 
-            <div class="section-header section-header--large">
+            <div class="section-header section-header--large col-xs-12">
               <h1 class="section-header__title h2">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h1>
             </div>
             {% include 'search-bar' %}

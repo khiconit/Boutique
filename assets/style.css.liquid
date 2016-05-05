@@ -4687,7 +4687,7 @@ FOOTER
     color: {{settings.text_color_footer}};
 }
 .footer .our-service ul li a:hover{
-    color: {{settings.color_body_text}};
+    color: {{settings.color_primary}};
 }
 .footer .widget_social .social a{
     width: 44px;
@@ -4707,7 +4707,7 @@ FOOTER
     margin-bottom: 10px;
 }
 .footer .widget_social .social a:hover{
-    background-color:{{settings.color_body_text}};
+    background-color:{{settings.color_primary}};
     color: {{settings.note_color_footer}}; 
 }
 .footer .footer-bottom{
@@ -5719,6 +5719,7 @@ FOOTER
 }
 .lastest-blog.style3 .blog-title{
     margin-bottom: 10px;
+  	float: inherit;
 }
 .lastest-blog.style3 .thumb{
     margin-bottom: 5px;
@@ -9541,11 +9542,15 @@ table{
 .block-paralax1{
     margin-top: 60px;
     padding: 110px 0 70px 0;
-    background-image: url('pralax1.jpg');
+    background-image: url('background_paralax1.png');
 }
 .block-paralax2{
     margin-top: 60px;
-    background-image: url('pralax2.jpg');
+    {% if settings.bg_testimonial_p != blank %}
+      	background-image: url('bg_testimonial_p');
+     {% else %}
+       	background-image: url('pralax2.gif');
+    {% endif %}
     padding-bottom: 120px;
 }
 .block-paralax3{
@@ -9565,7 +9570,11 @@ table{
 .block-paralax4{
     padding: 60px 0 75px 0;
     margin-top: 60px;
-    background-image: url("{{settings.bg_testimonial_hp}}");
+  {% if settings.bg_testimonial_p != blank %}
+     background-image: url('bg_testimonial_hp');
+   {% else %}
+     background-image: url('bg-19.gif');
+   {% endif %}
 }
 .block-paralax4 .head{
     text-align: center;
@@ -9640,6 +9649,10 @@ table{
 /* ----------
 FIX
 ---------- */
+#slvj-close-icon{
+  background-size: contain;
+  background-color: currentColor;
+}
 .header.style18 .item-megamenu span.label {
   top: -15px;
 }
@@ -10631,6 +10644,7 @@ RESPONSIVE
     .product-owl-no-overflow:before, .product-owl-no-overflow:after{
         display: none;
     }
+  #slvj-back-lightbox{width:auto;}
 }
 
 @media (max-width: 480px){
@@ -10722,6 +10736,9 @@ RESPONSIVE
 @media (max-width: 320px){
     .show-shopping-cart {
         width: 257px;
+    }
+    .header.style2 .main-header .main-menu-wapper .box-control .box-search.show-icon.open .inner{
+      min-width: 236px;
     }
 }
 

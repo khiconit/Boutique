@@ -565,7 +565,7 @@
       {
         "type": "checkbox",
         "id": "use_categories_left_home6",
-        "label": "Use Cattegories",
+        "label": "Use Categories",
         "default": true
       },
       {
@@ -1260,17 +1260,7 @@
       },
       {
         "type": "paragraph",
-        "content": "------------------------------------------------------------- Section 1 (Banner Slide)"
-      },
-      {
-        "type": "checkbox",
-        "id": "use_banner_carousel_home12",
-        "label": "Use Banner Carousel",
-        "default": true
-      },
-      {
-        "type": "paragraph",
-        "content": "------------------------------------------------------------- Section 2 (Banner)"
+        "content": "------------------------------------------------------------- Section 1 (Banner Group)"
       },
       {
         "type": "checkbox",
@@ -1320,6 +1310,16 @@
         "id": "banner_sc2_4_link_home12",
         "label": "Link",
         "default": "#"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Categories)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_categories_home12",
+        "label": "Use Categories",
+        "default": true
       },
       {
         "type": "paragraph",
@@ -1388,17 +1388,7 @@
       },
       {
         "type": "paragraph",
-        "content": "------------------------------------------------------------- Section 1 (Banner Slide)"
-      },
-      {
-        "type": "checkbox",
-        "id": "use_banner_carousel_home13",
-        "label": "Use Banner Carousel",
-        "default": true
-      },
-      {
-        "type": "paragraph",
-        "content": "------------------------------------------------------------- Section 2 (Banner)"
+        "content": "------------------------------------------------------------- Section 1 (Banner Group)"
       },
       {
         "type": "checkbox",
@@ -3545,6 +3535,33 @@
         "id": "newsletter_form_action",
         "label": "MailChimp form action URL",
         "info": "[Find your MailChimp form action URL](https:\/\/docs.shopify.com\/manual\/configuration\/store-customization\/communicating-with-customers\/accounts-and-newsletters\/get-a-mailchimp-form-action-url)."
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Newsletter Section"
+      },
+      {
+        "type": "text",
+        "id": "videoid",
+        "label": "Id video",
+        "default": "atL_tVQxFSg"
+      },
+      {
+        "type": "text",
+        "id": "videosite",
+        "label": "Video site",
+        "default": "youtube"
+      },
+      {
+        "type": "text",
+        "id": "image_background",
+        "label": "Image background"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Text",
+        "default": "Sign up for Our Newsletter &amp; Promotions"
       }
     ]
   },

@@ -4,6 +4,10 @@
 {% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '2' %}{% endcapture %}
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '1' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
+{% capture margin_blog_post %}{% include 'shortcode-render' render:'top' default: '' %}{% endcapture %}
+  {% if margin_blog_post != blank %}
+    {% assign margin_blog_post ="margin-top-" | append: margin_blog_post %}
+  {% endif %}
 {% endunless %}
 
 {% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
@@ -25,9 +29,8 @@
 {% endif %}
 
 {% unless margin_blog_post %}
-{% assign margin_blog_post = "margin-top-30" %}
-{% endunless %}
-
+  {% assign margin_blog_post = "margin-top-30" %}
+  {% endunless %}
 {% unless handle_name =="" %}
 {% if style == "text-head"%}
 <div class="{{margin_blog_post}} section-lasttest-blog">
