@@ -18,15 +18,11 @@
             {% assign handle_use   = 'testimonial_box_use' | append : i  %}
             {% if settings[handle_use] %}
             {% assign testimonial_box_name = 'testimonial_box_name'  | append : i  %}
-            {% assign testimonial_box_name = 'testimonial_box_name'  | append : i  %}
+            {% assign testimonial_box_content = 'testimonial_box_content' | append : i  %}
             {% assign testimonial_box_use = 'testimonial_box_use' | append : i | append: ".png"  %}
             <div class="testimonial">
               <div class="avatar">
-                {% if settings[testimonial_box_use] != blank %}
-                <img src="{{settings[testimonial_box_use] | asset_url}}" alt="" />
-                {% else %}
-                <img src="{{'14-17.gif' | asset_url}}" alt="" />
-                {% endif %}
+                <img src="{{testimonial_box_use | asset_url}}" alt="" />
               </div>
               <div class="inner">
                 <p class="text-in">{{settings[testimonial_box_content]}}</p>
@@ -59,13 +55,10 @@
           {% assign testimonial_box_name = 'testimonial_box_name'  | append : i  %}
           {% assign testimonial_box_content = 'testimonial_box_content' | append : i  %}
           {% assign testimonial_box_position = 'testimonial_box_position' | append : i  %}
+          {% assign testimonial_box_use = 'testimonial_box_use' | append : i | append: ".png"  %}
           <div class="testimonial">
             <div class="avatar">
-              {% if settings[testimonial_box_use] != blank %}
-              <img src="{{settings[testimonial_box_use] | asset_url}}" alt="" />
-              {% else %}
-              <img src="{{'14-17.gif' | asset_url}}" alt="" />
-              {% endif %}
+              <img src="{{testimonial_box_use | asset_url}}" alt="" />
             </div>
             <div class="inner">
                <p class="text-in">{{settings[testimonial_box_content]}}</p>

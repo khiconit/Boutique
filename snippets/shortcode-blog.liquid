@@ -1,12 +1,16 @@
 {% unless include %}
 {% capture handle_name %}{% include 'shortcode-render' render:'handle' default:'news' %}{% endcapture %}
-{% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
 {% capture number_post_title %}{% include 'shortcode-render' render:'title' default: '' %}{% endcapture %}
 {% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '2' %}{% endcapture %}
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '1' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
+{% capture margin_blog_post %}{% include 'shortcode-render' render:'top' default: '' %}{% endcapture %}
+  {% if margin_blog_post != blank %}
+    {% assign margin_blog_post ="margin-top-" | append: margin_blog_post %}
+  {% endif %}
 {% endunless %}
 
+{% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
 
 {% if number_post_dt == blank %}
 	{% assign number_post_dt = 2 %}
@@ -16,7 +20,7 @@
 {% if number_post_tb == blank %}
 	{% assign number_post_tb = 1 %}
 {% else %}
-	{% assign number_post_tb_end = number_post_tb | plus: 0 %}
+	{% assign number_post_tb = number_post_tb | plus: 0 %}
 {% endif %}
 {% if number_post_mb == blank %}
 	{% assign number_post_mb = 1 %}
@@ -25,9 +29,8 @@
 {% endif %}
 
 {% unless margin_blog_post %}
-{% assign margin_blog_post = "margin-top-30" %}
-{% endunless %}
-
+  {% assign margin_blog_post = "margin-top-30" %}
+  {% endunless %}
 {% unless handle_name =="" %}
 {% if style == "text-head"%}
 <div class="{{margin_blog_post}} section-lasttest-blog">

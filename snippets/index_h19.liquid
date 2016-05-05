@@ -33,7 +33,7 @@
         {% assign collection_name = 'handleize_product_home19'  %}
           {% assign handleize_tab = settings[collection_name]  %}
           {% if handleize_tab != "" %}            
-              <ul class="lines-space-60 desktop-columns-3 tablet-columns-2 mobile-columns-1 row owl-carousel-mobile" data-nav="false" data-dots="false" data-margin="0" data-loop="true" data-items="1">
+              <ul id="tab-{{handleize_tab}}" class="lines-space-60 desktop-columns-3 tablet-columns-2 mobile-columns-1 row owl-carousel-mobile" data-nav="false" data-dots="false" data-margin="0" data-loop="true" data-items="1">
               {% assign check_product_style_3 = 1 %}
                 {% for product in collections[handleize_tab].products limit: limit %}
   				  {% assign grid_item_width_style4 = 'style8 mobile-slide-item' %}
@@ -43,7 +43,7 @@
                 {% endfor %}
               </ul>
               {% if check_product_style_3 > 6 %}
-              <a class="button-loadmore" href="javascript:void(0)"  title="{{handleize_tab}}">load more!</a>
+              <a class="button-loadmore" href="javascript:void(0)"  title="{{handleize_tab}}" name="tab-{{handleize_tab}}">load more!</a>
               {% endif %}
           {% endif %}
     </div>

@@ -143,7 +143,18 @@
         $(document).on('click',".wishlist-login", function(event) {
             event.preventDefault();
             /* Act on the event */
-            sweetAlert("Oops...", "Please login to use wishlist!", "error");
+          swal({
+            title: "Oops...",
+            text: "Please login to use wishlist!",
+            type: "warning",
+            confirmButtonText: "Login",
+            timer: 5000,
+            showCancelButton: true
+          },
+               function() {
+            window.location.href = 'https://' + Shopify.shop + '/account/login'
+          });
+
         });
 
         $("#addtocart-message").hide('slow');      
@@ -198,7 +209,7 @@
                         swal({
                             title: "Auto close alert!",
                             text: "Remove success.",
-                            timer: 2000,
+                            timer: 1000,
                             showConfirmButton: false
                         });
                     } else {
