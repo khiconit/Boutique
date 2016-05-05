@@ -14,10 +14,10 @@
 	{% if check == 0 %}{% assign display = true %}{% endif %}
 	{% assign  check_mod =  size_x | modulo :2 %}
 	{% if size_x == 0 and t == ""  %}
-		<a class="wishlist {{button}}" title="{{ 'products.wishlist.add_to_wishlist' | t }}" data-form="{% if  size_x > 0  %}x{{ t }}{% else %}{{ product.id }}{% endif %}" href="javascript:void(0)"><i class="fa fa-heart"></i></a>
+		<a class="wishlist {{button}}" title="{{ 'products.wishlist.add_to_wishlist' | t }}" data-form="{% if  size_x > 0  %}x{{ t }}{% else %}{{ product.id }}{% endif %}" href="javascript:void(0)"><i class="fa fa-heart-o"></i></a>
 		<a class="added-wishlist {{button}}" title="{{ 'products.wishlist.added_to_wishlist' | t }}" href="/collections/wishlist"><i class="fa fa-heart"></i></a>
 	{% elsif check_mod != 0  and size_x > 0  %}
-		<a class="wishlist {{button}}" title="{{ 'products.wishlist.add_to_wishlist' | t }}" data-form="{% if  size_x > 0  %}x{{ t }}{% else %}{{ product.id }}{% endif %}" href="javascript:void(0)"><i class="fa fa-heart"></i></a>
+		<a class="wishlist {{button}}" title="{{ 'products.wishlist.add_to_wishlist' | t }}" data-form="{% if  size_x > 0  %}x{{ t }}{% else %}{{ product.id }}{% endif %}" href="javascript:void(0)"><i class="fa fa-heart-o"></i></a>
 		<a class="added-wishlist {{button}}" title="{{ 'products.wishlist.added_to_wishlist' | t }}" href="/collections/wishlist"><i class="fa fa-heart"></i></a>
 	{% else %}
 		<a class="view-added-wishlist {{button}}" title="{{ 'products.wishlist.view_wishlist' | t }}" href="/collections/wishlist"><i class="fa fa-heart"></i></a>

@@ -2359,6 +2359,274 @@
     ]
   },
   {
+    "name": "Content Homepage 17",
+    "settings": [
+      {
+        "type": "header",
+        "content": "== Default layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_slider_hp17",
+        "label": "Use Slider Homepage",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 1 (Shipping block text)"
+      },
+      {
+        "type": "text",
+        "id": "shipping_info_1_h17",
+        "label": "Shipping info 1 content"
+      },
+      {
+        "type": "text",
+        "id": "shipping_info_2_h17",
+        "label": "Shipping info 2 content"
+      },
+      {
+        "type": "text",
+        "id": "shipping_info_3_h17",
+        "label": "Shipping info 3 content"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 2 (Product countdown)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_product_countdown_home17",
+        "label": "Use Product Collection",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "handleize_product_countdown_home17",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 3 (Group banner)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_group_banner_home17",
+        "label": "Use Group banner",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "--- Banner vertical"
+      },
+      {
+        "type": "text",
+        "id": "banner_small_top_1_img",
+        "label": "Small Banner Top 1 Link Image",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_small_top_1_title",
+        "label": "Small Banner Top 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "banner_small_top_1_link",
+        "label": "Small Banner Top 1 Link",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_small_top_1_link_title",
+        "label": "Small Banner Top 1 Title Link"
+      },
+      {
+        "type": "text",
+        "id": "banner_small_top_2_img",
+        "label": "Small Banner Top 2 Link Image",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_small_top_2_link",
+        "label": "Small Banner Top 2 Link",
+        "default": "#"
+      },
+      {
+        "type": "text",
+        "id": "banner_small_top_3_img",
+        "label": "Small Banner Top 3 Link Image",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_small_top_3_title",
+        "label": "Small Banner Top 3 Title"
+      },
+      {
+        "type": "text",
+        "id": "banner_small_top_3_link",
+        "label": "Small Banner Top 3 Link",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_small_top_3_link_title",
+        "label": "Small Banner Top 3 Title Link"
+      },
+      {
+        "type": "paragraph",
+        "content": "--- Banner horizontal"
+      },
+      {
+        "type": "text",
+        "id": "banner_large_top_1_img",
+        "label": "Large Banner Top 1 Link Image",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_large_top_1_big_title",
+        "label": "Large Banner Top 1 big Title"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_large_top_1_medium_title",
+        "label": "Large Banner Top 1 medium Title"
+      },
+      {
+        "type": "text",
+        "id": "banner_large_top_1_link",
+        "label": "Large Banner Top 1 Link",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_large_top_1_link_title",
+        "label": "Large Banner Top 1 Title Link"
+      },
+      {
+        "type": "text",
+        "id": "banner_large_top_2_img",
+        "label": "Large Banner Top 2 Link Image",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_large_top_2_big_title",
+        "label": "Large Banner Top 2 big Title"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_large_top_2_medium_title",
+        "label": "Large Banner Top 2 medium Title"
+      },
+      {
+        "type": "text",
+        "id": "banner_large_top_2_link",
+        "label": "Large Banner Top 2 Link",
+        "default": "#"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_large_top_2_link_title",
+        "label": "Large Banner Top 2 Title Link"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 4 (Tab category product)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_tab_category_product_home17",
+        "label": "Use Group banner",
+        "default": true
+      },
+      {
+        "type": "collection",
+        "id": "handleize_product_home17",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_1_s3_home17",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_2_s3_home17",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_3_s3_home17",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "collection",
+        "id": "handleize_tab_4_s3_home17",
+        "label": "Choose Collection"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 6 (Block Newletter)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_blocknewletter_home17",
+        "label": "Use block newletter ",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_newletter_home17",
+        "label": "Title Newletter"
+      },
+      {
+        "type": "textarea",
+        "id": "sub_title_newletter_home17",
+        "label": "Subtitle Newletter"
+      },
+      {
+        "type": "text",
+        "id": "form_desc_newletter_home17",
+        "label": "Link Image Form Newletter"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 7 (Our Blog)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_our_blog_home17",
+        "label": "Use Our Blog",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_blog_home17",
+        "label": "Title Blog Section",
+        "default": "Our BLog"
+      },
+      {
+        "type": "blog",
+        "id": "id_blog_home17",
+        "label": "Choose Blog"
+      },
+      {
+        "type": "paragraph",
+        "content": "------------------------------------------------------------- Section 8 (Brand)"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_brand_home17",
+        "label": "Use Brand",
+        "default": true
+      }
+    ]
+  },
+  {
     "name": "Content Homepage 18",
     "settings": [
       {

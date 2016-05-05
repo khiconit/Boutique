@@ -1,12 +1,12 @@
 {% unless include %}
 {% capture handle_name %}{% include 'shortcode-render' render:'handle' default:'news' %}{% endcapture %}
-{% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
 {% capture number_post_title %}{% include 'shortcode-render' render:'title' default: '' %}{% endcapture %}
 {% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '2' %}{% endcapture %}
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '1' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
 {% endunless %}
 
+{% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
 
 {% if number_post_dt == blank %}
 	{% assign number_post_dt = 2 %}
@@ -16,7 +16,7 @@
 {% if number_post_tb == blank %}
 	{% assign number_post_tb = 1 %}
 {% else %}
-	{% assign number_post_tb_end = number_post_tb | plus: 0 %}
+	{% assign number_post_tb = number_post_tb | plus: 0 %}
 {% endif %}
 {% if number_post_mb == blank %}
 	{% assign number_post_mb = 1 %}
@@ -68,7 +68,7 @@
   </div>
   {% endif %}
   <div class="lastest-blog owl-carousel nav-center-center {{class_style}}" data-nav="true" data-dots="false" data-loop="true" data-margin="30"
-       data-responsive='{"0":{"items":{{number_post_mb_end}}},"600":{"items":{{number_post_tb_end}}},"1000":{"items":{{number_post_dt_end}}}}'>
+       data-responsive='{"0":{"items":{{number_post_mb}}},"600":{"items":{{number_post_tb}}},"1000":{"items":{{number_post_dt}}}}'>
   {% for article in blogs[handle_name].articles limit: 15 %}
       <div class="item-blog">
         <div class="left">

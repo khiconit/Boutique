@@ -65,8 +65,8 @@
   {% if settings.use_our_blog_home9 %}
     {% assign handle_name = settings.id_blog_home9 %}
     {% assign number_post_title = settings.title_blog_home9 %}
-    {% assign include="" %}
-    {% include 'shortcode-blog' %}
+    {% assign include = "" %}
+{% include 'shortcode-blog' %}
   {% endif %}
   
   {% if settings.use_shipping_text_home9 %}

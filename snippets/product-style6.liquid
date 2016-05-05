@@ -20,14 +20,14 @@
       <div class="gorup-button">
         {% if sold_out == false %}
           {% if product.variants.size > 1 %}
-            <a class="button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
+            <a class="button add_to_cart_button select-option" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.select_option' | t | upcase }}</a>
           {% else %}
             {% if product.variants.first.available %}
               <a class="button add_to_cart_button  boutique__add-to-cart" data-pid="{{ product.variants.first.id }}">{{'products.product.add_to_cart' | t | upcase }}</a>
            {% endif %}
           {% endif %}
         {% else %}
-      	<a class="button btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
+      	<a class="button add_to_cart_button btn-sold-out" onclick="location.href='{{ product.url | within: collection }}'">{{'products.product.sold_out' | t | upcase }}</a>
         {% endif %}
         
         {% if settings.use_quickview %}

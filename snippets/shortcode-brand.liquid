@@ -1,3 +1,4 @@
+{% unless include %}
 {% assign handle_brand_use = 'brand_use_' %}
 {% assign handle_brand_image ='brand_logo_'  %}
 {% assign handle_brand_link = 'brand_link_'  %}
@@ -6,6 +7,9 @@
 {% capture number_post_dt %}{% include 'shortcode-render' render:'number_post_dt' default: '5' %}{% endcapture %}
 {% capture number_post_tb %}{% include 'shortcode-render' render:'number_post_tb' default: '3' %}{% endcapture %}
 {% capture number_post_mb %}{% include 'shortcode-render' render:'number_post_mb' default: '1' %}{% endcapture %}
+
+{% endunless%}
+
 {% capture class_style %}{% include 'shortcode-render' render:'style' default: 'nav-style7' %}{% endcapture %}
 
 {% if number_post_dt == blank %}
